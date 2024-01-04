@@ -7,6 +7,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ProfileComponent } from './authentication/profile/profile.component';
 import { ViewSubscriptionsComponent } from './subscriptions/view-subscriptions/view-subscriptions.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ViewSubscriptionsComponent } from './subscriptions/view-subscriptions/v
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
