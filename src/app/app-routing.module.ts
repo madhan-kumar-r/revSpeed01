@@ -4,7 +4,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ViewSubscriptionsComponent } from './subscriptions/view-subscriptions/view-subscriptions.component';
 import { ProfileComponent} from './authentication/profile/profile.component';
-
+import { NewLoginComponent } from './authentication/new-login/new-login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'profile', component: ProfileComponent },
+      {path:'new-login',component: NewLoginComponent }
     ],
   },
   

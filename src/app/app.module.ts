@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 import { MatIconModule } from '@angular/material/icon';
+import { NewLoginComponent } from './authentication/new-login/new-login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
     RegisterComponent,
     ProfileComponent,
     ViewSubscriptionsComponent,
+    NewLoginComponent,
    
   ],
   imports: [
