@@ -1,1 +1,26 @@
 <p>register works!</p>
+<p>loginnnnnnnnnnnnn works!</p>
+
+ <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <label for="std_id">Student ID:</label>
+    <input matInput type="number" id="std_id" formControlName="std_id" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <label for="name">Name:</label>
+    <input matInput type="text" id="name" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <label for="age">Age:</label>
+    <input matInput type="number" id="age" formControlName="age" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <label for="address">Address:</label>
+    <input matInput type="text" id="address" formControlName="address" />
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Submit</button>
+</form> 

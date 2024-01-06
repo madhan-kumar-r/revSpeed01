@@ -1,1 +1,15 @@
-<p>loginn works!</p>
+<!-- registration-form.component.html -->
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    
+  
+    <label for="email">email:</label>
+    <input type="text" id="name" formControlName="email" />
+  
+    <label for="password">password</label>
+    <input type="text" id="age" formControlName="password"/>
+    <label for="role">Role:</label>
+  <input type="text" id="role" formControlName="role" />
+  
+    <button type="submit">Submit</button>
+  </form>
+  

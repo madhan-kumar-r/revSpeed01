@@ -6,19 +6,16 @@ import { ViewSubscriptionsComponent } from './subscriptions/view-subscriptions/v
 import { ProfileComponent} from './authentication/profile/profile.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  // {
-  //   path: 'authentication',
-  //   children: [
-  //     { path: 'login', component: LoginComponent },
-  //     { path: 'register', component: RegisterComponent },
-  //     { path: 'profile', component: ProfileComponent },
-  //   ],
-  // },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
-    path:'',
-    component: LoginComponent
+    path: 'authentication',
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'profile', component: ProfileComponent },
+    ],
   },
+  
   {
     path: 'subscriptions',
     children: [
@@ -39,6 +36,8 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
+{ path: '', component: RegisterComponent }
+  
 
 ];
 
