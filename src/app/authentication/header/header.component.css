@@ -1,0 +1,41 @@
+.space-buttons {
+    flex: 1 1 auto;
+}
+/* header.component.css */
+
+.main-toolbar {
+    background-color: #2196F3;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: auto; /* Push the logo to the left, leaving space for buttons on the right */
+  }
+  
+  .space-buttons {
+    flex: 1;
+  }
+  
+  .login-button,
+  .logout-button,
+  .nav-button {
+    margin-left: 10px;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .login-button:hover,
+  .logout-button:hover,
+  .nav-button:hover {
+    background-color: #1565C0; /* Darken the background on hover */
+  }
+  
+  .user-toolbar {
+    background-color: #1565C0; /* Change the background color for the user toolbar */
+  }
+  
+  /* Add more specific styles for other elements as needed */
+  

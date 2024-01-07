@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -19,9 +20,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { NewLoginComponent } from './authentication/new-login/new-login.component';
+import { HomeComponent } from './authentication/home/home.component';
+import { HeaderComponent } from './authentication/header/header.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { NewLoginComponent } from './authentication/new-login/new-login.componen
     ProfileComponent,
     ViewSubscriptionsComponent,
     NewLoginComponent,
+    HomeComponent,
+    HeaderComponent,
    
   ],
   imports: [
@@ -42,6 +47,7 @@ import { NewLoginComponent } from './authentication/new-login/new-login.componen
     MatButtonModule,
     MatSelectModule,
     FormsModule,
+    MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule ,
@@ -57,7 +63,11 @@ import { NewLoginComponent } from './authentication/new-login/new-login.componen
     MatTooltipModule,
     ReactiveFormsModule,
     MatCardModule,
-    
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    BrowserModule,
   ],
   providers: [],
 

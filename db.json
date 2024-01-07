@@ -1,26 +1,26 @@
 {
-  "posts": [
+  "products": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "productId": 1,
+      "productName": "Product 1",
+      "productDescription": "Description of Product 1",
+      "productImages": [
+        { "url": "image_url_1" },
+        { "url": "image_url_2" }
+      ],
+      "productActualPrice": 100,
+      "productDiscountedPrice": 80
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "productId": 2,
+      "productName": "Product 2",
+      "productDescription": "Description of Product 2",
+      "productImages": [
+        { "url": "image_url_3" },
+        { "url": "image_url_4" }
+      ],
+      "productActualPrice": 120,
+      "productDiscountedPrice": 90
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  
-    "students": [
-      { "id": 1, "std_id": 101, "name": "John Doe", "age": 20, "address": "123 Main St" },
-      { "id": 2, "std_id": 102, "name": "Jane Doe", "age": 22, "address": "456 Oak St" }
-    ]
-  
-  
+  ]
 }
