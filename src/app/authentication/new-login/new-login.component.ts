@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { RoleService } from '../roles/role.service';
 import { User } from '../../model/user.interface';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../../speedApps/src/app/authentication/authentication.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-new-login',
   templateUrl: './new-login.component.html',
-  styleUrl: './new-login.component.css'
+  styleUrls: ['./new-login.component.css']
 })
 export class NewLoginComponent {
   email_pattern =
@@ -17,36 +17,46 @@ export class NewLoginComponent {
   password_pattern =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   showPassword: boolean = false;
-
+  constructor(
+    private loginService: LoginService, 
+    private router: Router,
+    private roleService: RoleService,
+    
+  ) {}
   loginSubmit(formData: any) {
     console.log(formData.value);
-  }
-  registrationForm: FormGroup;
+    const userRole = 'USER';
 
-  constructor(private fb: FormBuilder, private studentService: AuthenticationService, private router: Router) {
-    this.registrationForm = this.fb.group({
-      email: [null, Validators.required],
-      password: [null, Validators.required],
-      role: [null, Validators.required]
-    });
-  }
+    // Extracting email and password from the form data
+    const { email, password } = formData.value;
 
-  onSubmit() {
-    if (this.registrationForm.valid) {
-      const formData: User = this.registrationForm.value;
-      console.log(formData);
-      this.studentService.registerStudent(formData).subscribe(
-        (response) => {
-          console.log('Registration successful:', response);
-          // You can handle success actions here
-          this.router.navigateByUrl('/authentication/profile');
-        },
-        (error) => {
-          console.error('Error during registration:', error);
-          // You can handle error actions here
+    // Creating an object with email, password, and role
+    const userData = { email, password };
+
+    // Logging the combined object
+    console.log(userData);
+    this.loginService.registerStudent(userData).subscribe(
+      (response) => {
+        console.log('Authentication successful:', response);
+        const userRole = response.role;
+
+        // Set the user's role in the RoleService
+        this.roleService.setUserRole(userRole);
+
+        // Redirect based on the user's role
+        if (userRole === 'USER') {
+          this.router.navigate(['/user/dashboard']);
+        } else if (userRole === 'ADMIN') {
+          this.router.navigate(['/admin/dashboard']);
         }
-      );
-    }
+
+      },
+      (error) => {
+        console.error('Authentication failed:', error);
+        // Handle error, e.g., show an error message to the user
+      }
+    );
   }
 
+  
 }

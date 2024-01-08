@@ -5,8 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { User } from '../../model/user.interface';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../../speedApps/src/app/authentication/authentication.service';
-
+import { LoginService } from './login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +14,7 @@ import { AuthenticationService } from '../../../../speedApps/src/app/authenticat
 export class LoginComponent {
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private studentService: AuthenticationService, private router: Router) {
+  constructor(private fb: FormBuilder, private studentService: LoginService, private router: Router) {
     this.registrationForm = this.fb.group({
       email: [null, Validators.required],
       password: [null, Validators.required],

@@ -4,7 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ValidationErrors } from '@angular/forms';
 import { AbstractControl } from '@angular/forms';
 import {  FormGroup} from '@angular/forms';
-
+import { RegisterService } from './register.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,16 +19,16 @@ export class RegisterComponent {
   showConfirmPassword: boolean = false;
   showPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,private studentService: RegisterService,private router: Router) {
     this.signUpForm = _fb.group({
       first_name: ['', [ Validators.required ]],
       last_name: ['', [ Validators.required ]],
       email_address: ['', [ Validators.required, Validators.pattern(this.emailRegex) ]],
-      age: ['', [ Validators.required, Validators.pattern(this.integreRegex), Validators.max(125), Validators.min(1) ]],
-      gender: ['', [ Validators.required ]],
+      
       password: ['', [ Validators.required ]],
       confirm_password: ['', [ Validators.required ]],
       check: ['', [ Validators.required ]],
+      role: ['USER', [Validators.required]],
     },
     {
       validators: this.passwordMatch('password', 'confirm_password')
@@ -54,6 +55,20 @@ export class RegisterComponent {
 
   signUpClickHandler(){
     console.log(this.signUpForm.value);
+    if(this.signUpForm.valid){
+      const data=this.signUpForm.value;
+      this.studentService.registerStudent(data).subscribe(
+        (response) => {
+          console.log('Registration successful:', response);
+          // You can handle success actions here
+          this.router.navigateByUrl('/authentication/login');
+        },
+        (error) => {
+          console.error('Error during registration:', error);
+          // You can handle error actions here
+        }
+      );
+    }
   }
 
   onChange(event: any){
