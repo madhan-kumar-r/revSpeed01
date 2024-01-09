@@ -6,6 +6,7 @@ import { ViewSubscriptionsComponent } from './subscriptions/view-subscriptions/v
 import { ProfileComponent} from './authentication/profile/profile.component';
 import { NewLoginComponent } from './authentication/new-login/new-login.component';
 import { HomeComponent } from './authentication/home/home.component';
+import { AuthGuard } from './authentication/roles/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
@@ -32,14 +33,18 @@ const routes: Routes = [
   {
     path: 'register', component: RegisterComponent 
  },
-  {
-    path: 'admin',
-    loadChildren: () => import('../app/admin/admin-routing/admin.module').then((m) => m.AdminModule),
-  },
-  {
-    path: 'user',
-    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
-  },
+ {
+  path: 'admin',
+  loadChildren: () => import('../app/admin/admin-routing/admin.module').then((m) => m.AdminModule),
+  canActivate: [AuthGuard],
+  data: { allowedRoles: ['ADMIN'] }
+},
+{
+  path: 'user',
+  loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  canActivate: [AuthGuard],
+  data: { allowedRoles: ['USER'] }
+},
 { path: '', component: RegisterComponent }
   
 
