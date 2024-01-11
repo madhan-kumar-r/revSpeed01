@@ -5,8 +5,8 @@
       "productName": "Product 1",
       "productDescription": "Description of Product 1",
       "productImages": [
-        { "url": "image_url_1" },
-        { "url": "image_url_2" }
+        { "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg" },
+        { "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg" }
       ],
       "productActualPrice": 100,
       "productDiscountedPrice": 80
@@ -16,8 +16,8 @@
       "productName": "Product 2",
       "productDescription": "Description of Product 2",
       "productImages": [
-        { "url": "image_url_3" },
-        { "url": "image_url_4" }
+        { "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg" },
+        { "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg" }
       ],
       "productActualPrice": 120,
       "productDiscountedPrice": 90

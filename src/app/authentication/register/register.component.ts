@@ -21,9 +21,9 @@ export class RegisterComponent {
 
   constructor(private _fb: FormBuilder,private studentService: RegisterService,private router: Router) {
     this.signUpForm = _fb.group({
-      first_name: ['', [ Validators.required ]],
-      last_name: ['', [ Validators.required ]],
-      email_address: ['', [ Validators.required, Validators.pattern(this.emailRegex) ]],
+      firstname: ['', [ Validators.required ]],
+      lastname: ['', [ Validators.required ]],
+      email: ['', [ Validators.required, Validators.pattern(this.emailRegex) ]],
       
       password: ['', [ Validators.required ]],
       confirm_password: ['', [ Validators.required ]],

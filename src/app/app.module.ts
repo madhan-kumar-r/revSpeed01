@@ -25,6 +25,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { NewLoginComponent } from './authentication/new-login/new-login.component';
 import { HomeComponent } from './authentication/home/home.component';
 import { HeaderComponent } from './authentication/header/header.component';
+import { PasswordComponent } from './authentication/password/password.component';
+import { IdentifyComponent } from './authentication/password/identify/identify.component';
+import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.component';
+import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
+import { NewHomeComponent } from './authentication/new-home/new-home.component';
+import { TagsComponent } from './authentication/tags/tags.component';
+import { SearchComponent } from './authentication/search/search.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +43,13 @@ import { HeaderComponent } from './authentication/header/header.component';
     NewLoginComponent,
     HomeComponent,
     HeaderComponent,
+    PasswordComponent,
+    IdentifyComponent,
+    SmsCodeComponent,
+    SetPasswordComponent,
+    NewHomeComponent,
+    TagsComponent,
+    SearchComponent,
    
   ],
   imports: [

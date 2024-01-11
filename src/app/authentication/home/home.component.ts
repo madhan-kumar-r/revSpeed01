@@ -39,9 +39,11 @@ export class HomeComponent {
     // This is a dummy function, you can leave it empty or add any console log
     console.log(`Showing details for product with ID: ${productId}`);
   }
+  
 
   // Dummy function for the loadMoreProduct method
   
-   
-  
+   /* styles.css or styles.scss */
+
+
 }

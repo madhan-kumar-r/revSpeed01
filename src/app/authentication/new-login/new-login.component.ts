@@ -23,6 +23,10 @@ export class NewLoginComponent {
     private roleService: RoleService,
     
   ) {}
+  goToRegister(): void {
+    // Navigate to the registration page
+    this.router.navigate(['/authentication/register']);
+  }
   loginSubmit(formData: any) {
     console.log(formData.value);
     const userRole = 'USER';

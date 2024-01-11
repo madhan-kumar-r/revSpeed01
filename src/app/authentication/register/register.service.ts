@@ -12,6 +12,7 @@ export class RegisterService {
   constructor(private http: HttpClient) {}
 
   registerStudent(student: any): Observable<any> {
+    console.log(student);
     return this.http.post<any>(this.apiUrl, student);
   }
 

@@ -11,7 +11,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>First Name</mat-label>
-          <input type="text" matInput formControlName="first_name" />
+          <input type="text" matInput formControlName="firstname" />
           <mat-icon 
           [ngStyle]="((getControl('first_name'))?.dirty || ( getControl('first_name'))?.touched) && 
           (getControl('first_name')?.hasError('required')) ? {'visibility': 'visible'}:{'visibility': 'hidden'}"
@@ -25,7 +25,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Last Name</mat-label>
-          <input type="text" matInput formControlName="last_name" />
+          <input type="text" matInput formControlName="lastname" />
           <mat-icon 
           class="error-icon" 
           matSuffix
@@ -42,11 +42,11 @@
 
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Email Address</mat-label>
-          <input type="email" matInput formControlName="email_address" />
+          <input type="email" matInput formControlName="email" />
           <mat-icon 
           class="error-icon" 
           matSuffix
-          [ngStyle]="( getControl('email_address')?.dirty || getControl('email_address')?.touched ) &&
+          [ngStyle]="( getControl('email_address')?.dirty || getControl('email')?.touched ) &&
             ( getControl('email_address')?.hasError('required') || getControl('email_address')?.hasError('pattern') ) ? 
             {'visibility': 'visible'}:{'visibility': 'hidden'}"
 
@@ -131,7 +131,7 @@
       </div>
 
       <div class="log-in-btn">
-        <a routerLink="">Already Have An Account ? <strong>Login</strong></a>
+        <a routerLink="/authentication/login">Already Have An Account ? <strong>Login</strong></a>
       </div>
 
     </form>

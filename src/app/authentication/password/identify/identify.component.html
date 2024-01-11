@@ -1,0 +1,24 @@
+<!-- identify.component.html -->
+
+<mat-card class="example-card">
+    <mat-card-title>Identify you</mat-card-title>
+    <mat-card-content>
+        <form class="flex-form" [formGroup]="firstFormGroup">
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput color="primary" type="text" formControlName="username" required>
+                <mat-hint>This is the username used to login</mat-hint>
+                <mat-error *ngIf="firstFormGroup.get('username')?.invalid">Username is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="youremail@example.com" formControlName="email" required>
+                <mat-hint>This is the email we use to contact you</mat-hint>
+                <mat-error *ngIf="firstFormGroup.get('email')?.invalid">{{ getEmailErrorMessage() }}</mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="primary" [disabled]="firstFormGroup.invalid" (click)="next()">Next</button>
+    </mat-card-actions>
+</mat-card>

@@ -7,17 +7,28 @@ import { ProfileComponent} from './authentication/profile/profile.component';
 import { NewLoginComponent } from './authentication/new-login/new-login.component';
 import { HomeComponent } from './authentication/home/home.component';
 import { AuthGuard } from './authentication/roles/auth.guard';
+import { PasswordComponent } from './authentication/password/password.component';
+import { IdentifyComponent } from './authentication/password/identify/identify.component';
+import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.component';
+import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
+import { NewHomeComponent } from './authentication/new-home/new-home.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
   {
     path: 'authentication',
     children: [
+      {path:'password',component:PasswordComponent},
+      {path:'new-home',component:NewHomeComponent},
       {path:'home', component:HomeComponent},
-      { path: 'login', component: LoginComponent },
+      { path: 'login', component: NewLoginComponent },
+      { path: 'password/set-password', component: SetPasswordComponent },
+      { path: 'password/sms-code', component: SmsCodeComponent },
+      { path: 'password/identify', component: IdentifyComponent },
+      
+
       
       { path: 'register', component: RegisterComponent },
-      { path: 'profile', component: ProfileComponent },
-      {path:'new-login',component: NewLoginComponent }
+      { path: 'profile', component: ProfileComponent }
     ],
   },
   
