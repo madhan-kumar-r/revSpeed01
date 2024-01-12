@@ -1,0 +1,22 @@
+<!-- sms-code.component.html -->
+
+<mat-card class="example-card">
+    <mat-card-title>We sent you an SMS code</mat-card-title>
+    <mat-card-subtitle>
+        We've sent your six-digit code to the mobile number registered to your account.
+    </mat-card-subtitle>
+    <mat-card-content>
+        <form class="flex-form" [formGroup]="secondFormGroup">
+            <mat-form-field>
+                <mat-label>SMS Code</mat-label>
+                <input matInput color="primary" type="text" formControlName="smsCode" required>
+                <mat-hint>The code is six digits long</mat-hint>
+                <mat-error *ngIf="secondFormGroup.get('smsCode')?.invalid">{{ getSmsCodeErrorMessage() }}</mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button (click)="back()">Back</button>
+        <button mat-flat-button color="primary" [disabled]="secondFormGroup.invalid" (click)="next()">Next</button>
+    </mat-card-actions>
+</mat-card>

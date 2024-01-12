@@ -1,0 +1,418 @@
+body {
+    background: #00b5dd;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10% 0;
+  }
+  .review-card {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  .img-area {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 25px;
+  }
+  .img-area img {
+    width: 100%;
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .info h4 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+  }
+  .single-review p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #333;
+  }
+  .review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+  }
+  .rating {
+    display: flex;
+  }
+  .rating span {
+    color: #000;
+    font-size: 18px;
+  }
+  .rating span.active {
+    color: #fbc02d;
+  }
+  @media screen and (max-width: 767px) {
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    .review-card {
+      width: 85%;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li a {
+    height: 22.5rem;
+    width: 20rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #e72929;
+  }
+
+  li a:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  .content {
+    padding: .5rem 1rem;
+    position: relative;
+  }
+
+  .favorite {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .favorite.not {
+    color: grey;
+  }
+
+  .stars {
+    margin-bottom: .2rem;
+  }
+
+  .product-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .origins {
+    flex: 9;
+  }
+
+  .origins span {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    color: grey;
+    margin-right: .3rem;
+  }
+
+  .cook-time {
+    font-size: .8rem;
+    flex: 3;
+    text-align: right;
+  }
+
+  .price {
+    color: #414141;
+    margin-top: .7rem;
+  }
+  .food-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .food-item {
+    height: 42.5rem;
+    width: 40rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    margin-bottom: 20px; /* Increase this value to add more space between product cards */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #e72929;
+    text-decoration: none;
+  }
+  
+
+  .food-item:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  .favorite-heart {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: grey;
+  }
+
+  .favorite-heart.active {
+    color: #e72929;
+  }
+
+  .stars {
+    margin-bottom: .2rem;
+  }
+
+  .origin-tag {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    color: grey;
+    margin-right: .3rem;
+  }
+
+  .cook-time {
+    font-size: .8rem;
+    flex: 3;
+    text-align: right;
+  }
+
+  .price {
+    color: #414141;
+    margin-top: .7rem;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    background-color: #f5f5f5; /* Change the background color of the product card */
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px; /* Adjust margin as needed */
+    overflow: hidden;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: #333; /* Change the text color of the product card */
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .favorite {
+    font-size: 1.5rem;
+    color: #e72929; /* Change the color of the heart icon for favorite */
+  }
+
+  .not .favorite {
+    color: grey; /* Change the color of the heart icon for not favorite */
+  }
+
+  .stars {
+    margin-bottom: .2rem;
+  }
+
+  .origins {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .origins span {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    color: grey;
+    margin-right: .3rem;
+    padding: .3rem .5rem;
+    margin-bottom: .3rem;
+  }
+
+  .cook-time {
+    font-size: .8rem;
+    flex: 3;
+    text-align: right;
+    color: grey; /* Change the color of the cook time text */
+  }
+
+  .price {
+    color: #414141;
+    margin-top: .7rem;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .favorite {
+    font-size: 1.5rem;
+    color: #e72929;
+  }
+
+  .not .favorite {
+    color: grey;
+  }
+
+  .stars {
+    margin-bottom: .2rem;
+  }
+
+  .origins {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .origins span {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    color: grey;
+    margin-right: .3rem;
+    padding: .3rem .5rem;
+    margin-bottom: .3rem;
+  }
+
+  .cook-time {
+    font-size: .8rem;
+    flex: 3;
+    text-align: right;
+    color: grey;
+  }
+
+  .price {
+    color: #414141;
+    margin-top: .7rem;
+  }
+  
+  h1 {
+      font-weight: 700;
+      font-size: 2rem;
+  }
+  
+  
+  .footer__links-header{
+  font-weight: 600;
+  font-size: 32px;
+  }
+  
+  
+  
+  
+  .footer__top-layer{
+      height: 20rem;
+  
+  }
+  
+  .footer__middle-layer {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      background-color: #55c57a;
+     
+  
+  }
+  
+  .footer__bottom-layer {
+      background-color: teal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+        
+      &--item{
+          margin: 1rem;
+      }
+  }
+  
+  .footer__left-box {
+    padding: 5rem;
+  }
+  
+  
+  
+  .footer__social {
+      display: flex;
+      flex-direction: row;
+    
+      
+      &--icon {
+          width: 32px;
+          height:32px;
+        margin-left: 1rem;
+         
+      }
+  }
+  
+  .written-by-link {
+      color: teal;
+  }
+  
+  ul li {
+      cursor: pointer;
+  }
