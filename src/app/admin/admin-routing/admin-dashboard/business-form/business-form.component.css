@@ -1,0 +1,35 @@
+.content {
+    padding-top: 10px;
+  }
+  .row {
+    gap: 10px;
+  
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  
+  .action {
+    padding: 0px 25px 20px;
+    button {
+      flex: 1;
+    }
+  }
+  
+  .example-section {
+    margin: 12px 0;
+  }
+  
+  .example-margin {
+    margin: 0 12px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }
+  
+  .speed {
+    display: flex;
+    gap: 10px;
+  }

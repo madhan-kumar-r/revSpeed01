@@ -1,0 +1,65 @@
+<div mat-dialog-title>
+    <h1>{{ data ? "Update" : "Add" }} Plan</h1>
+  </div>
+  
+  <form [formGroup]="businessForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Plan Cycle</mat-label>
+          <mat-select formControlName="billing_cycle">
+            <mat-option *ngFor="let val of cycle" [value]="val"
+              >{{ val }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Plan Name</mat-label>
+          <input
+            matInput
+            placeholder="Ex. Basic"
+            type="text"
+            formControlName="plan_name"
+          />
+        </mat-form-field>
+        <div class="speed">
+          <mat-form-field appearance="outline">
+            <mat-label>Speed</mat-label>
+            <input
+              matInput
+              placeholder="Ex. 30 mbps"
+              type="text"
+              formControlName="plan_speed"
+            />
+          </mat-form-field>
+          <!-- <mat-form-field appearance="outline">
+            <mat-label>Speed</mat-label>
+            <mat-select formControlName="speed">
+              <mat-option value="mbps"> mbps </mat-option>
+              <mat-option value="gbps"> gbps </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input
+            matInput
+            placeholder="Ex. 29.99"
+            type="number"
+            formControlName="plan_price"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div mat-dialog-actions class="action">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">
+        Cancel
+      </button>
+      <button mat-raised-button color="primary" type="submit">
+        {{ data ? "Update" : "Save" }}
+      </button>
+    </div>
+  </form>
