@@ -1,0 +1,138 @@
+
+/* Default styles */
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(90deg,
+            rgba(252, 70, 107, 1) 0%,
+            rgba(107, 63, 251, 0.7483) 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.lock {
+    background-color: blanchedalmond;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info {
+    color: red;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .lock {
+        margin-bottom: 20px;
+    }
+
+    .form-header {
+        text-align: center;
+    }
+
+    .dotlottie-player {
+        width: 100%;
+        height: auto;
+    }
+    @media screen and (max-width: 768px) {
+        .main {
+          flex-direction: column; /* Stack elements vertically on smaller screens */
+        }
+      
+        .form-container {
+          order: 2; /* Move form below the dotlottie-player on smaller screens */
+        }
+      
+        .dotlottie-container {
+          width: 100%; /* Make dotlottie-player full width on smaller screens */
+        }
+      }
+      
+      /* Additional styles for dotlottie-player */
+      .dotlottie-container {
+        width: 600px;
+        height: 600px;
+      }
+      @media screen and (max-width: 480px) {
+        .lock {
+            height: 40px;
+            width: 40px;
+        }
+    
+        .form-header {
+            font-size: 1.5rem;
+        }
+    
+        .mat-form-field {
+            width: 100%;
+        }
+    
+        input.mat-input-element {
+            font-size: 14px;
+        }
+    
+        button.mat-flat-button {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .lock {
+            height: 30px;
+            width: 30px;
+        }
+    
+        .form-header {
+            font-size: 1.2rem;
+        }
+    
+        input.mat-input-element {
+            font-size: 12px;
+        }
+    
+        button.mat-flat-button {
+            font-size: 12px;
+            padding: 8px 16px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .main {
+            flex-direction: column; /* Stack elements vertically on smaller screens */
+        }
+    
+        .dotlottie-container {
+            display: none; /* Hide dotlottie-player on smaller screens */
+        }
+    
+        .form-container {
+            order: 2; /* Move form below the dotlottie-player on smaller screens */
+        }
+    
+        /* Additional styles for dotlottie-player */
+        .dotlottie-container {
+            width: 100%; /* Make dotlottie-player full width on smaller screens */
+            height: auto;
+        }
+    }
+}

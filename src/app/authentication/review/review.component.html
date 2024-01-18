@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- divinectorweb.com -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Testimonial Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="review.component.css">
+    <!-- Add this script tag for Swiper.js -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize Swiper
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true, // Enable loop mode
+        autoplay: {
+          delay: 3000, // Set the delay between slides in milliseconds
+          disableOnInteraction: false, // Continue autoplay even when user interacts with the slider
+        },
+      });
+    });
+  </script>
+  
+
+</head>
+
+    
+<body>
+    <div class="swiper-container"> 
+  <div class="wrapper">
+		<div class="review-card">
+			<div class="header-content">
+				<div class="img-area">
+          <img alt="customer1" src="https://jep-asset.akamaized.net/cms/assets/jiofiber/services/setupbox/STBcard.png">
+        </div>
+				<div class="info">
+					<h4>John Doe</h4>
+					<p>Maketing Manager</p>
+				</div>
+			</div>
+			<div class="single-review">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolor eveniet deleniti repellendus! Minima, dolorum.</p>
+			</div>
+			<div class="review-footer">
+				<div class="rating">
+					<span class="active">★</span> 
+          <span class="active">★</span> 
+          <span class="active">★</span> 
+          <span class="">★</span> 
+          <span class="">★</span>
+				</div>
+				<p>Reviewed on 01/01/2023</p>
+			</div>
+		</div>
+		<div class="review-card">
+			<div class="header-content">
+				<div class="img-area">
+          <img alt="customer1" src="img/2.jpg">
+        </div>
+				<div class="info">
+					<h4>Mark Wood</h4>
+					<p>Graphics Expert</p>
+				</div>
+			</div>
+			<div class="single-review">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolor eveniet deleniti repellendus! Minima, dolorum.</p>
+			</div>
+			<div class="review-footer">
+				<div class="rating">
+					<span class="active">★</span> 
+          <span class="active">★</span> 
+          <span class="">★</span> 
+          <span class="">★</span> 
+          <span class="">★</span>
+				</div>
+				<p>Reviewed on 01/02/2023</p>
+			</div>
+		</div>
+		<div class="review-card">
+			<div class="header-content">
+				<div class="img-area">
+          <img alt="customer1" src="img/3.jpg">
+        </div>
+				<div class="info">
+					<h4>Jason Chedd</h4>
+					<p>Web Designer</p>
+				</div>
+			</div>
+			<div class="single-review">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolor eveniet deleniti repellendus! Minima, dolorum.</p>
+			</div>
+			<div class="review-footer">
+				<div class="rating">
+					<span class="active">★</span> 
+          <span class="active">★</span> 
+          <span class="active">★</span> 
+          <span class="active">★</span> 
+          <span class="active">★</span>
+				</div>
+				<p>Reviewed on 01/03/2023</p>
+			</div>
+		</div>
+	</div>
+ </div>
+</body>
+</html>
+
+
