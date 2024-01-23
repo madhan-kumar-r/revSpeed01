@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { RoleService } from '../roles/role.service';
 import { User } from '../../model/user.interface';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LoginService } from '../login/login.service';
 
 @Component({
@@ -27,6 +27,8 @@ export class NewLoginComponent {
     // Navigate to the registration page
     this.router.navigate(['/authentication/register']);
   }
+  
+
   loginSubmit(formData: any) {
     console.log(formData.value);
     const userRole = 'USER';
@@ -46,11 +48,17 @@ export class NewLoginComponent {
 
         // Set the user's role in the RoleService
         this.roleService.setUserRole(userRole);
+        // Redirect based on the user's role
+        if (userRole === 'USER') {
+          this.router.navigate(['/user/dashboard']);
+        } else if (userRole === 'ADMIN') {
+          console.log("hi");
+          this.router.navigate(['/admin/admin-routing/dashboard']);
+        }
 
         // Redirect based on the user's role
        
        
-        this.router.navigate(['/user/']);
       },
       (error) => {
         console.error('Authentication failed:', error);

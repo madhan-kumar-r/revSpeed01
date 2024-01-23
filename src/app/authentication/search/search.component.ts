@@ -8,19 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  searchTerm: String = "";
-  constructor(private route: ActivatedRoute, private router:Router) { }
+  sliderItems = [1, 2, 3, 4, 5];
+  activeItem = this.sliderItems[0];
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      if (params['searchTerm'])
-        this.searchTerm = params['searchTerm'];
-    })
+  setActiveItem(item: number): void {
+    this.activeItem = item;
   }
-
-  search():void{
-    if(this.searchTerm)
-    this.router.navigateByUrl('/search/' + this.searchTerm);
-  }
-
 }

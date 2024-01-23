@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-
+import { CommonModule } from '@angular/common';
 import { ProfileComponent} from './authentication/profile/profile.component';
 import { NewLoginComponent } from './authentication/new-login/new-login.component';
 import { HomeComponent } from './authentication/home/home.component';
@@ -13,8 +13,11 @@ import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.co
 import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
 import { NewHomeComponent } from './authentication/new-home/new-home.component';
 import { AdminModule } from '../app/admin/admin-routing/admin.module';
+
 const routes: Routes = [
   { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
+  {path:'resetpass', component: IdentifyComponent},
+  
   
 
   {
@@ -34,6 +37,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent }
     ],
   },
+
   
   
   {
@@ -43,9 +47,17 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent 
  },
  
-{ path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
-{ path: 'admin', loadChildren: () => import('./admin/admin-routing/admin.module').then((m) => m.AdminModule) },
-{ path: 'admin-new', component: AdminModule }
+// { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
+// { path: 'admin', loadChildren: () => import('./admin/admin-routing/admin.module').then((m) => m.AdminModule) },
+// { path: 'admin-new', component: AdminModule }
+{
+  path: 'admin',
+  loadChildren: () => import('./admin/admin-routing/admin.module').then((m) => m.AdminModule),
+},
+{
+  path: 'user',
+  loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+},
   
 ];
 

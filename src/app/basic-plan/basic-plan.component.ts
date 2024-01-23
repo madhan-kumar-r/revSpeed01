@@ -1,11 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+
 import { BasicPlanService } from './basic-plan.service';
 import { i_plans,b_plans } from '../../../card';
 import { Iuser } from '../../user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
+
+
+
+import { MatDialog } from '@angular/material/dialog';
+import { RechargeDialogComponent } from '../recharge-dialog/recharge-dialog.component';
 
 @Component({
   selector: 'app-basic-plan',
@@ -13,43 +20,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./basic-plan.component (1).css']
 })
 export class BasicPlanComponent implements OnInit {
-  updated!:Iuser;
-  userProfile!:Iuser;
-  plans: i_plans[] | any = [];
-  bplans: b_plans[] | any= [];
+  updatedUser: Iuser | undefined;
+  userProfile: Iuser | undefined;
+  plans: i_plans[] = [];
+  bplans: b_plans[] = [];
   selectedType: string = 'individual';
 
-  constructor(private basicPlanService: BasicPlanService,private http : HttpClient, private snackBar: MatSnackBar) {}
+  constructor(private basicPlanService: BasicPlanService, private snackBar: MatSnackBar, public dialog: MatDialog,private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.fetchData();
-
-    const id:number=1;  
-   this.basicPlanService.getUserProfile(id).subscribe(data=>{
-   
-    this.userProfile=data;
-
-    console.log(this.userProfile.plan_id);
-    
-   
-   });
+    const id: number = 1;
+    this.basicPlanService.getUserProfile(id).subscribe(data => {
+      this.userProfile = data;
+      console.log(this.userProfile?.plan_id);
+    });
   }
 
   selectType(type: string): void {
     if (type === 'individual') {
-      this.selectedType = 'individual';
       this.basicPlanService.getIndividualPlans().subscribe((plans) => {
         this.plans = plans;
       });
     } else if (type === 'business') {
-      this.selectedType = 'business';
-      
-      
       this.basicPlanService.getBusinessPlans().subscribe((bplans) => {
-
         this.bplans = bplans;
-        this.fetchData();
-    
       });
     }
   }
@@ -59,42 +54,62 @@ export class BasicPlanComponent implements OnInit {
   }
 
   fetchData(): void {
-    if(this.selectedType === 'individual')
-    {
     this.selectType('individual'); // Default to individual plans
-  }else{
-    this.selectType('business'); 
-  }
   }
 
-updatedUser: Iuser | undefined;
+  recharge(id: number, type: string): void {
+    debugger
+    console.log(type);
 
+    if (this.userProfile) {
+      this.basicPlanService.rereq(id, type, this.userProfile).subscribe(
+        updatedUserData => {
+          this.updatedUser = updatedUserData;
+          console.log('User profile updated:', updatedUserData);
 
-recharge(id: number, type: string): void {
-  console.log(type);
+          // Show success message
+          this.snackBar.open('Recharge successful', 'Close', {
+            duration: 3000,  // Duration in milliseconds
+          });
+        },
+        error => {
+          console.error('updated', error);
 
-  if (this.userProfile) {
-    this.basicPlanService.rereq(id, type, this.userProfile).subscribe(
-      updatedUserData => {
-        this.updatedUser = updatedUserData;
-        console.log('User profile updated:', updatedUserData);
+          // Show error message
+          this.snackBar.open('Recharge failed', 'Close', {
+            duration: 3000,
+          });
+        }
+      );
+    }
+  }
 
-        // Show success message
-        this.snackBar.open('Recharge successful', 'Close', {
-          duration: 3000,  // Duration in milliseconds
-        });
-      },
-      error => {
-        console.error('updated', error);
+  blurBackground: boolean = false;
+  isRechargeDialogOpen: boolean = false;
 
-        // Show error message
-        this.snackBar.open('Recharge failed', 'Close', {
-          duration: 3000,
-        });
+  openRechargeDialog(plan: any): void {
+    // Set the flag to blur the background
+    debugger
+    this.blurBackground = true;
+
+    // Open the MatDialog with the plan data
+    const dialogRef = this.dialog.open(RechargeDialogComponent, {
+      width: '400px',
+      data: { plan }  // Pass the selected plan to the dialog
+    });
+
+    // Handle the dialog closing
+    dialogRef.afterClosed().subscribe(result => {
+      // Reset the background blur flag
+      this.blurBackground = false;
+      debugger
+
+      if (result === 'confirmed') {
+        // Call the recharge method if confirmed
+        this.recharge(plan.id, this.selectedType);
       }
-    );
+    });
   }
-}
 }
   
 

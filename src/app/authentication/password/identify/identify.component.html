@@ -1,24 +1,76 @@
-<!-- identify.component.html -->
+<div class="main">
+  <div class="sign-up-wrapper">
+    <div class="form-header">
+      <mat-icon class="lock">lock_open</mat-icon>
+      <h1>Sign Up</h1>
+    </div>
 
-<mat-card class="example-card">
-    <mat-card-title>Identify you</mat-card-title>
-    <mat-card-content>
-        <form class="flex-form" [formGroup]="firstFormGroup">
-            <mat-form-field>
-                <mat-label>Username</mat-label>
-                <input matInput color="primary" type="text" formControlName="username" required>
-                <mat-hint>This is the username used to login</mat-hint>
-                <mat-error *ngIf="firstFormGroup.get('username')?.invalid">Username is required</mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Enter your email</mat-label>
-                <input matInput placeholder="youremail@example.com" formControlName="email" required>
-                <mat-hint>This is the email we use to contact you</mat-hint>
-                <mat-error *ngIf="firstFormGroup.get('email')?.invalid">{{ getEmailErrorMessage() }}</mat-error>
-            </mat-form-field>
-        </form>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-flat-button color="primary" [disabled]="firstFormGroup.invalid" (click)="next()">Next</button>
-    </mat-card-actions>
-</mat-card>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUpClickHandler()">
+      <!-- First Name -->
+      <div class="input-group">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput formControlName="firstname" />
+          <mat-icon 
+            [ngStyle]="(getControl('firstname')?.dirty || getControl('firstname')?.touched) && 
+            getControl('firstname')?.hasError('required') ? {'visibility': 'visible'} : {'visibility': 'hidden'}"
+            matSuffix
+            class="error-icon" 
+            [matTooltip]="'First Name field is required'">
+            info
+          </mat-icon>
+        </mat-form-field>
+      </div>
+
+      <!-- Email Address -->
+      <div>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput formControlName="email" />
+          <mat-icon 
+            class="error-icon" 
+            matSuffix
+            [ngStyle]="(getControl('email')?.dirty || getControl('email')?.touched) &&
+              (getControl('email')?.hasError('required') || getControl('email')?.hasError('pattern')) ? 
+              {'visibility': 'visible'} : {'visibility': 'hidden'}"
+            [matTooltip]="getControl('email')?.hasError('required') ? 'Email field is required' : 
+            (!getControl('email')?.hasError('required') && getControl('email')?.hasError('pattern')) ? 
+            'Please write a valid email' : ''">
+            info
+          </mat-icon>
+        </mat-form-field>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Password</mat-label>
+          <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="password" />
+          <mat-icon
+            matSuffix
+            class="passwordIcon"
+            (click)="showPassword = !showPassword"
+            [matTooltip]="showPassword ? 'Hide password' : 'Show password'">
+            {{ !showPassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+          <mat-icon 
+            class="error-icon" 
+            matSuffix
+            [ngStyle]="(getControl('password')?.dirty || getControl('password')?.touched) &&
+            (getControl('password')?.hasError('required') || getControl('password')?.hasError('passwordMatch')) ? 
+            {'visibility': 'visible'} : {'visibility': 'hidden'}"
+            [matTooltip]="getControl('password')?.hasError('required') ? 'Password field is required' : 
+            (getControl('password')?.hasError('passwordMatch') || !getControl('password')?.hasError('required')) ? 
+            'Password and Confirm Password do not match' : ''">
+            info
+          </mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button type="submit" mat-flat-button color="primary">Sign Up</button>
+      </div>
+
+    </form>
+  </div>
+</div>

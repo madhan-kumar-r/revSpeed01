@@ -7,7 +7,7 @@ import { BroadbandPlansComponent } from './broadband-plans/broadband-plans.compo
 import { BusinessPlansComponent } from './business-plans/business-plans.component';
 import { CustomerDataComponent } from './customer-data/customer-data.component';
 const routes: Routes = [
-  { path: '', component: DashComponent },
+  { path: 'dashboard', component: DashComponent },
   { path: 'broadband-plans', component: BroadbandPlansComponent },
   { path: 'customer-data', component: CustomerDataComponent },
   { path: 'business-plans', component: BusinessPlansComponent },
