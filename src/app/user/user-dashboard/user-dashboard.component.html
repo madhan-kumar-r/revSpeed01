@@ -1,5 +1,74 @@
 
 
-<app-profilepage></app-profilepage>
+<!-- <mat-toolbar color="primary">
+  <div class="toolbar-content">
+    <h2 style="border:black solid 1px;background-color: red; border-radius: 50%;">&nbsp;&nbsp; REV SPEED &nbsp;&nbsp;</h2>
+    <a mat-list-item routerLink="/">Home</a>
+    <a mat-list-item routerLink="/about">About</a>
+    <a mat-list-item routerLink="/contact">Contact</a>
 
-<app-plans></app-plans>
+    <span class="spacer"></span>
+
+    <mat-list-item class="profile-icon" (click)="toggleDropdown()">
+      <img src="https://picsum.photos/1000" alt="Profile" class="profile-img">
+      <mat-icon class="dropdown-arrow">arrow_drop_down</mat-icon>
+      <mat-menu [overlapTrigger]="false" *ngIf="isDropdownOpen" #dropdownMenu="matMenu">
+        <button mat-menu-item routerLink="/profile">Profile</button>
+        <button mat-menu-item routerLink="/plan">My Plans</button>
+        <button mat-menu-item routerLink="/updateprofile">Update Profile</button>
+      </mat-menu>
+    </mat-list-item>
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet> -->
+
+
+<!-- src/app/app.component.html -->
+
+<!-- src/app/app.component.html -->
+
+<!-- src/app/app.component.html -->
+
+<div class="container">
+    <mat-toolbar color="primary">
+      <div class="toolbar-content">
+        <h2 style="border:black solid 1px;background-color: red; border-radius: 50%;">&nbsp;&nbsp; REV SPEED &nbsp;&nbsp;</h2>
+        <!-- <a mat-list-item routerLink="/">Home</a>
+        <a mat-list-item routerLink="/about">About</a>
+        <a mat-list-item routerLink="/contact">Contact</a> -->
+  
+        <span class="spacer"></span>
+  
+        <mat-list-item class="profile-icon" (click)="toggleDropdown()">
+          
+          <img src="https://picsum.photos/1000" alt="Profile" class="profile-img" >
+          <mat-icon class="dropdown-arrow" [matMenuTriggerFor]="dropdownMenu">dropdown-arrow</mat-icon>
+          <mat-menu  #dropdownMenu="matMenu">
+            <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+            <button mat-menu-item routerLink="/profile">Profile</button>
+            <button mat-menu-item routerLink="/plan">My Plans</button>
+            <button mat-menu-item routerLink="/updateprofile">Update Profile</button>
+          </mat-menu>
+        </mat-list-item>
+      </div>
+    </mat-toolbar>
+  
+    <div class="main-content">
+      <div class="ad-container">
+        <!-- Your ad content goes here -->
+        <img src="https://picsum.photos/1000" alt="Ad" class="ad-image">
+      </div>
+  
+      <div class="component-container">
+        <!-- Router outlet for dynamic component views -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  
+    <footer>
+      <!-- Footer content goes here -->
+      &copy; 2024 REV SPEED. All rights reserved.
+    </footer>
+  </div>
+  

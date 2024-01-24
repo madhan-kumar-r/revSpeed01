@@ -1,10 +1,16 @@
 {
+  "No_plan": [
+    {
+      "id": 0,
+      "plan_type": "No_plan"
+    }
+  ],
   "business_plans": [
     {
       "id": 0,
       "billing_cycle": "NO ACTIVE PLAN",
-      "plan_name": "",
-      "plan_speed": "",
+      "plan_name": "NO ACTIVE PLAN",
+      "plan_speed": "NO ACTIVE PLAN",
       "plan_price": 0,
       "plan_type": "business_plans"
     },
@@ -149,8 +155,8 @@
     {
       "id": 0,
       "billing_cycle": "NO ACTIVE PLAN",
-      "plan_name": "",
-      "plan_speed": "",
+      "plan_name": "NO ACTIVE PLAN",
+      "plan_speed": "NO ACTIVE PLAN",
       "plan_price": 0,
       "plan_type": "home_plans"
     },
@@ -286,12 +292,12 @@
   "customer_data": [
     {
       "customer_name": "Bazeer Ahamed",
-      "customer_phone": "9876543210",
-      "customer_email": "baz@example.com",
-      "customer_address": "123 Main State tamilnadu india",
-      "customer_pass": "baz@example.com",
+      "customer_phone": "+91 8190082175",
+      "customer_email": "bob.johnson@example.com",
+      "customer_address": "123 Main Street,Tamilnadu,In",
+      "customer_pass": "bob123pass",
       "plan_id": 0,
-      "plan_type": "home_plans",
+      "plan_type": "No_plan",
       "id": 1
     },
     {

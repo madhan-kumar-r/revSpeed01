@@ -10,9 +10,12 @@ export class ProfileService {
 
   private url:string="http://localhost:3000/customer_data";
   id!: number;
+  uid!:number;
   name !: string;
-  duserprofile !: Iuser;
+  private duserprofile !: Iuser ;
+  
 
+  
   constructor(private http:HttpClient)
   {}
   getUserProfile(id:number):Observable<Iuser> {
@@ -53,10 +56,19 @@ return this.id;
 return this.name;
     }
 
+    setuserid(id:number)
+    {
+this.uid=id;
+    }
+
+    getuserid()
+    {
+      return this.uid;
+    }
     setdetails(detail:Iuser)
     {
       console.log("setdetails done");
-
+      this.duserprofile = { ...detail }; 
       this.duserprofile=detail;
 
       console.log(this.duserprofile.id);
@@ -66,22 +78,5 @@ return this.name;
 
 
 
-    delete():Observable<Iuser>
-  {
- console.log("entered proser unsub");
-    this.duserprofile.plan_id=0;
-    this.duserprofile.plan_type="home_plans";
-    console.log(this.duserprofile.id);
-    console.log(this.duserprofile.plan_id);
-    console.log(this.duserprofile.plan_type);
-
-    const userUrl = `${this.url}/${this.duserprofile.id}`;
-  return  this.http.put<Iuser>(userUrl,this.duserprofile) .pipe(
-      catchError(error => {
-        console.error('Error deleting plan', error);
-        throw error;
-  })
-
-  )};
 
 }

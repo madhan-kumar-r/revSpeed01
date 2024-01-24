@@ -1,0 +1,96 @@
+
+.super-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    
+  }
+
+  .example-form {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+   
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Super shadow effect */
+}
+
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  mat-label, input, textarea {
+    color: #3f51b5; /* Set indigo blue as the text color */
+  }
+
+  mat-form-field {
+    width: 100%;
+   
+        box-shadow: 0 2px 4px #1a237e; /* Add a subtle shadow effect to the input fields */
+    }
+
+  mat-form-field:hover {
+    box-shadow: 0 4px 8px #0d47a1; /* Increase shadow on hover */
+    
+  }
+  
+  
+.profile-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture {
+    width: 100px; /* Adjust the width of the profile picture as needed */
+    height: 100px; /* Adjust the height of the profile picture as needed */
+    border-radius: 50%; /* Make it a circular profile picture */
+    margin-right: 10px; /* Add some space to the right of the profile picture */
+  }
+  
+ 
+.profile-name {
+    color: #1a237e;
+    font-size: 1.5em; /* Increase the font size for a more attractive look */
+    font-weight: bold;
+    text-transform: uppercase; /* Convert the text to uppercase */
+    letter-spacing: 2px; /* Add letter spacing for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Change to move buttons to the right end */
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .custom-button {
+    border-radius: 35px; /* Increased border-radius for rounded corners */
+    margin-right: 10px; /* Add margin between the buttons */
+  }
+  
+  .custom-button.update-save-button {
+    background-color: #4caf50; /* Change to your desired color for Update & Save button */
+  }
+  
+  .custom-button.cancel-button {
+    background-color: #e74c3c; /* Change to your desired color for Cancel button */
+  }
+  
+  .custom-button.update-save-button:hover {
+    background-color: #45a049; /* Change to your desired hover color for Update & Save button */
+  }
+  
+  .custom-button.cancel-button:hover {
+    background-color: #c0392b; /* Change to your desired hover color for Cancel button */
+  }
+  
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }

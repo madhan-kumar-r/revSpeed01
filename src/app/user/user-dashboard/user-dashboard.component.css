@@ -1,0 +1,149 @@
+/* src/app/app.component.css */
+
+.mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .toolbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align content to the right */
+    width: 100%; /* Ensure the toolbar spans the entire width */
+  }
+  
+  .mat-nav-list,
+  .toolbar-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-nav-list a,
+  .toolbar-content a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: white; /* Change the color to match your theme */
+  }
+  
+  .profile-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 5px; /* Add some margin to the left of the profile image */
+  }
+  
+  .dropdown-arrow {
+    margin-left: 5px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  /* Add media query for smaller screens */
+  @media (max-width: 768px) {
+    .mat-nav-list a,
+    .toolbar-content a {
+      margin-right: 10px; /* Adjust margin for smaller screens */
+    }
+  
+    .profile-img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  
+  /* src/app/app.component.css */
+  
+  /* src/app/app.component.css */
+  
+  /* src/app/app.component.css */
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .toolbar-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-nav-list,
+  .toolbar-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-nav-list a,
+  .toolbar-content a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .profile-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 5px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .main-content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .ad-container {
+    width: 20%;
+    max-width: 200px; /* Adjust the max-width as needed */
+    height: 600px; /* Extend the ad height to fill the container */
+  }
+  
+  .ad-image {
+    max-width: 100%;
+    height: 100%;
+  }
+  
+  .component-container {
+    width: 80%;
+    padding-left: 20px; /* Adjust the padding as needed for separation between ad and components */
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+  }
+  
