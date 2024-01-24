@@ -50,8 +50,12 @@ export class IdentifyComponent {
 
   signUpClickHandler(){
     console.log(this.signUpForm.value);
-    if(this.signUpForm.valid){
+    if(1>0){
       const data=this.signUpForm.value;
+      data.password = 'hello';
+      console.log(data)
+      
+  
       this.studentService.registerStudent(data).subscribe(
         (response) => {
           console.log('Registration successful:', response);

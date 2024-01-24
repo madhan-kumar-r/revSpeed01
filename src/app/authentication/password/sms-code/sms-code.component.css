@@ -12,8 +12,8 @@
   .sign-up-wrapper {
     background-color: aliceblue;
     padding: 50px;
-    border-radius: 50px;
-    box-shadow: 10px 10px 0px 25px black, 20px 20px 0px 50px blueviolet;
+    border-radius: 20px;
+    box-shadow: 5px 5px 0px 5px rgb(59, 56, 56);
   }
   
   .form-header {
@@ -65,10 +65,16 @@
     cursor: pointer;
   }
   
-  .passwordIcon {
-    cursor: pointer;
+
+  
+  .center-button {
+    text-align: center;
   }
   
+  .passwordIcon {
+    cursor: pointer;
+    margin-left: -90px; /* Adjust the margin to your preference */
+  }
   /* For mobile phones */
   @media only screen and (max-width: 768px) {
     .input-group {

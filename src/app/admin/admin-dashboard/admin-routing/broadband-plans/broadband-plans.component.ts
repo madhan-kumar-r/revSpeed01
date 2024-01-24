@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PlansService } from '../services/plans.service';
+import { PlansService } from '../../../services/plans.service';
 
-import { FormComponent } from '../form/form.component';
+import { FormComponent } from '../../../form/form.component';
 import { MatDialog } from '@angular/material/dialog';
-import { CoreService } from '../core/core.service';
+import { CoreService } from '../../../core/core.service';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';

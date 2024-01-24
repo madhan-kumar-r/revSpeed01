@@ -37,8 +37,8 @@ import { FootComponent } from './authentication/foot/foot.component';
 import { ReviewComponent } from './authentication/review/review.component';
 import { SliderComponent } from './authentication/slider/slider.component';
 import { BasicPlanComponent } from './basic-plan/basic-plan.component';
-import { MaterialModule } from './admin/admin-routing/material/material.module';
-import { AdminModule } from './admin/admin-routing/admin.module';
+import { MaterialModule } from './admin/material/material.module';
+import { AdminModule } from './admin/admin.module';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 
-import { BroadbandPlansComponent } from './broadband-plans/broadband-plans.component';
+import { BroadbandPlansComponent } from './admin-dashboard/admin-routing/broadband-plans/broadband-plans.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -10,7 +10,7 @@ import { BusinessFormComponent } from './business-form/business-form.component';
 import { CustomerDataComponent } from './customer-data/customer-data.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { FormComponent } from './form/form.component';
-import { AdminDashboardComponent } from '../../../../speedApps/src/app/admin/admin-routing/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from '../../../speedApps/src/app/admin/admin-routing/admin-dashboard/admin-dashboard.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

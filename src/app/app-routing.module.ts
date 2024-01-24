@@ -12,7 +12,8 @@ import { IdentifyComponent } from './authentication/password/identify/identify.c
 import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.component';
 import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
 import { NewHomeComponent } from './authentication/new-home/new-home.component';
-import { AdminModule } from '../app/admin/admin-routing/admin.module';
+import { AdminModule } from './admin/admin.module';
+import { AdminnModule } from './adminn/adminn.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
@@ -48,16 +49,17 @@ const routes: Routes = [
  },
  
 // { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
-// { path: 'admin', loadChildren: () => import('./admin/admin-routing/admin.module').then((m) => m.AdminModule) },
+{ path: 'adminn', loadChildren: () => import('./adminn/adminn.module').then((m) => m.AdminnModule) },
 // { path: 'admin-new', component: AdminModule }
-{
-  path: 'admin',
-  loadChildren: () => import('./admin/admin-routing/admin.module').then((m) => m.AdminModule),
-},
+// {
+//   path: 'admin',
+//   loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+// },
 {
   path: 'user',
   loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
 },
+
   
 ];
 

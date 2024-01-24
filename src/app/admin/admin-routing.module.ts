@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 import { DashComponent } from './dash/dash.component';
-import { BroadbandPlansComponent } from './broadband-plans/broadband-plans.component';
+import { BroadbandPlansComponent } from './admin-dashboard/admin-routing/broadband-plans/broadband-plans.component';
 import { BusinessPlansComponent } from './business-plans/business-plans.component';
 import { CustomerDataComponent } from './customer-data/customer-data.component';
 const routes: Routes = [
