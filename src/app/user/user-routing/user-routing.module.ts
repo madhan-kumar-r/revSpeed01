@@ -7,10 +7,15 @@ import { UpdateprofileComponent } from '../updateprofile/updateprofile.component
 import { PlansComponent } from '../plans/plans.component';
 const routes: Routes = [
   
-  {path: 'dashboard',component: UserDashboardComponent},
+  {
+    path: 'dashboard',
+    component: UserDashboardComponent,
+    children:[
   {path:'profile',component:ProfilepageComponent},
   {path:'plan',component:PlansComponent },
-  {path:'updateprofile',component:UpdateprofileComponent}
+  {path:'updateprofile',component:UpdateprofileComponent},
+],
+  },
 ];
 
 @NgModule({
