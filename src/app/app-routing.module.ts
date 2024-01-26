@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { CommonModule } from '@angular/common';
-import { ProfileComponent} from './authentication/profile/profile.component';
+import { ProfileComponent } from './authentication/profile/profile.component';
 import { NewLoginComponent } from './authentication/new-login/new-login.component';
 import { HomeComponent } from './authentication/home/home.component';
 import { AuthGuard } from './authentication/roles/auth.guard';
@@ -12,59 +12,56 @@ import { IdentifyComponent } from './authentication/password/identify/identify.c
 import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.component';
 import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
 import { NewHomeComponent } from './authentication/new-home/new-home.component';
-import { AdminModule } from './admin/admin.module';
-import { AdminnModule } from './adminn/adminn.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
-  {path:'resetpass', component: IdentifyComponent},
-  
-  
+  { path: 'resetpass', component: IdentifyComponent },
 
   {
     path: 'authentication',
     children: [
-      {path:'password',component:PasswordComponent},
-      {path:'new-home',component:NewHomeComponent},
-      {path:'home', component:HomeComponent},
+      { path: 'password', component: PasswordComponent },
+      { path: 'new-home', component: NewHomeComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'login', component: NewLoginComponent },
       { path: 'password/set-password', component: SetPasswordComponent },
       { path: 'password/sms-code', component: SmsCodeComponent },
       { path: 'password/identify', component: IdentifyComponent },
-      
 
-      
       { path: 'register', component: RegisterComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
     ],
   },
 
-  
-  
   {
-     path: 'login', component: LoginComponent 
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'register', component: RegisterComponent 
- },
- 
-// { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
-{ path: 'adminn', loadChildren: () => import('./adminn/adminn.module').then((m) => m.AdminnModule) },
-// { path: 'admin-new', component: AdminModule }
-// {
-//   path: 'admin',
-//   loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
-// },
-{
-  path: 'user',
-  loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
-},
+    path: 'register',
+    component: RegisterComponent,
+  },
 
-  
+  // { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
+  {
+    path: 'adminn',
+    loadChildren: () =>
+      import('./adminn/adminn.module').then((m) => m.AdminnModule),
+  },
+
+  // { path: 'admin-new', component: AdminModule }
+  // {
+  //   path: 'admin',
+  //   loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+  // },
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

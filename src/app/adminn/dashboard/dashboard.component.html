@@ -1,0 +1,458 @@
+<style>
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-container {
+    display: flex;
+    margin: 20px;
+  }
+
+  .dashboard-card {
+    max-width: calc(33.33% - 20px);
+    width: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+  }
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toggle-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  button[color="primary"] {
+    background-color: #11235a;
+    color: white;
+  }
+
+  button[color="accent"] {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  /* .table-section {
+    width: 100%;
+  } */
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .chart-container {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 20px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  @media (max-width: 760px) {
+    .dashboard-card {
+      max-width: 100%;
+    }
+
+    .card-container {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    table {
+      font-size: 16px; /* Adjust as needed */
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="dashboard-container">
+    <!-- Cards Section -->
+
+    <div class="card-container">
+      <mat-card
+        (click)="showActiveUsersTable()"
+        class="dashboard-card"
+        [style.background-color]="'#11235A'"
+      >
+        <mat-card-header>
+          <mat-card-title style="color: white">Active Users </mat-card-title>
+          <button mat-icon-button>
+            <mat-icon style="color: white">more_vert</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-content style="color: white">
+          <p>Total Active Users: {{ customersWithPlan.length }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card
+        class="dashboard-card"
+        (click)="showInactiveUsersTable()"
+        [style.background-color]="'#e74c3c'"
+      >
+        <mat-card-header>
+          <mat-card-title style="color: white">Inactive Users</mat-card-title>
+          <button mat-icon-button>
+            <mat-icon style="color: white">more_vert</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-content style="color: white">
+          <p>Total Inactive Users: {{ customersWithoutPlan.length }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card
+        class="dashboard-card"
+        (click)="showIndividualUsersTable()"
+        [style.background-color]="'#2ecc71'"
+      >
+        <mat-card-header>
+          <mat-card-title style="color: white"
+            >Individual plan users</mat-card-title
+          >
+          <button mat-icon-button>
+            <mat-icon style="color: white">more_vert</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-content style="color: white">
+          <p>Total Individual plan users: {{ individualCustomers.length }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card
+        class="dashboard-card"
+        (click)="showBusinessUsersTable()"
+        [style.background-color]="'#3E3232'"
+      >
+        <mat-card-header>
+          <mat-card-title style="color: white"
+            >Business plan users</mat-card-title
+          >
+          <button mat-icon-button>
+            <mat-icon style="color: white">more_vert</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-content style="color: white">
+          <p>Total Business plan users: {{ businessCustomers.length }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Tables Section -->
+
+    <div class="table-section">
+      <div class="table" *ngIf="activeUsersTableVisible">
+        <h2>Active Users</h2>
+        <table
+          mat-table
+          [dataSource]="customersWithPlan"
+          matSort
+          class="mat-elevation-z8"
+        >
+          <!-- Columns for Customers with Plan -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+            <td mat-cell *matCellDef="let customer">{{ customer.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_address }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_email }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_phone">
+            <th mat-header-cell *matHeaderCellDef>Phone</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_phone }}
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'id',
+              'customer_name',
+              'customer_address',
+              'customer_email',
+              'customer_phone'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: [
+                'id',
+                'customer_name',
+                'customer_address',
+                'customer_email',
+                'customer_phone'
+              ]
+            "
+          ></tr>
+        </table>
+      </div>
+
+      <div class="table" *ngIf="individualUsersTableVisible">
+        <h2>Individual plan Users</h2>
+        <table
+          mat-table
+          [dataSource]="individualCustomers"
+          matSort
+          class="mat-elevation-z8"
+        >
+          <!-- Columns for Customers with Plan -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let customer">{{ customer.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_address }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_email }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_phone">
+            <th mat-header-cell *matHeaderCellDef>Phone</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_phone }}
+            </td>
+          </ng-container>
+
+          <!-- Add more columns as needed -->
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'id',
+              'customer_name',
+              'customer_address',
+              'customer_email',
+              'customer_phone'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: [
+                'id',
+                'customer_name',
+                'customer_address',
+                'customer_email',
+                'customer_phone'
+              ]
+            "
+          ></tr>
+        </table>
+      </div>
+
+      <div class="table" *ngIf="businessUsersTableVisible">
+        <h2>Business plan users</h2>
+        <table
+          mat-table
+          [dataSource]="businessCustomers"
+          matSort
+          class="mat-elevation-z8"
+        >
+          <!-- Columns for Customers with Plan -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let customer">{{ customer.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_address }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_email }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_phone">
+            <th mat-header-cell *matHeaderCellDef>Phone</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_phone }}
+            </td>
+          </ng-container>
+
+          <!-- Add more columns as needed -->
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'id',
+              'customer_name',
+              'customer_address',
+              'customer_email',
+              'customer_phone'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: [
+                'id',
+                'customer_name',
+                'customer_address',
+                'customer_email',
+                'customer_phone'
+              ]
+            "
+          ></tr>
+        </table>
+      </div>
+
+      <div class="table" *ngIf="inactiveUsersTableVisible">
+        <h2>Inactive Users</h2>
+        <table mat-table [dataSource]="customersWithoutPlan" matSort>
+          <!-- Columns for Customers without Plan -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let customer">{{ customer.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_address }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_email }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_phone">
+            <th mat-header-cell *matHeaderCellDef>Phone</th>
+            <td mat-cell *matCellDef="let customer">
+              {{ customer.customer_phone }}
+            </td>
+          </ng-container>
+
+          <!-- Add more columns as needed -->
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'id',
+              'customer_name',
+              'customer_address',
+              'customer_email',
+              'customer_phone'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: [
+                'id',
+                'customer_name',
+                'customer_address',
+                'customer_email',
+                'customer_phone'
+              ]
+            "
+          ></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Real-time Customers Statistics Graph Section -->
+    <div class="charts">
+      <div class="chart-container">
+        <canvas id="MyChart">{{ chart }}</canvas>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="MyChartTwo">{{ chart }}</canvas>
+      </div>
+    </div>
+    <!-- <app-customer-data></app-customer-data> -->
+    <!-- <div class="chart-container">
+      <canvas id="MyBarChart"></canvas>
+    </div> -->
+  </div>
+</div>
