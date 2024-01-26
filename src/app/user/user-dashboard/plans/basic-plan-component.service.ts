@@ -2,7 +2,7 @@ import { Observable, catchError } from 'rxjs';
 import { i_plans } from './plans';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Iuser } from '../../../user';
+import { Iuser } from '../../../../user';
 
 
 @Injectable({

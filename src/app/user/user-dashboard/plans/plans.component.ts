@@ -4,7 +4,7 @@ import { i_plans } from './plans';
 import { ProfileService } from '../profilepage/Profileservice.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Iuser } from '../../../user';
+import { Iuser } from '../../../../user';
 import { Location } from '@angular/common';
 
 
@@ -76,7 +76,7 @@ export class PlansComponent implements OnInit {
     
   route()
   {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/dashboard/profile']);
   }
 OpenDialog() {
   const dialogRef = this.dialog.open(DialogContent, {

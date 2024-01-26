@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserDashboardComponent } from '../user-dashboard/user-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfilepageComponent } from '../profilepage/profilepage.component';
-import { UpdateprofileComponent } from '../updateprofile/updateprofile.component';
-import { PlansComponent } from '../plans/plans.component';
+import { ProfilepageComponent } from '../user-dashboard/profilepage/profilepage.component';
+import { UpdateprofileComponent } from '../user-dashboard/updateprofile/updateprofile.component';
+import { PlansComponent } from '../user-dashboard/plans/plans.component';
 const routes: Routes = [
   
   {
-    path: 'dashboard',
+    path: 'udashboard',
     component: UserDashboardComponent,
     children:[
-  {path:'profile',component:ProfilepageComponent},
-  {path:'plan',component:PlansComponent },
+  {path:'uprofile',component:ProfilepageComponent},
+  {path:'uplan',component:PlansComponent },
   {path:'updateprofile',component:UpdateprofileComponent},
 ],
   },

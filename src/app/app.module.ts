@@ -40,7 +40,7 @@ import { BasicPlanComponent } from './basic-plan/basic-plan.component';
 import { MaterialModule } from './admin/material/material.module';
 import { AdminModule } from './admin/admin.module';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
-import { UpdateprofileComponent } from './user/updateprofile/updateprofile.component';
+import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
 import { CommonModule } from '@angular/common';
 import { UserModule } from './user/user.module';
 @NgModule({

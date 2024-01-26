@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ProfileService } from '../profilepage/Profileservice.service';
-import { Iuser } from '../../../user';
+import { Iuser } from '../../../../user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -61,7 +61,7 @@ export class UpdateprofileComponent {
   }
   Cancel() {
     // Navigate to ProfilePageComponent
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/dashboard/profile']);
   }
  
 Save()
@@ -82,7 +82,7 @@ Save()
           console.log('Profile updated successfully',updatedProfile);
           this.userProfile = updatedProfile;
 
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/dashboard/profile']);
          
        
       },
