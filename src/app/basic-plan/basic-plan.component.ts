@@ -4,12 +4,7 @@ import { BasicPlanService } from './basic-plan.service';
 import { i_plans,b_plans } from '../../../card';
 import { Iuser } from '../../user';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-
-
-
 
 import { MatDialog } from '@angular/material/dialog';
 import { RechargeDialogComponent } from '../recharge-dialog/recharge-dialog.component';
@@ -25,6 +20,7 @@ export class BasicPlanComponent implements OnInit {
   plans: i_plans[] = [];
   bplans: b_plans[] = [];
   selectedType: string = 'individual';
+  initialview:boolean=true;
 
   constructor(private basicPlanService: BasicPlanService, private snackBar: MatSnackBar, public dialog: MatDialog,private cdr: ChangeDetectorRef) {}
 
@@ -45,6 +41,8 @@ export class BasicPlanComponent implements OnInit {
     } else if (type === 'business') {
       this.basicPlanService.getBusinessPlans().subscribe((bplans) => {
         this.bplans = bplans;
+        this.initialview=false;
+        console.log("Business plans:", this.bplans);
       });
     }
   }

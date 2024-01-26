@@ -1,0 +1,41 @@
+<!-- plan-details.component.html -->
+
+<mat-card class="details-card" *ngIf="isVisible">
+    <mat-card-header>
+      <div mat-card-avatar class="header-avatar"></div>
+      <mat-card-title>
+        <h3 class="card-price">₹{{ plan.plan_price }}</h3>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <div class="badge">{{ plan.plan_name }}</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <div class="details-info">
+        <div class="info">
+          <div class="info-title">Speed</div>
+          <div class="info-value">{{ plan.plan_speed }}</div>
+        </div>
+        <div class="info">
+          <div class="info-title">Internet</div>
+          <div class="info-value">{{ plan.plan_data }}</div>
+        </div>
+      </div>
+  
+      <div class="subscriptions">
+        <h4>Subscriptions</h4>
+        <div class="icons">
+          <img class="icon" src={{ plan.plan_icon_1 }} alt="Subscription 1">
+          <img class="icon" src={{ plan.plan_icon_2 }} alt="Subscription 2">
+          <!-- Add more subscription icons as needed -->
+        </div>
+      </div>
+    </mat-card-content>
+  
+    <mat-card-actions class="card-footer">
+      <button mat-button class="button primary" aria-label="Recharge" (click)="recharge(plan.id, plan.plan_type)">Recharge</button>
+    </mat-card-actions>
+    <button mat-icon-button (click)="closeDetails()">X</button>
+    </mat-card>
+  

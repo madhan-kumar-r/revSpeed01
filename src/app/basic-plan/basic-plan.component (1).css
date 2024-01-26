@@ -1,7 +1,144 @@
 
 /* Google Fonts - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
 /* Navbar */
+
+/* Add these styles to the existing CSS file */
+
+/* Navbar */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px; /* Adjusted padding for smaller screens */
+  background: #3f51b5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav .nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav .logo {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.logo:hover {
+  color: red;
+}
+
+.logo1 {
+  cursor: pointer;
+  display: none;
+}
+
+.nav .nav-links li {
+  cursor: pointer;
+}
+
+.nav-button {
+  background: #3f51b5;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-button:hover {
+  background: linear-gradient(90deg, #3f51b5 0%, #0D47A1 100%);
+}
+
+.logout {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-size: large;
+  color: #ffffff;
+  padding: 2px;
+  transition: background 0.3s;
+  background-color: #3f51b5;
+}
+
+.logout:hover {
+  color: #3f51b5;
+  background-color: #ffffff;
+  border: solid black 1px;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+  .nav {
+    padding: 15px 10px; /* Adjusted padding for smaller screens */
+  }
+
+  .logo1 {
+    display: block;
+  }
+
+  .nav .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #11101d;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav.openNav .nav-links {
+    display: flex;
+  }
+
+  .nav .nav-links li {
+    padding: 10px;
+  }
+
+  .nav .logout {
+    display: none;
+  }
+
+  .nav .navCloseBtn {
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .nav .navCloseBtn:hover {
+    color: red;
+  }
+}
+
+
+/* 
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +146,7 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  background: #8cd6fb;
+  background: #f0faff;
 }
 .nav {
   z-index: 9999; 
@@ -18,7 +155,7 @@ body {
   left: 0;
   width: 100%;
   padding: 15px 200px;
-  background: #4a98f7;
+  background: #3f51b5;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -28,7 +165,7 @@ body {
   border: solid white 1px;
   border-radius: 4px;
   font-size: large;
-  color: #4a98f7;
+  color: #3f51b5;
   padding: 2px;
 
 }
@@ -122,7 +259,7 @@ a {
 }
 
 /* responsive */
-@media screen and (max-width: 1160px) {
+/* @media screen and (max-width: 1160px) {
   .nav {
     padding: 15px 100px;
   }
@@ -190,28 +327,32 @@ a {
     transform: translateX(50%);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-}
+} */ 
 
 
 /* Viewplans */
 
 
 .toggle-buttons {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
 .toggle-button {
-  background: linear-gradient(90deg, #2196F3 0%, #1976D2 100%);
+  font-family: "Poppins", sans-serif;
+  background: #3f51b5;
   color: #ffffff;
-  border-radius: 15px;
-  padding: 8px 16px;
+  border-radius: 5px;
+  padding: 2px 8px;
   cursor: pointer;
 }
 
+
+
 .toggle-button.active {
-  background: linear-gradient(90deg, #1565C0 0%, #0D47A1 100%);
+  background: linear-gradient(90deg,#3f51b5 0%, #0D47A1 100%);
   border: 2px solid #1976D2;
 }
 
@@ -225,6 +366,7 @@ body {
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+  margin-top: 100px;
 }
 
 /* ... (existing styles) ... */
@@ -235,11 +377,12 @@ body {
   margin: 20px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .card-header {
-  background: linear-gradient(135deg, #2196F3, #1565C0); /* Blue gradient */
+  background: linear-gradient(135deg,#3f51b5);
+  background-color: #3f51b5; /* Blue gradient */
   color: #ffffff;
 }
 
@@ -247,11 +390,11 @@ body {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: black;
+  color: #ffffff;
 }
 
 .badge {
-  background: linear-gradient(135deg, #03A9F4, #0288D1); /* Light Blue gradient */
+  background: linear-gradient(135deg, #3f51b5, #273cb2); /* Light Blue gradient */
   color: #ffffff;
   padding: 4px 8px;
   border-radius: 4px;
@@ -340,3 +483,58 @@ body {
 .card-footer button:first-child {
   margin-right: 8px;
 }
+/* basic-plan.component.css */
+button {
+  margin: 20px;
+}
+
+/* Custom styles for the confirmation dialog */
+.confirm-dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-dialog h2 {
+  margin-bottom: 10px;
+}
+
+.confirm-dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.confirm-dialog button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-dialog button:hover {
+  background-color: #efefef;
+}
+
+.blur-background {
+  filter: blur(4px);
+  pointer-events: none;
+}
+/* Add the blur class definition */
+.blur {
+  filter: blur(8px);
+}
+
+/* Add some styles for the container */
+.container {
+  transition: filter 0.3s ease;
+}
+
+/* ... (the rest of your existing CSS) */

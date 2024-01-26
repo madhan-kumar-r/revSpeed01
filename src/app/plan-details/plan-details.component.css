@@ -1,0 +1,87 @@
+/* plan-details.component.css */
+
+.details-card {
+    width: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 20px;
+  }
+  
+  .details-card-header {
+    background: linear-gradient(135deg, #3f51b5);
+    background-color: #3f51b5; /* Blue gradient */
+    color: #ffffff;
+  }
+  
+  .card-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  
+  .badge {
+    background: linear-gradient(135deg, #3f51b5, #273cb2); /* Light Blue gradient */
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .details-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px 16px 16px;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .info-title {
+    color: #616161;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .info-value {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .subscriptions {
+    margin-top: 16px;
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 3.5px;
+  }
+  
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: -8px;
+  }
+  
+  .button {
+    cursor: pointer;
+    border-radius: 15px;
+  }
+  
+  .primary {
+    background: linear-gradient(135deg, #2196F3, #1565C0); /* Blue gradient */
+    color: #ffffff;
+  }
+  
+  .button:hover {
+    filter: brightness(90%);
+  }
+  
+  .primary:hover {
+    background: linear-gradient(135deg, #1565C0, #0D47A1); /* Darker Blue gradient */
+  }
+  

@@ -42,6 +42,7 @@ import { AdminModule } from './admin/admin.module';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
 import { UpdateprofileComponent } from './user/updateprofile/updateprofile.component';
 import { CommonModule } from '@angular/common';
+import { PlanDetailsComponent } from './plan-details/plan-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { CommonModule } from '@angular/common';
     
     UserPlanComponent,
      RechargeDialogComponent,
+     PlanDetailsComponent,
    
 
   ],
