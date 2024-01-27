@@ -40,6 +40,7 @@ import { BasicPlanComponent } from './basic-plan/basic-plan.component';
 import { MaterialModule } from './admin/material/material.module';
 import { AdminModule } from './admin/admin.module';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.compo
 
     UserPlanComponent,
      RechargeDialogComponent,
+
    
 
   ],

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PasswordService {
 
-  private apiUrl = 'http://localhost:8080/api/v1/auth/register';
+  private apiUrl = 'http://localhost:8080/api/v1/auth/newregister';
 
 
   constructor(private http: HttpClient) {}

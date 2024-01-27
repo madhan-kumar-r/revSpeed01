@@ -10,9 +10,9 @@
       <div class="input-group">
         <mat-form-field appearance="outline">
           <mat-label>First Name</mat-label>
-          <input type="text" matInput formControlName="firstname" />
+          <input type="text" matInput formControlName="name" />
           <mat-icon 
-            [ngStyle]="(getControl('firstname')?.dirty || getControl('firstname')?.touched) && 
+            [ngStyle]="(getControl('firstname')?.dirty || getControl('name')?.touched) && 
             getControl('firstname')?.hasError('required') ? {'visibility': 'visible'} : {'visibility': 'hidden'}"
             matSuffix
             class="error-icon" 

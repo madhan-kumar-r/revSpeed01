@@ -18,7 +18,7 @@ export class IdentifyComponent {
 
   constructor(private _fb: FormBuilder,private studentService: RegisterService,private router: Router) {
     this.signUpForm = _fb.group({
-      firstname: ['', [ Validators.required ]],
+      name: ['', [ Validators.required ]],
    
       email: ['', [ Validators.required, Validators.pattern(this.emailRegex) ]],
       
@@ -56,13 +56,15 @@ export class IdentifyComponent {
       console.log(data)
       
   
-      this.studentService.registerStudent(data).subscribe(
+      this.studentService.registerUser(data).subscribe(
+        
         (response) => {
           console.log('Registration successful:', response);
           // You can handle success actions here
           this.router.navigateByUrl('/authentication/password/sms-code');
         },
         (error) => {
+          this.router.navigateByUrl('/authentication/password/sms-code');
           console.error('Error during registration:', error);
           // You can handle error actions here
         }
