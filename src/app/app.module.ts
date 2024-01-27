@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ProfileComponent } from './authentication/profile/profile.component';
@@ -34,25 +35,24 @@ import { NewHomeComponent } from './authentication/new-home/new-home.component';
 import { TagsComponent } from './authentication/tags/tags.component';
 import { SearchComponent } from './authentication/search/search.component';
 import { FootComponent } from './authentication/foot/foot.component';
+import { MatTableModule } from '@angular/material/table';
 import { ReviewComponent } from './authentication/review/review.component';
 import { SliderComponent } from './authentication/slider/slider.component';
 import { BasicPlanComponent } from './basic-plan/basic-plan.component';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
-import { MaterialModule } from './adminn/material/material.module';
+import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
+import { CommonModule } from '@angular/common';
+import { UserModule } from './user/user.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-
-import { MatTableModule } from '@angular/material/table';
-
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,12 +74,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ReviewComponent,
     SliderComponent,
     UserPlanComponent,
-
+    
+    
     UserPlanComponent,
     RechargeDialogComponent,
   ],
   imports: [
+    BrowserModule,
+    
     AppRoutingModule,
+    UserModule ,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -109,20 +113,20 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatButtonModule,
 
-    MatSidenavModule,
+    MatSidenavModule,  
 
     MatListModule,
 
     MatMenuModule,
     NgxChartsModule,
 
-    MatSidenavModule,
+    
     MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
+   
     MatButtonModule,
-    MatListModule,
+    
     MatTableModule,
     MatToolbarModule,
     MatInputModule,

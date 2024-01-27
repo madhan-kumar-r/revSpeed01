@@ -1,7 +1,7 @@
-*{
+/* *{
     top: 0;
     bottom: 0;
-}
+} */
 
 
 
@@ -23,7 +23,7 @@
     background-color:;
 } */
 
-.example-card {
+/* .example-card {
     max-width: 400px;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,14 +43,14 @@
     height: 100px; /* Adjust the height based on your design 
     border-radius: 0%; 
 } */
-
+/* 
 .example-header-image {
    background-image: url('https://freesvg.org/img/abstract-user-flat-4.png');
     background-size: cover;
-    background-position: center; /* Center the background image */
-    height: 50px; /* Adjust the height based on your design */
-    border-radius: 40%; /* Make it a circle */
-    overflow: hidden; /* Ensure the image stays within the circle */
+    background-position: center; 
+    height: 50px; 
+    border-radius: 40%;
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@ mat-card-subtitle {
 }
 
 mat-card-image {
-    max-height: 200px; /* Adjust the max height based on your design */
+    max-height: 200px; 
     object-fit: cover;
 }
 
@@ -143,9 +143,9 @@ mat-card-actions {
     align-items: center;
     position: absolute;
     z-index: 9999;
-    background-color: rgba(255, 255, 255, 0.0x1); /* Transparent background */
-    backdrop-filter: blur(10px); /* Apply a blur effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    background-color: rgba(255, 255, 255, 0.0x1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     animation: fadeIn 1s ease-in-out forwards;
 }
@@ -155,3 +155,84 @@ mat-card-actions {
 
 
  
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }  */
+
+  /* .example-form {
+   
+    min-width: 250px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+ 
+  } */
+  
+
+
+  .super-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    
+  }
+
+  .example-form {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+   
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Super shadow effect */
+}
+
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  mat-label, input, textarea {
+    color: #3f51b5; /* Set indigo blue as the text color */
+  }
+
+  mat-form-field {
+    width: 100%;
+   
+        box-shadow: 0 2px 4px #1a237e; /* Add a subtle shadow effect to the input fields */
+    }
+
+  mat-form-field:hover {
+    box-shadow: 0 4px 8px #0d47a1; /* Increase shadow on hover */
+    
+  }
+  
+  
+.profile-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture {
+    width: 100px; /* Adjust the width of the profile picture as needed */
+    height: 100px; /* Adjust the height of the profile picture as needed */
+    border-radius: 50%; /* Make it a circular profile picture */
+    margin-right: 10px; /* Add some space to the right of the profile picture */
+  }
+  
+ 
+.profile-name {
+    color: #1a237e;
+    font-size: 1.5em; /* Increase the font size for a more attractive look */
+    font-weight: bold;
+    text-transform: uppercase; /* Convert the text to uppercase */
+    letter-spacing: 2px; /* Add letter spacing for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+  }

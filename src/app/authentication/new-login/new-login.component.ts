@@ -48,10 +48,10 @@ export class NewLoginComponent {
         this.roleService.setUserRole(userRole);
         // Redirect based on the user's role
         if (userRole === 'USER') {
-          this.router.navigate(['/user/dashboard']);
-        } else {
-          console.log('hi');
-          this.router.navigate(['adminn/dashboard']);
+          this.router.navigate(['udashboard/uprofile']);
+        } else{
+          console.log("hi");
+          this.router.navigate(['/adminn/dashboard']);
         }
 
         // Redirect based on the user's role

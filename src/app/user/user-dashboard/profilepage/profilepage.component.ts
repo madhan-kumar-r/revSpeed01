@@ -1,13 +1,15 @@
 import { Component ,OnInit} from '@angular/core';
 import {ProfileService } from './Profileservice.service'; 
-import { Iuser } from '../../../user';
+import { Iuser } from '../../../../user';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
   selector: 'app-profilepage',
   templateUrl: './profilepage.component.html',
-  styleUrl: './profilepage.component.css'
+  styleUrl: './profilepage.component.css',
+  
+
 })
 export class ProfilepageComponent implements OnInit{
   public userProfile !: Iuser ;
@@ -32,18 +34,17 @@ export class ProfilepageComponent implements OnInit{
 
 }
 ngOnInit() {
-
   console.log("im on it");
     const id:number=1;  
    this.UserProfileService.getUserProfile(id).subscribe(data=>{
     
     this.userProfile=data;
-    this.UserProfileService.setPlanid(this.userProfile.plan_id);
-    this.UserProfileService.setPlanname(this.userProfile.plan_type);
     console.log(this.userProfile.customer_phone);
     console.log(this.userProfile.customer_address);
     this.UserProfileService.setdetails(this.userProfile);
-  
+    this.UserProfileService.setPlanid(this.userProfile.plan_id);
+    this.UserProfileService.setuserid(this.userProfile.id);
+    this.UserProfileService.setPlanname(this.userProfile.plan_type);
   
    this.profileForm.patchValue({
      customer_name: data.customer_name,
@@ -65,7 +66,6 @@ this.profileForm.get('customer_name')?.valueChanges.subscribe((name: string) => 
     this.userProfile.customer_name= name;
   }
 });
-
 }
 
 toggleEdit()

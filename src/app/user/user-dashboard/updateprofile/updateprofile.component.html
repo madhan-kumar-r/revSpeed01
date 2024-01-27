@@ -1,0 +1,37 @@
+<div class="super-container">
+
+    <form class="example-form" [formGroup]="profileForm">
+        <h2 style="text-align: center;">Update Your Profile Details Here</h2>
+        <div class="profile-container">
+          
+        <img class="profile-picture" src="https://picsum.photos/1000" alt="Profile Picture">
+    
+      </div>
+      
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Profile Name:-</mat-label>
+        <input matInput placeholder="NAME" id="name" formControlName="customer_name" value="{{userProfile?.customer_name}}">
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>Phone number:-</mat-label>
+        <input matInput placeholder="phone number" id="num" value="{{ userProfile?.customer_phone }}" formControlName="customer_phone">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Address:-</mat-label>
+        <textarea matInput placeholder="Address"  id="add" formControlName="customer_address" value="{{ userProfile?.customer_address }}"></textarea>
+      </mat-form-field>
+
+      <div class="button-container">
+        <button class="custom-button update-save-button" (click)="Save()">{{buttonText}}</button>
+        <button class="custom-button cancel-button" (click)="Cancel()">Cancel</button>
+      </div>
+
+
+    </form>
+<div *ngIf="updateFailed" class="error-message">
+  Profile update failed. Please try again.
+</div>
+</div>

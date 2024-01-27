@@ -1,24 +1,25 @@
-
+<!-- 
 <app-nav></app-nav>
+
 <div style="padding-top: 8vh;"></div>
 <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title *ngIf="isEnabled">{{
-      userProfile?.customer_name
+      userProfile.customer_name
     }}</mat-card-title>
 
     <mat-card-subtitle>Rev_User</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
-    <div>{{ userProfile?.customer_email }}</div>
+    <div>{{ userProfile.customer_email }}</div>
     <br />
     <div style="font-size: 20px; font-weight: bold">
-      {{ userProfile?.customer_phone }}
+      {{ userProfile.customer_phone }}
     </div>
     <br />
-    <div>{{ userProfile?.customer_address }}</div>
+    <div>{{ userProfile.customer_address }}</div>
   </mat-card-content>
   <mat-card-actions>
     <svg
@@ -120,9 +121,52 @@ value={{ userProfile.customer_address }}</textarea
       />
     </form>
   </div>
-</div>
+</div> -->
 <!-- Copyright 2024 Google LLC. All Rights Reserved.
       Use of this source code is governed by an MIT-style license that
       can be found in the LICENSE file at https://angular.io/license -->
 <!-- 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 -->
 <!-- (click)="toggleEdit()" -->
+<!-- <app-plans></app-plans> -->
+
+<!-- <mat-form-field>
+  <mat-label>Input</mat-label>
+  <input matInput>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Select</mat-label>
+  <mat-select>
+    <mat-option value="one">First option</mat-option>
+    <mat-option value="two">Second option</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Textarea</mat-label>
+  <textarea matInput></textarea>
+</mat-form-field> -->
+<div class="super-container">
+
+  <form class="example-form">
+    <div class="profile-container">
+      <img class="profile-picture" src="https://picsum.photos/1000" alt="Profile Picture">
+      <div class="profile-name">{{ userProfile?.customer_name }}</div>
+    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Profile Name:</mat-label>
+      <input matInput placeholder="NAME" value="{{userProfile?.customer_name}}" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Phone number:</mat-label>
+      <input matInput placeholder="phone number" value="{{userProfile?.customer_phone}}" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>E-Mail:</mat-label>
+      <input matInput placeholder="Email" value="{{userProfile?.customer_email}}" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address:</mat-label>
+      <textarea matInput placeholder="Address" id="add" value="{{userProfile?.customer_address}}" readonly ></textarea>
+    </mat-form-field>
+  </form>
+  </div>
+  

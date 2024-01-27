@@ -12,6 +12,10 @@ import { IdentifyComponent } from './authentication/password/identify/identify.c
 import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.component';
 import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
 import { NewHomeComponent } from './authentication/new-home/new-home.component';
+import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
+import { ProfilepageComponent } from './user/user-dashboard/profilepage/profilepage.component';
+import { PlansComponent } from './user/user-dashboard/plans/plans.component';
+import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
@@ -38,26 +42,35 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent,
-  },
-
-  // { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
-  {
-    path: 'adminn',
-    loadChildren: () =>
-      import('./adminn/adminn.module').then((m) => m.AdminnModule),
-  },
-
-  // { path: 'admin-new', component: AdminModule }
-  // {
-  //   path: 'admin',
-  //   loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
-  // },
-  {
-    path: 'user',
-    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
-  },
+    path: 'register', component: RegisterComponent 
+ },
+ 
+// { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
+{ path: 'adminn', loadChildren: () => import('./adminn/adminn.module').then((m) => m.AdminnModule) },
+// { path: 'admin-new', component: AdminModule }
+// {
+//   path: 'admin',
+//   loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+// },
+// {
+//   path: 'user',
+//   loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+// // },
+// { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
+{
+  path: 'udashboard',
+  component: UserDashboardComponent,
+  children:[
+{path:'uprofile',component:ProfilepageComponent},
+{path:'uplan',component:PlansComponent },
+{path:'updateprofile',component:UpdateprofileComponent},
+],
+},
+  // { path: 'dashboard', component: UserDashboardComponent },
+  // { path: 'profile', component: ProfilepageComponent },
+  // { path: 'plan', component: PlansComponent },
+  // { path: 'updateprofile', component: UpdateprofileComponent },
+  
 ];
 
 @NgModule({
