@@ -9,7 +9,7 @@ import { LoginService } from '../login/login.service';
 @Component({
   selector: 'app-new-login',
   templateUrl: './new-login.component.html',
-  styleUrls: ['./new-login.component.css']
+  styleUrls: ['./new-login.component.css'],
 })
 export class NewLoginComponent {
   email_pattern =
@@ -18,16 +18,14 @@ export class NewLoginComponent {
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   showPassword: boolean = false;
   constructor(
-    private loginService: LoginService, 
+    private loginService: LoginService,
     private router: Router,
-    private roleService: RoleService,
-    
+    private roleService: RoleService
   ) {}
   goToRegister(): void {
     // Navigate to the registration page
     this.router.navigate(['/authentication/register']);
   }
-  
 
   loginSubmit(formData: any) {
     console.log(formData.value);
@@ -51,14 +49,12 @@ export class NewLoginComponent {
         // Redirect based on the user's role
         if (userRole === 'USER') {
           this.router.navigate(['/user/dashboard']);
-        } else{
-          console.log("hi");
-          this.router.navigate(['/adminn/dashboard']);
+        } else {
+          console.log('hi');
+          this.router.navigate(['adminn/dashboard']);
         }
 
         // Redirect based on the user's role
-       
-       
       },
       (error) => {
         console.error('Authentication failed:', error);
@@ -66,6 +62,4 @@ export class NewLoginComponent {
       }
     );
   }
-
-  
 }

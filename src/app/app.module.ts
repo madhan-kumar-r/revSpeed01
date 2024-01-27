@@ -37,10 +37,22 @@ import { FootComponent } from './authentication/foot/foot.component';
 import { ReviewComponent } from './authentication/review/review.component';
 import { SliderComponent } from './authentication/slider/slider.component';
 import { BasicPlanComponent } from './basic-plan/basic-plan.component';
-import { MaterialModule } from './admin/material/material.module';
-import { AdminModule } from './admin/admin.module';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
+import { MaterialModule } from './adminn/material/material.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import { MatTableModule } from '@angular/material/table';
+
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,23 +76,19 @@ import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.compo
     UserPlanComponent,
 
     UserPlanComponent,
-     RechargeDialogComponent,
-
-   
-
+    RechargeDialogComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule ,
+    MatIconModule,
     MatSelectModule,
     FormsModule,
     MatToolbarModule,
-    
+
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
@@ -100,10 +108,34 @@ import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.compo
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    BrowserModule,
-    MaterialModule,
-    
 
+    MatSidenavModule,
+
+    MatListModule,
+
+    MatMenuModule,
+    NgxChartsModule,
+
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

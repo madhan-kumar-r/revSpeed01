@@ -1,0 +1,66 @@
+<style>
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-icon {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  .span {
+    vertical-align: middle;
+  }
+</style>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isMobile$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isMobile$ | async) ? 'over' : 'side'"
+    [opened]="!(isMobile$ | async)"
+  >
+    <mat-toolbar></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/adminn/dashboard">
+        <mat-icon class="mat-icon">dashboard</mat-icon>
+        <span class="span">Dashboard</span>
+      </a>
+    </mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/adminn/customer-data"
+        ><mat-icon class="mat-icon">account_circle</mat-icon>
+        <span class="span">Users</span></a
+      >
+    </mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/adminn/broadband-plans"
+        ><mat-icon class="mat-icon">signal_cellular_4_bar</mat-icon
+        ><span class="span">Plans</span></a
+      >
+    </mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/adminn/business-plans"
+        ><mat-icon class="mat-icon">signal_cellular_alt</mat-icon
+        ><span class="span">Business Plans</span></a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
