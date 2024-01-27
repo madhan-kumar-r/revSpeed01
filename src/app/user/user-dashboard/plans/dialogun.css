@@ -1,0 +1,29 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 0.8em;
+    width: 45%; /* Adjusted width to leave more space between buttons */
+    margin: 0 2%; /* Adjusted margin for additional spacing between buttons */
+  }
+  
+  .unsubscribe-button,
+  .cancel-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .unsubscribe-button:hover,
+  .cancel-button:hover {
+    background-color: #2980b9;
+  }
+  

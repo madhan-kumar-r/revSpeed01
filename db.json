@@ -1,0 +1,480 @@
+{
+  "products": [
+    {
+      "productId": 1,
+      "productName": "Plan 1",
+      "productDescription": "Description of Plan 1",
+      "productImages": [
+        {
+          "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg"
+        },
+        {
+          "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg"
+        }
+      ],
+      "productActualPrice": 100,
+      "productDiscountedPrice": 80
+    },
+    {
+      "productId": 2,
+      "productName": "Plan 2",
+      "productDescription": "Description of Plan 2",
+      "productImages": [
+        {
+          "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg"
+        },
+        {
+          "url": "https://www.tripleplay.in/public/blog_images/1526449865-Internet%20Connection%20near%20me.jpg"
+        }
+      ],
+      "productActualPrice": 120,
+      "productDiscountedPrice": 90
+    }
+  ],
+  "business_plans": [
+    {
+      "id": 0,
+      "billing_cycle": "NO ACTIVE PLAN",
+      "plan_name": "",
+      "plan_speed": "",
+      "plan_price": 0,
+      "plan_type": "business_plans"
+    },
+    {
+      "id": 1,
+      "billing_cycle": "Monthly",
+      "plan_name": "Business Basic Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 79.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 2,
+      "billing_cycle": "Monthly",
+      "plan_name": "Business Standard Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 119.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 3,
+      "billing_cycle": "Monthly",
+      "plan_name": "Business Premium Plan",
+      "plan_speed": "500 Mbps",
+      "plan_price": 149.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 4,
+      "billing_cycle": "Monthly",
+      "plan_name": "Business Ultra Plan",
+      "plan_speed": "1 Gbps",
+      "plan_price": 199.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 5,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Business Basic Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 199.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 6,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Business Standard Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 329.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 7,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Business Premium Plan",
+      "plan_speed": "500 Mbps",
+      "plan_price": 459.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 8,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Business Ultra Plan",
+      "plan_speed": "1 Gbps",
+      "plan_price": 599.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 9,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Business Basic Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 399.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 10,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Business Standard Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 669.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 11,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Business Premium Plan",
+      "plan_speed": "500 Mbps",
+      "plan_price": 899.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 12,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Business Ultra Plan",
+      "plan_speed": "1 Gbps",
+      "plan_price": 1159.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 13,
+      "billing_cycle": "Annually",
+      "plan_name": "Business Basic Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 959.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 14,
+      "billing_cycle": "Annually",
+      "plan_name": "Business Standard Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 1559.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 15,
+      "billing_cycle": "Annually",
+      "plan_name": "Business Premium Plan",
+      "plan_speed": "500 Mbps",
+      "plan_price": 2149.99,
+      "plan_type":"business_plans"
+    },
+    {
+      "id": 16,
+      "billing_cycle": "Annually",
+      "plan_name": "Business Ultra Plan",
+      "plan_speed": "1 Gbps",
+      "plan_price": 2799.99,
+      "plan_type":"business_plans"
+    }
+  ],
+  "broadband_plans": [
+    {
+      "id": 0,
+      "billing_cycle": "NO ACTIVE PLAN",
+      "plan_name": "",
+      "plan_speed": "",
+      "plan_price": 0,
+      "plan_type": "broadband_plans"
+    },
+    {
+      "id": 1,
+      "billing_cycle": "Monthly",
+      "plan_name": "Basic Plan",
+      "plan_speed": "30 Mbps",
+      "plan_price": 29.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 2,
+      "billing_cycle": "Monthly",
+      "plan_name": "Standard Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 49.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 3,
+      "billing_cycle": "Monthly",
+      "plan_name": "Premium Plan",
+      "plan_speed": "150 Mbps",
+      "plan_price": 69.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 4,
+      "billing_cycle": "Monthly",
+      "plan_name": "Ultra Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 89.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 5,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Basic Plan",
+      "plan_speed": "30 Mbps",
+      "plan_price": 79.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 6,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Standard Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 129.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 7,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Premium Plan",
+      "plan_speed": "150 Mbps",
+      "plan_price": 179.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 8,
+      "billing_cycle": "Quarterly",
+      "plan_name": "Ultra Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 239.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 9,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Basic Plan",
+      "plan_speed": "30 Mbps",
+      "plan_price": 149.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 10,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Standard Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 249.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 11,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Premium Plan",
+      "plan_speed": "150 Mbps",
+      "plan_price": 349.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 12,
+      "billing_cycle": "Semi-Annually",
+      "plan_name": "Ultra Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 459.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 13,
+      "billing_cycle": "Annually",
+      "plan_name": "Basic Plan",
+      "plan_speed": "30 Mbps",
+      "plan_price": 279.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 14,
+      "billing_cycle": "Annually",
+      "plan_name": "Standard Plan",
+      "plan_speed": "100 Mbps",
+      "plan_price": 479.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 15,
+      "billing_cycle": "Annually",
+      "plan_name": "Premium Plan",
+      "plan_speed": "150 Mbps",
+      "plan_price": 669.99,
+      "plan_type":"broadband_plans"
+    },
+    {
+      "id": 16,
+      "billing_cycle": "Annually",
+      "plan_name": "Ultra Plan",
+      "plan_speed": "300 Mbps",
+      "plan_price": 899.99,
+      "plan_type":"broadband_plans"
+    }
+  ],
+  "customer_data": [
+    {
+      "customer_name": "John Does",
+      "customer_phone": 1234567890,
+      "customer_email": "john.doe@example.com",
+      "customer_address": "123 Main St",
+      "customer_pass": "password123",
+      "plan_id": 1,
+      "plan_type": "business_plans",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "customer_name": "Jane Smith",
+      "customer_phone": 9876543210,
+      "customer_address": "456 Oak Ave",
+      "customer_email": "jane.smith@example.com",
+      "customer_pass": "securepass456",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 3,
+      "customer_name": "Bob Johnson",
+      "customer_phone": 5555555555,
+      "customer_address": "789 Pine Blvd",
+      "customer_email": "bob.johnson@example.com",
+      "customer_pass": "bob123pass",
+      "plan_id":0,
+      "plan_type": ""
+
+    },
+    {
+      "id": 4,
+      "customer_name": "Alice Brown",
+      "customer_phone": 3333333333,
+      "customer_address": "246 Elm St",
+      "customer_email": "alice.brown@example.com",
+      "customer_pass": "alicepass789",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 5,
+      "customer_name": "Charlie Davis",
+      "customer_phone": 7777777777,
+      "customer_address": "135 Maple Dr",
+      "customer_email": "charlie.davis@example.com",
+      "customer_pass": "charlie456pass",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 6,
+      "customer_name": "Eva White",
+      "customer_phone": 8888888888,
+      "customer_address": "579 Cedar Ln",
+      "customer_email": "eva.white@example.com",
+      "customer_pass": "evapass789",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 7,
+      "customer_name": "David Lee",
+      "customer_phone": 4444444444,
+      "customer_address": "753 Birch Rd",
+      "customer_email": "david.lee@example.com",
+      "customer_pass": "davidpass123",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 8,
+      "customer_name": "Grace Taylor",
+      "customer_phone": 6666666666,
+      "customer_address": "910 Pine Ave",
+      "customer_email": "grace.taylor@example.com",
+      "customer_pass": "gracepass567",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 9,
+      "customer_name": "Frank Martin",
+      "customer_phone": 2222222222,
+      "customer_address": "364 Oak Ln",
+      "customer_email": "frank.martin@example.com",
+      "customer_pass": "frankpass987",
+      "plan_id":0,
+      "plan_type": ""
+    },
+    {
+      "id": 10,
+      "customer_name": "Helen Adams",
+      "customer_phone": 9999999999,
+      "customer_address": "101 Maple Blvd",
+      "customer_email": "helen.adams@example.com",
+      "customer_pass": "helenpass456",
+      "plan_id":0,
+      "plan_type": ""
+    }
+  ],
+  "plans": [
+    {
+      "id": 1,
+      "name": "individual plan",
+      "internet": "High Speed",
+      "speed": "100 Mbps",
+      "calls": "Unlimited",
+      "cost": "₹50"
+    },
+    {
+      "id": 2,
+      "name": "Basic Monthly Plan",
+      "internet": "High Speed",
+      "speed": "100 Mbps",
+      "calls": "Unlimited",
+      "cost": "₹150"
+    },
+    {
+      "id": 3,
+      "name": "Basic Monthly Plan",
+      "internet": "High Speed",
+      "speed": "100 Mbps",
+      "calls": "Unlimited",
+      "cost": "₹500"
+    },
+    {
+      "id": 4,
+      "name": "Basic Monthly Plan",
+      "internet": "High Speed",
+      "speed": "100 Mbps",
+      "calls": "Unlimited",
+      "cost": "₹1000"
+    },
+    {
+      "id": 5,
+      "name": "Basic Monthly Plan",
+      "internet": "High Speed",
+      "speed": "100 Mbps",
+      "calls": "Unlimited",
+      "cost": "₹5000"
+    },
+    {
+      "id": 6,
+      "name": "Basic Monthly Plan",
+      "internet": "High Speed",
+      "speed": "100 Mbps",
+      "calls": "Unlimited",
+      "cost": "₹2500"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,255 @@
+/* *{
+  top: 0;
+  bottom: 0;
+}
+
+.plan-header {
+    padding: 0px;
+    color: white;
+    text-align: center;
+  }
+  
+  .plan-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px;
+  }
+  
+  .cost {
+    font-weight: bold;
+  }
+  
+  .card-container {
+    width: 400px; 
+    height: 10px;
+    margin: auto; 
+    margin-top: 20px; 
+    
+  }
+  
+  .mat-list-item {
+    display: block;
+  
+  }
+  .custom-card {
+    border-radius: 10px; 
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;}
+   .custom-button {
+    
+    color: #ce3f3f;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  } 
+  
+  .custom-button {
+    background: linear-gradient(to right, #03a9f4,#03a9f4);
+    
+  }
+  .custom-button:hover{
+  
+  transition: ease-out;
+  
+  }
+
+  .editShowCss{
+    border-radius: 10px;
+    padding: 20px;
+    border: solid 2px black;
+    background-color:#03a9f4;
+    color: black;
+    
+}
+
+.WholePage{
+  height: 120vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.0x1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.button{
+  justify-content: space-between;
+} */
+
+
+
+.super-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width:100%;
+}
+
+.subscription-card {
+  margin: 20px;
+  width: 500px; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.subscription-card:hover {
+  transform: scale(1.05);
+}
+
+.plan-header {
+  padding: 30px;
+  background: linear-gradient(to right, #0288d1, #03a9f4);
+  color: #fff;
+  
+  text-align: center;
+  font-size: 1.8em;
+  border-bottom: 2px solid #01579b;
+}
+
+.plan-details {
+  padding: 30px;
+  
+}
+
+.plan-details p {
+  
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.plan-details strong {
+  color: #0288d1;
+}
+
+.plan-details p:last-child {
+  margin-bottom: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  margin-top: 30px;
+}
+
+.custom-button {
+  background-color: #03a9f4;
+  color: #fff;
+  
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 15px 25px;
+}
+
+.custom-button:hover {
+  background-color: #0288d1;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.change-plan-button {
+  background-color: #ffc107; 
+  color: #333; 
+  border: none;
+  border-radius: 25px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 15px 25px;
+}
+
+.change-plan-button:hover {
+  background-color: #ffca28; 
+}
+
+.unsubscribe-button {
+  background-color: #e74c3c; 
+  color: #fff;
+  border: none;
+  border-radius: 25px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 15px 25px;
+}
+
+.unsubscribe-button:hover {
+  background-color: #c0392b; 
+}
+
+
+.plan-header {
+  background-color: #2196F3; 
+  color: white;
+  padding: 10px;
+  border-radius: 4px 4px 0 0; 
+}
+
+
+.plan-details p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333; 
+}
+
+
+/* .plan-details p::before {
+  content: '•'; 
+  color: #2196F3; 
+  font-weight: bold;
+  display: inline-block;
+  width: 20px; 
+  margin-right: 5px;
+} */
+
+
+button.mat-button {
+  border-radius: 2px;
+}
+
+
+button.mat-button {
+  transition: all 0.3s ease-out;
+}
+
+button.mat-button:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+
+.change-plan-button {
+  background-color: #ffeb3b; 
+  color: #333;
+}
+
+
+.unsubscribe-button {
+  background-color: #f44336; 
+  color: white;
+}
+
+
+button.mat-button {
+  font-weight: bold;
+} 
+
+

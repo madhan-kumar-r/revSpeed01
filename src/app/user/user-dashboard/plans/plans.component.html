@@ -1,0 +1,118 @@
+<!-- <div class="card-container" >
+    <mat-card class="custom-card">
+      <div class="plan-header" style="background: linear-gradient(to right,  #03a9f4,#03a9f4 ); ">
+        <h2>My Plan</h2>
+      </div>
+
+      <mat-list>
+        <mat-list-item>
+        {{planDetails?.plan_name}}
+      </mat-list-item>
+        <mat-list-item>
+          <strong>{{planDetails?.billing_cycle}}</strong>
+        </mat-list-item>
+        <hr/>
+        <mat-list-item>
+          <strong>Speed</strong> 
+        </mat-list-item>
+        <mat-list-item>
+          <strong>{{planDetails?.plan_speed}}</strong>   
+        </mat-list-item>
+        
+       
+        <hr/> -->
+        <!-- <mat-list-item>
+          <strong>Calls</strong> 
+        </mat-list-item>
+        <br/>
+        <mat-list-item>
+          <strong></strong> Unlimited
+        </mat-list-item>
+        <br/>
+        <mat-divider></mat-divider> -->
+        
+        <!-- <div class="plan-footer">
+          <span class="cost">{{planDetails?.plan_price}}</span>
+          <button mat-raised-button color="primary" class="custom-button" style="color: white;" (click)="UChange()">Change/Add</button>
+          
+          <button mat-raised-button color="primary" class="custom-button" style="color: white;" (click)="UnSubToggle()">Unsubscribe</button>
+        </div>
+      </mat-list>
+    </mat-card>
+  </div>
+
+  <div class="WholePage" *ngIf="USsure">
+    <div class="editShowCss">
+    <h2 style="color: white;">Are You Sure?</h2>
+    <div style="display: flex;" class="button"><button (click)="unsub()">Yes</button> <button (click)="UnSubToggle()">No</button></div>
+    </div>
+  </div>
+
+
+  <div class="WholePage" *ngIf="USchange">
+    <div class="editShowCss">
+    
+    <h2 style="color: white;">Are You Sure to change or add?</h2>
+    <div style="display: flex;" class="button"><button>Yes</button> <button (click)="UChange()">No</button></div>
+    </div>
+  </div> -->
+  <div >
+
+    <div class="super-container" *ngIf="yesplan">
+      <mat-card class="subscription-card" >
+      <div class="plan-header">{{planDetails?.plan_type}}</div>
+        <div class="plan-details">
+          <p><strong>Plan:</strong>{{planDetails?.plan_name}}</p>
+          <p><strong>Duration:</strong>{{planDetails?.billing_cycle}}</p>
+          <p><strong>Speed:</strong>{{planDetails?.plan_speed}} </p>
+          <p><strong>Price:</strong> {{planDetails?.plan_price}}</p>
+         
+          <div class="button-container">
+          <button mat-button class="change-plan-button" (click)="OpenAdd()"> Change/Add plan</button>
+          <button mat-button class="unsubscribe-button" (click)="OpenDialog()">Unsubscribe plan</button>
+          
+        </div>
+  
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  
+  
+  <div class="super-container" *ngIf="noplan">
+    <mat-card class="subscription-card" >
+      <div class="plan-header">{{planDetails?.plan_type}}
+  </div>
+  
+    <div class="plan-details">
+      <p>OOps! You have no current Active plan please Add Plan </p>
+  
+      <div class="button-container">
+  <button mat-button class="change-plan-button" (click)="route()"> Add plan</button>
+  </div>
+  </div>
+  </mat-card>
+  </div>
+  
+  <!-- <div class="super-container">
+    <mat-card class="subscription-card">
+      <div class="plan-image-container">
+        
+        <img class="image" src="https://th.bing.com/th?id=OIP.roeJGz3eeyhxK3XRQ0LxpQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="Plan Image">
+      </div>
+      <div class="plan-header">Basic</div>
+      <div class="plan-details">
+        <p>Unlimited Internet</p>
+        <p>Up to 40Mbps Speed</p>
+        <p>Unlimited Local/STD Calls</p>
+      </div>
+      <div class="button-container">
+        <button mat-button class="change-plan-button">Change/Add plan</button>
+        <button mat-button class="unsubscribe-button">Unsubscribe plan</button>
+      </div>
+    </mat-card>
+  </div> -->
+  
+    
+  
+  

@@ -1,0 +1,85 @@
+.mat-grid-tile {
+    border: 1px solid rgb(226, 221, 221);
+    border-radius: 5%;
+    margin: 1px; /* Adjust this value to reduce the space */
+}
+
+.home-page-product-image {
+    max-width: 90%;
+    max-height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* styles.css or styles.scss */
+
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    margin: 1px; /* Adjust this value to reduce the space */
+}
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.product-info {
+    text-align: left;
+}
+
+.product-name {
+    margin: 0;
+    font-size: 18px;
+}
+
+.product-description {
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3em; /* Adjust based on your preference */
+    margin: 8px 0;
+}
+
+.price-section {
+    display: flex;
+    align-items: center;
+}
+
+.discounted-price {
+    color: #388e3c;
+    font-size: 20px;
+}
+
+.actual-price {
+    text-decoration: line-through;
+    color: red;
+    margin-left: 8px;
+    font-size: 16px;
+}
+/* Assuming this is the correct usage of .even-background and .odd-background */
+.even-background {
+    background-color: #f0f0f0; /* Light background color for even index */
+  }
+  
+  .odd-background {
+    background-color: #ffffff; /* White background color for odd index */
+  }
+  
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+  

@@ -1,0 +1,238 @@
+/* *{
+    top: 0;
+    bottom: 0;
+} */
+
+
+
+/* .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+   */
+
+   /* .example-card {
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(178, 241, 32, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color:;
+} */
+
+/* .example-card {
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #03a9f4;
+    border-radius: 10px;
+    
+}
+
+.example-card:hover {
+    box-shadow: 0 16px 30px rgba(18, 15, 18, 0.2);
+}
+
+/* .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 100px; /* Adjust the height based on your design 
+    border-radius: 0%; 
+} */
+/* 
+.example-header-image {
+   background-image: url('https://freesvg.org/img/abstract-user-flat-4.png');
+    background-size: cover;
+    background-position: center; 
+    height: 50px; 
+    border-radius: 40%;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+mat-card-subtitle {
+    color: #555;
+}
+
+mat-card-image {
+    max-height: 200px; 
+    object-fit: cover;
+}
+
+mat-card-content {
+    padding: 15px;
+}
+
+hr {
+    border: 0.5px solid #ddd;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.button:hover {
+    background-color: #01579b;
+}
+
+
+.cancel {
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.cancel:hover {
+    background-color: #01579b;
+}
+
+
+
+.editShowCss{
+    border-radius: 10px;
+    padding: 20px;
+    border: solid 2px black;
+    background-color:#01579b;
+    color: black;
+    
+}
+.WholePage{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.0x1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+
+
+
+
+ 
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }  */
+
+  /* .example-form {
+   
+    min-width: 250px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+ 
+  } */
+  
+
+
+  .super-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    
+  }
+
+  .example-form {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+   
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Super shadow effect */
+}
+
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  mat-label, input, textarea {
+    color: #3f51b5; /* Set indigo blue as the text color */
+  }
+
+  mat-form-field {
+    width: 100%;
+   
+        box-shadow: 0 2px 4px #1a237e; /* Add a subtle shadow effect to the input fields */
+    }
+
+  mat-form-field:hover {
+    box-shadow: 0 4px 8px #0d47a1; /* Increase shadow on hover */
+    
+  }
+  
+  
+.profile-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture {
+    width: 100px; /* Adjust the width of the profile picture as needed */
+    height: 100px; /* Adjust the height of the profile picture as needed */
+    border-radius: 50%; /* Make it a circular profile picture */
+    margin-right: 10px; /* Add some space to the right of the profile picture */
+  }
+  
+ 
+.profile-name {
+    color: #1a237e;
+    font-size: 1.5em; /* Increase the font size for a more attractive look */
+    font-weight: bold;
+    text-transform: uppercase; /* Convert the text to uppercase */
+    letter-spacing: 2px; /* Add letter spacing for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+  }
