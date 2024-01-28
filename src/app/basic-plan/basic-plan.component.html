@@ -1,4 +1,4 @@
-<!-- <nav class="nav">
+<nav class="nav">
   <a href="#" class="logo logo1">Rev Speed</a>
   <ul class="nav-links">
     <li><a class="logo" href="#">Profile</a></li>
@@ -6,13 +6,13 @@
     
   </ul>
   <button class="logout">Log Out</button>
-</nav> -->
+</nav>
 
 <div [ngClass]="{'blur': isRechargeDialogOpen}" class="container"></div>
-<div style="padding-top: 8vh;" class="toggle-buttons">
+<div style="padding-top: 8vh;" class="toggle-buttons" >
   <mat-button-toggle-group [(ngModel)]="selectedType" class="toggle-group">
-    <mat-button-toggle value="individual" class="toggle-button" (click)="selectType('individual')">Individual</mat-button-toggle>
-    <mat-button-toggle value="business" class="toggle-button" (click)="selectType('business')">Business</mat-button-toggle>
+    <mat-button-toggle  mat-raised-button color="primary" value="individual" class="toggle-button" (click)="selectType('individual')">Individual</mat-button-toggle>
+    <mat-button-toggle  mat-raised-button color="primary" value="business" class="toggle-button" (click)="selectType('business')">Business</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 
@@ -30,9 +30,8 @@
 
     <mat-card-content>
       <div class="icons">
-        <img class="icon" src={{plan.plan_icon_1}} alt="JioTV logo">
-        <img class="icon" src={{plan.plan_icon_2}} alt="Netflix logo">
-        <!-- <div class="more-info">+2 more</div> -->
+        <img class="icon" src={{plan.plan_icon_1}}>
+        <img class="icon" src={{plan.plan_icon_2}}>
       </div>
 
       <div class="details-info" >
@@ -47,13 +46,11 @@
       </div>
     </mat-card-content>
 
-   
-<button mat-raised-button color="primary" (click)="openRechargeDialog(plan)">Recharge</button>
+ <div class="recharge-viewDe">
+<button mat-raised-button color="primary" (click)="openRechargeDialog(plan)" class="re">Recharge</button>
+<button mat-raised-button color="primary" (click)="openDetailsModal(plan)" class="de">View Details</button>
+ </div>  
 
-    <!-- <mat-card-actions class="card-footer">
-      <button mat-button class="button primary" aria-label="Recharge" (click)="recharge(plan.id, plan.plan_type)">Recharge</button>
-      <button mat-button class="button tertiary" aria-label="View details">View details</button>
-    </mat-card-actions> -->
   </mat-card>
 </div>
 

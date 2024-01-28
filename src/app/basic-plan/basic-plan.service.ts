@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, tap ,of} from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { b_plans, i_plans } from '../../../card';
-import { Iuser } from '../../user';
+import { users } from '../../../users';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasicPlanService {
-  private url='http://localhost:3000/customer_data';
-  private individualPlansUrl = 'http://localhost:3000/broadband_plans';
-  private businessPlansUrl = 'http://localhost:3000/business_plans';
+  private baseUrl = 'http://localhost:3000';
+  private customerDataUrl = `${this.baseUrl}/customer_data`;
+  private individualPlansUrl = `${this.baseUrl}/home_plans`;
+  private businessPlansUrl = `${this.baseUrl}/business_plans`;
 
-  constructor(private http: HttpClient,private snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   selectedPlans: any[] = [];
 
@@ -23,23 +24,26 @@ export class BasicPlanService {
   }
 
   getBusinessPlans(): Observable<b_plans[]> {
-    
-    
     return this.http.get<b_plans[]>(this.businessPlansUrl);
   }
-  getUserProfile(id:number):Observable<Iuser> {
-    console.log(`Fetching user profile for ID: ${id}`);
-    const urlid=`${this.url}/${id}`;
-  return this.http.get<Iuser>(urlid);
+
+  getUserProfile(id: number): Observable<users> {
+    const url = `${this.baseUrl}/customer_data/${id}`;
+    return this.http.get<users>(url);
   }
-  rereq(id: number, type: string, user: Iuser): Observable<Iuser> {
-    console.log(user.plan_id);
 
-    user.plan_id = id;
-    user.plan_type = type;
+  rereq(id: number, type: string, user: any): Observable<users> {
+    if (type === 'individual') {
+      user.home_plan_id = id;
+      user.business_plan_id = 0; // Set business_plan_id to 0 for individual plan
+    } else if (type === 'business') {
+      user.business_plan_id = id;
+      user.home_plan_id = 0; // Set home_plan_id to 0 for business plan
+    }
 
-    console.log(user.plan_type);
-    return this.http.put<Iuser>(this.url, user).pipe(
+    const url = `${this.baseUrl}/customer_data/${user.id}`;
+
+    return this.http.put<users>(url, user).pipe(
       catchError(error => {
         console.error('error adding plan failed', error);
 
@@ -53,4 +57,3 @@ export class BasicPlanService {
     );
   }
 }
-

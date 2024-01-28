@@ -1,0 +1,48 @@
+<!-- view-details.component.html -->
+
+<div class="modal-header">
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content>
+  <mat-card class="data-plan-card">
+    <mat-card-header>
+      <mat-card-title >₹{{ plan?.plan_price }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>{{ plan?.plan_name }}</h2>
+      <table class="details-info">
+        <tr>
+          <td class="info-title">Speed</td>
+          <td class="info-value">{{ plan?.plan_speed }}</td>
+        </tr>
+        <tr>
+          <td class="info-title">Internet</td>
+          <td class="info-value">{{ plan?.plan_data }}</td>
+        </tr>
+        <tr>
+          <td class="info-title">Voice</td>
+          <td class="info-value">Unlimited</td>
+        </tr>
+        <tr>
+          <td class="info-title">SMS</td>
+          <td class="info-value">Unlimited</td>
+        </tr>
+      </table>
+      <h3 class ="Subscriptions">Subscriptions</h3>
+        <div  class="subscription-icon">
+          <img class="icon" src={{plan.plan_icon_1}}>
+          <img class="icon" src={{plan.plan_icon_2}}>
+        </div>
+      
+
+     </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <!-- No recharge button -->
+  <button mat-button (click)="closeModal()">Close</button>
+</mat-dialog-actions>

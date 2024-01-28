@@ -1,30 +1,24 @@
-import { HttpClient } from '@angular/common/http';
-
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BasicPlanService } from './basic-plan.service';
 import { i_plans,b_plans } from '../../../card';
-import { Iuser } from '../../user';
+import { users } from '../../../users';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-
-
-
-
 import { MatDialog } from '@angular/material/dialog';
 import { RechargeDialogComponent } from '../recharge-dialog/recharge-dialog.component';
+import { ViewDetailsComponent } from '../view-details/view-details.component';
 
 @Component({
   selector: 'app-basic-plan',
-  templateUrl: './basic-plan.component (1).html',
-  styleUrls: ['./basic-plan.component (1).css']
+  templateUrl: './basic-plan.component.html',
+  styleUrls: ['./basic-plan.component.css']
 })
 export class BasicPlanComponent implements OnInit {
-  updatedUser: Iuser | undefined;
-  userProfile: Iuser | undefined;
+  updatedUser: users | undefined;
+  userProfile: users | undefined;
   plans: i_plans[] = [];
   bplans: b_plans[] = [];
   selectedType: string = 'individual';
+  selectedPlan : any;
 
   constructor(private basicPlanService: BasicPlanService, private snackBar: MatSnackBar, public dialog: MatDialog,private cdr: ChangeDetectorRef) {}
 
@@ -33,10 +27,15 @@ export class BasicPlanComponent implements OnInit {
     const id: number = 1;
     this.basicPlanService.getUserProfile(id).subscribe(data => {
       this.userProfile = data;
-      console.log(this.userProfile?.plan_id);
+      if (this.userProfile?.plan_type === 'business') {
+        console.log(this.userProfile?.business_plan_id);
+      } else if (this.userProfile?.plan_type === 'individual') {
+        console.log(this.userProfile?.home_plan_id);
+      }
     });
   }
-
+  
+  
   selectType(type: string): void {
     if (type === 'individual') {
       this.basicPlanService.getIndividualPlans().subscribe((plans) => {
@@ -58,23 +57,26 @@ export class BasicPlanComponent implements OnInit {
   }
 
   recharge(id: number, type: string): void {
-    debugger
+    
     console.log(type);
 
     if (this.userProfile) {
-      this.basicPlanService.rereq(id, type, this.userProfile).subscribe(
+      // Use the correct plan type when calling rereq method
+      const planType = type === 'business' ? 'business' : 'individual';
+  
+      this.basicPlanService.rereq(id, planType, this.userProfile).subscribe(
         updatedUserData => {
           this.updatedUser = updatedUserData;
           console.log('User profile updated:', updatedUserData);
-
+  
           // Show success message
           this.snackBar.open('Recharge successful', 'Close', {
-            duration: 3000,  // Duration in milliseconds
+            duration: 3000,
           });
         },
         error => {
           console.error('updated', error);
-
+  
           // Show error message
           this.snackBar.open('Recharge failed', 'Close', {
             duration: 3000,
@@ -89,7 +91,7 @@ export class BasicPlanComponent implements OnInit {
 
   openRechargeDialog(plan: any): void {
     // Set the flag to blur the background
-    debugger
+    
     this.blurBackground = true;
 
     // Open the MatDialog with the plan data
@@ -102,7 +104,7 @@ export class BasicPlanComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       // Reset the background blur flag
       this.blurBackground = false;
-      debugger
+      
 
       if (result === 'confirmed') {
         // Call the recharge method if confirmed
@@ -110,11 +112,23 @@ export class BasicPlanComponent implements OnInit {
       }
     });
   }
+
+  // To display the details  of the plans when user clicks the view-details button
+
+  openDetailsModal(plan:any): void {
+    this.selectedPlan = plan;
+  
+    const dialogRef = this.dialog.open(ViewDetailsComponent, {
+      width: '80%',
+      height: 'auto',
+      maxWidth: '400px',
+      maxHeight: '500px',
+      panelClass: 'custom-modal-container',
+      data: { plan: this.selectedPlan } 
+    });
+  }
+
 }
-  
-
-
-  
 
 
 
