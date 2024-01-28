@@ -4,6 +4,7 @@ import { RegisterService } from '../../register/register.service';
 import { Component, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-set-password',
   templateUrl: './set-password.component.html',
@@ -17,42 +18,38 @@ export class SetPasswordComponent {
   showConfirmPassword: boolean = false;
   showPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder,private studentService: RegisterService,private router: Router) {
+  constructor(private _fb: FormBuilder, private studentService: RegisterService, private router: Router) {
     this.signUpForm = _fb.group({
-      
-   
-      email: ['', [ Validators.required, Validators.pattern(this.emailRegex) ]],
-      
-      password: ['', [ Validators.required ]],
-      
+      email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+      newPassword: ['', [Validators.required, Validators.minLength(8)]],
+      confirmationPassword: ['', [Validators.required, Validators.minLength(8)]],
     },
     {
-      validators: this.passwordMatch('password', 'confirm_password')
+      validators: this.passwordMatch('newPassword', 'confirmationPassword')
     });
   }
 
-  passwordMatch(controlName: string, matchingControlName: string){
+  passwordMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName],
-            matchingControl = formGroup.controls[matchingControlName];
-      if(control.value.length > 0 && matchingControl.value.length > 0) {
-        if( control.value !== matchingControl.value) {
+        matchingControl = formGroup.controls[matchingControlName];
+      if (control.value.length > 0 && matchingControl.value.length > 0) {
+        if (control.value !== matchingControl.value) {
           matchingControl.setErrors({ passwordMatch: true });
-        }
-        else if(matchingControl.errors && !matchingControl.errors['passwordMatch']){
+        } else if (matchingControl.errors && !matchingControl.errors['passwordMatch']) {
           return;
-        }
-        else if(control.value == matchingControl.value) {
+        } else if (control.value === matchingControl.value) {
           matchingControl.setErrors(null);
         }
       }
-    }
+    };
   }
 
-  signUpClickHandler(){
+  signUpClickHandler() {
     console.log(this.signUpForm.value);
-    if(this.signUpForm.valid){
-      const data=this.signUpForm.value;
+    if (this.signUpForm.valid) {
+      const data = this.signUpForm.value;
+      console.log(data);
       this.studentService.registerSet(data).subscribe(
         (response) => {
           console.log('Registration successful:', response);
@@ -66,8 +63,8 @@ export class SetPasswordComponent {
     }
   }
 
-  onChange(event: any){
-    if(event.checked == false) {
+  onChange(event: any) {
+    if (event.checked === false) {
       this.signUpForm.get('check')?.setErrors({
         required: true
       });

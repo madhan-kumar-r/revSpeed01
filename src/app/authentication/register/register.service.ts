@@ -25,12 +25,12 @@ export class RegisterService {
   }
   registerPass(student: any): Observable<any> {
     console.log(student);
-    return this.http.post<any>(this.apiUrlll, student);
+    return this.http.put<any>(this.apiUrlll, student);
   }
 
   registerSet(student: any): Observable<any> {
     console.log(student);
-    return this.http.post<any>(this.apiUrllll, student);
+    return this.http.patch<any>(this.apiUrllll, student);
   }
 
 

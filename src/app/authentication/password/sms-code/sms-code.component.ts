@@ -50,10 +50,16 @@ export class SmsCodeComponent {
     }
   }
 
-  signUpClickHandler(){
+  signUpClickHandler() {
     console.log(this.signUpForm.value);
-    if(this.signUpForm.valid){
-      const data=this.signUpForm.value;
+    if (this.signUpForm.valid) {
+      // Clone the form value to avoid modifying the original form object
+      const data = { ...this.signUpForm.value };
+      
+      // Change the property name from 'password' to 'otp'
+      data.otp = data.password;
+      delete data.password;  // Remove the 'password' property
+      console.log(data);
       this.studentService.registerPass(data).subscribe(
         (response) => {
           console.log('Registration successful:', response);
@@ -67,6 +73,7 @@ export class SmsCodeComponent {
       );
     }
   }
+  
 
   onChange(event: any){
     if(event.checked == false) {
