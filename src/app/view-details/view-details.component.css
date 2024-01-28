@@ -1,0 +1,165 @@
+/* view-details.component.css */
+
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.data-plan-card {
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  border-radius: 8px;
+}
+
+.data-plan-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-title {
+  font-size: 28px;
+  color: #b71c1c; /* Darker red color */
+}
+
+.mat-card-subtitle {
+  font-size: 16px;
+  color: #b71c1c;
+}
+
+.mat-card-header {
+  background-color: #1976d2;
+  color: white;
+  padding: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.details-info {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.info-title,
+.info-value {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  color: black; /* Text color */
+}
+
+.info-title {
+  font-weight: bold;
+}
+
+.subscriptions-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  padding-bottom: 16px;
+}
+
+mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+mat-icon:hover {
+  transform: scale(1.2);
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 0 16px 16px;
+}
+
+@media (max-width: 768px) {
+  .data-plan-card {
+    max-width: 100%;
+    margin: 8px;
+    border-radius: 0;
+  }
+
+  .modal-header,
+  .details-section,
+  mat-dialog-actions {
+    padding: 8px;
+  }
+
+  .mat-card-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+/* view-details.component.css */
+/* ... Existing styles ... */
+
+.Subscriptions{
+  color: #000;
+}
+
+.subscriptions-section {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.subscription-icon {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.subscription-icon img {
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.subscription-icon img:hover {
+  transform: scale(1.1);
+}
+
+.subscription-icon div {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* view-details.component.css */
+
+.subscription-icon {
+  display: flex;
+  justify-content: space-evenly; /* Adjust as needed */
+}
+
+.icon {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  margin-right: 5px; /* Adjust the gap between icons as needed */
+}
+
+
+/* ... Remaining existing styles ... */
