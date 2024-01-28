@@ -5,140 +5,7 @@
 
 /* Navbar */
 
-/* Add these styles to the existing CSS file */
 
-/* Navbar */
-
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.nav {
-  z-index: 9999;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 15px 20px; /* Adjusted padding for smaller screens */
-  background: #3f51b5;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav .nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.nav .logo {
-  font-size: 22px;
-  font-weight: 500;
-}
-
-.logo:hover {
-  color: red;
-}
-
-.logo1 {
-  cursor: pointer;
-  display: none;
-}
-
-.nav .nav-links li {
-  cursor: pointer;
-}
-
-.nav-button {
-  background: #3f51b5;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 2px 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.nav-button:hover {
-  background: linear-gradient(90deg, #3f51b5 0%, #0D47A1 100%);
-}
-
-.logout {
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  font-size: large;
-  color: #ffffff;
-  padding: 2px;
-  transition: background 0.3s;
-  background-color: #3f51b5;
-}
-
-.logout:hover {
-  color: #3f51b5;
-  background-color: #ffffff;
-  border: solid black 1px;
-}
-
-/* Responsive */
-
-@media screen and (max-width: 768px) {
-  .nav {
-    padding: 15px 10px; /* Adjusted padding for smaller screens */
-  }
-
-  .logo1 {
-    display: block;
-  }
-
-  .nav .nav-links {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #11101d;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav.openNav .nav-links {
-    display: flex;
-  }
-
-  .nav .nav-links li {
-    padding: 10px;
-  }
-
-  .nav .logout {
-    display: none;
-  }
-
-  .nav .navCloseBtn {
-    display: block;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .nav .navCloseBtn:hover {
-    color: red;
-  }
-}
-
-
-/* 
 * {
   margin: 0;
   padding: 0;
@@ -259,7 +126,7 @@ a {
 }
 
 /* responsive */
-/* @media screen and (max-width: 1160px) {
+@media screen and (max-width: 1160px) {
   .nav {
     padding: 15px 100px;
   }
@@ -327,32 +194,30 @@ a {
     transform: translateX(50%);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-} */ 
+}
 
 
 /* Viewplans */
 
 
 .toggle-buttons {
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
 .toggle-button {
-  font-family: "Poppins", sans-serif;
-  background: #3f51b5;
+  /* background: linear-gradient(90deg, #2196F3 0%, #1976D2 100%); */
   color: #ffffff;
-  border-radius: 5px;
-  padding: 2px 8px;
+  border-radius: 15px;
+  padding: 6px 12px;
   cursor: pointer;
+  margin-top: 40px;
+  background-color: #3f51b5;
 }
 
-
-
 .toggle-button.active {
-  background: linear-gradient(90deg,#3f51b5 0%, #0D47A1 100%);
+  background: linear-gradient(90deg, #1565C0 0%, #0D47A1 100%);
   border: 2px solid #1976D2;
 }
 
@@ -366,7 +231,6 @@ body {
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
-  margin-top: 100px;
 }
 
 /* ... (existing styles) ... */
@@ -538,3 +402,19 @@ button {
 }
 
 /* ... (the rest of your existing CSS) */
+
+
+
+/* Add this to your styles.css or view-details.component.css */
+
+.recharge-viewDe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.recharge-viewDe button {
+  flex: 1;
+  margin-right: 18px; /* Adjust the margin between buttons as needed */
+}
