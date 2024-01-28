@@ -11,21 +11,21 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>First Name:-</mat-label>
-      <input matInput placeholder="First_Name" id="fname" formControlName="customer_fname" value="{{userProfile?.customer_fname}}">
+      <input matInput placeholder="First_Name" id="fname" formControlName="firstname" value="{{userProfile?.firstname}}">
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Last Name:-</mat-label>
-      <input matInput placeholder="Last_Name" id="lname" formControlName="customer_lname" value="{{userProfile?.customer_lname}}">
+      <input matInput placeholder="Last_Name" id="lname" formControlName="lastname" value="{{userProfile?.lastname}}">
     </mat-form-field>
     
     <mat-form-field class="example-full-width">
       <mat-label>Phone number:-</mat-label>
-      <input matInput placeholder="phone number" id="num" value="{{ userProfile?.customer_phone }}" formControlName="customer_phone">
+      <input matInput placeholder="phone number" id="phone" value="{{ userProfile?.phone }}" formControlName="phone">
     </mat-form-field>
   
     <mat-form-field class="example-full-width">
       <mat-label>Address:-</mat-label>
-      <textarea matInput placeholder="Address"  id="add" formControlName="customer_address" value="{{ userProfile?.customer_address }}"></textarea>
+      <textarea matInput placeholder="Address"  id="address" formControlName="address" value="{{ userProfile?.address }}"></textarea>
     </mat-form-field>
 
     <div class="button-container">

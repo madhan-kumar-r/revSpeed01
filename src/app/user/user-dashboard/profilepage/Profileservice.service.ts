@@ -9,6 +9,7 @@ import { Observable,catchError,of } from 'rxjs';
 export class ProfileService {
 
   private url: string = 'http://localhost:8080/api/v1/auth/udetails';
+  private upurl:string ='http://localhost:8080/api/v1/auth/upCustomer';
 
   bid!: number;
   hid!: number;
@@ -25,7 +26,7 @@ export class ProfileService {
   return this.http.get<Iuser>(urlid);
   }
   updateUserProfile(userProfile: Iuser): Observable<Iuser> {
-    const userUrl = `${this.url}/${userProfile.id}`;
+    const userUrl = `${this.upurl}/${userProfile.id}`;
     return this.http.put<Iuser>(userUrl,userProfile)
      .pipe(
       catchError(error => {
@@ -80,8 +81,8 @@ this.uid=id;
       this.duserprofile=detail;
 
       console.log(this.duserprofile.id);
-      console.log(this.duserprofile.customer_buisness_plan_id);
-      console.log(this.duserprofile.customer_home_plan_id);
+      console.log(this.duserprofile.business_plan_id);
+      console.log(this.duserprofile.home_plan_id);
     }
 
 

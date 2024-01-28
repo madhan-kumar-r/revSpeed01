@@ -36,12 +36,12 @@ export class PlansComponent implements OnInit {
       
           this.userProfile=data;
           this.basicPlanService.setdetails(this.userProfile);
-          this.basicPlanService.setPlanid(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id);
+          this.basicPlanService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
           
           
          
        
-        this.basicPlanService.getPlans(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id).subscribe(data=>{
+        this.basicPlanService.getPlans(this.userProfile.business_plan_id,this.userProfile.home_plan_id).subscribe(data=>{
           
           this.planDetails=data;
            this.planDetails.id=data.id;
