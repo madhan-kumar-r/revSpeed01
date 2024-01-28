@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { Iuser } from '../../../../user';
+=======
+import { Iuser } from '../../user';
+>>>>>>> origin/BazeerFront
 import { Observable,catchError,of } from 'rxjs';
 
 @Injectable({
@@ -8,8 +12,10 @@ import { Observable,catchError,of } from 'rxjs';
 })
 export class ProfileService {
 
-  private url:string="http://localhost:3000/customer_data";
-  id!: number;
+  private url: string = 'http://localhost:8080/api/v1/auth/udetails';
+
+  bid!: number;
+  hid!: number;
   uid!:number;
   name !: string;
   private duserprofile !: Iuser ;
@@ -29,20 +35,26 @@ export class ProfileService {
       catchError(error => {
         console.error('Error updating profile', error);
         throw error;
+        return of(userProfile);
   })
      );
 }
 
 
    
-     setPlanid(id:number):void
+     setPlanid(bid:number,hid:number):void
     {
-        this.id=id;
+        this.bid=bid;
+        this.hid=hid;
     }
 
-    getPlanid():number
+    getPlanbid():number
     {
-return this.id;
+return this.bid;
+    }
+
+    getplanhid():number{
+      return this.hid;
     }
 
     
@@ -72,8 +84,8 @@ this.uid=id;
       this.duserprofile=detail;
 
       console.log(this.duserprofile.id);
-      console.log(this.duserprofile.plan_id);
-      console.log(this.duserprofile.plan_type);
+      console.log(this.duserprofile.customer_buisness_plan_id);
+      console.log(this.duserprofile.customer_home_plan_id);
     }
 
 

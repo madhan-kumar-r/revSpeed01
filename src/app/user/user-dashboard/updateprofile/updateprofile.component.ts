@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ProfileService } from '../profilepage/Profileservice.service';
-import { Iuser } from '../../../../user';
+import { Iuser } from '../../user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -20,13 +20,13 @@ export class UpdateprofileComponent {
 
   constructor(private UserProfileService: ProfileService, private fb: FormBuilder,private router: Router) { 
     this.profileForm = this.fb.group({
-      customer_name:[{ value:'',},],
+      customer_fname:[{ value:'',},],
+      customer_lname:[{ value:'',},],
      customer_phone: [{ value:'',},],
       customer_email: [{value:'', disabled: true}, ],
       customer_address: [{ value:'',}, ],
       customer_pass:[{value:'',disabled: true},],
-      plan_id: [{value:'', disabled: true}, ],
-      plan_type: [{value:'', disabled: true},],
+      
  });
 
   }
@@ -40,17 +40,19 @@ export class UpdateprofileComponent {
       console.log("customer_phone",this.userProfile.customer_phone);
       console.log("customer_address",this.userProfile.customer_address);
       this.UserProfileService.setdetails(this.userProfile);
-      this.UserProfileService.setPlanid(this.userProfile.plan_id);
-      this.UserProfileService.setPlanname(this.userProfile.plan_type);
+      this.UserProfileService.setPlanid(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id);
+      
     
      this.profileForm.patchValue({
-       customer_name: data.customer_name,
+       customer_fname: data.customer_fname,
+       customer_lname: data.customer_lname,
        customer_phone: data.customer_phone,
        customer_email: data.customer_email,
        customer_address: data.customer_address,
        customer_pass:data.customer_pass,
-       plan_id: data.plan_id,
-       plan_type: data.plan_type
+       customer_business_plan_id:data.customer_buisness_plan_id,
+       customer_home_plan_id:data.customer_home_plan_id,
+       customere_no_plan_id:data.customer_no_plan_id
   
   
   
@@ -61,7 +63,7 @@ export class UpdateprofileComponent {
   }
   Cancel() {
     // Navigate to ProfilePageComponent
-    this.router.navigate(['/dashboard/profile']);
+    this.router.navigate(['/udashboard/uprofile']);
   }
  
 Save()
@@ -82,7 +84,7 @@ Save()
           console.log('Profile updated successfully',updatedProfile);
           this.userProfile = updatedProfile;
 
-          this.router.navigate(['/dashboard/profile']);
+          this.router.navigate(['/udashboard/uprofile']);
          
        
       },

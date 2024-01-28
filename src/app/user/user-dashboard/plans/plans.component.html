@@ -56,7 +56,7 @@
     <div style="display: flex;" class="button"><button>Yes</button> <button (click)="UChange()">No</button></div>
     </div>
   </div> -->
-  <div *ngIf="userProfile?.plan_type && userProfile?.plan_id">
+  <div >
 
     <div class="super-container" *ngIf="yesplan">
       <mat-card class="subscription-card" >
@@ -76,7 +76,7 @@
         </div>
       </mat-card>
     </div>
-    </div>
+  </div>
   
   
   <div class="super-container" *ngIf="noplan">

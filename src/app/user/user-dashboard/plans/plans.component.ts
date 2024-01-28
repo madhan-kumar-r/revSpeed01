@@ -4,7 +4,7 @@ import { i_plans } from './plans';
 import { ProfileService } from '../profilepage/Profileservice.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Iuser } from '../../../../user';
+import { Iuser } from '../../user';
 import { Location } from '@angular/common';
 
 
@@ -36,12 +36,12 @@ export class PlansComponent implements OnInit {
       
           this.userProfile=data;
           this.basicPlanService.setdetails(this.userProfile);
-          this.basicPlanService.setPlanid(this.userProfile.plan_id);
+          this.basicPlanService.setPlanid(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id);
           
-          this.basicPlanService.setPlanname(this.userProfile.plan_type);
+          
          
        
-        this.basicPlanService.getPlans(this.userProfile.plan_type,this.userProfile.plan_id).subscribe(data=>{
+        this.basicPlanService.getPlans(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id).subscribe(data=>{
           
           this.planDetails=data;
            this.planDetails.id=data.id;
