@@ -15,3 +15,8 @@
   top: 0;
   z-index: 1;
 }
+
+.mat-toolbar > .mat-mdc-button-base {
+  /* To Fix Hamburger Menu Padding  */
+  display: flex;
+}
