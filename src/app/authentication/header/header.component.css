@@ -1,3 +1,5 @@
+/* app.component.scss */
+
 .header {
   position: sticky;
   z-index: 100;
@@ -10,103 +12,86 @@
   font-size: 14px;
   display: flex;
   color: white;
-  padding-right: 8px;
-  padding-bottom: 8px;
+  padding: 8px;
 }
 
 .header_menu {
   display: flex;
-  padding: 10px 8px 8px 8px;
-  width: 100%;
-}
-
-.header_menu > div {
-  margin: 8px;
+  align-items: center;
 }
 
 .header_menu_icon > mat-icon {
   font-size: 30px;
-  align-items: center;
+}
+
+.header_menu_item {
+  margin: 0 8px;
+  cursor: pointer;
 }
 
 .header_menu_searchbar {
   display: flex;
-  margin-top: 8px;
-  height: 40px;
-  justify-content: center;
-  flex: 1;
+  margin-left: auto;
+  align-items: center;
 }
 
 .header_menu_input {
-  height: 20px;
-  padding: 10px;
+  height: 30px;
+  padding: 8px;
+ 
+  margin-right: 5px;
+  margin-left: 200px;
   border: none;
-  width: 100%;
 }
 
 .header_menu_searchbar_icon {
   background-color: #febd69;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   color: black;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-}
-
-.header_menu_logo {
-  object-fit: contain;
-  width: 40px; /* Adjust the width to your preference */
-  height: 40px; /* Adjust the height to your preference */
-  margin: 0px 20px 0px 2px; /* Adjust the margin as needed */
-}
-.header_menu_logoo {
-  object-fit: contain;
-  width: 100px; /* Adjust the width to your preference */
-  height: 100px; /* Adjust the height to your preference */
-  margin: 0px 00px 0px 0px; /* Adjust the margin as needed */
+  cursor: pointer;
 }
 
 .header_menu_signin {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center-align the items */
+  align-items: center;
+  margin-left: 16px;
+  cursor: pointer;
 }
 
 .header_menu_top_item {
-  font-size: 10px;
+  font-size: 12px;
   color: lightgray;
 }
 
 .header_menu_bottom_item {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 
-.header_menu_cart {
-  display: flex;
-  margin-top: 10px;
-  margin-left: 8px;
-  height: 50px;
-  justify-content: space-around;
+/* Adjust margin for HELP item */
+.header_menu_item:last-child {
+  margin-right: 106px; /* Add or adjust the right margin as needed */
 }
 
-.header_cart_number {
-  color: #febd69;
-  font-size: 25px;
-  font-weight: 800;
-}
+/* Additional styles for responsiveness */
+@media screen and (max-width: 600px) {
+  .header_menu {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-.header_bottom {
-  height: 49px;
-  background-image: none;
-  background-color: #232f3e;
-  padding-left: 8px;
-  font-size: 12px;
-}
+  .header_menu_searchbar {
+    margin-left: 0;
+    margin-top: 8px;
+  }
 
-.header_bottom_location_text {
-  color: white;
-  display: flex;
-  flex-direction: column;
+  .header_menu_signin {
+    margin-left: 0;
+    margin-top: 8px;
+  }
 }

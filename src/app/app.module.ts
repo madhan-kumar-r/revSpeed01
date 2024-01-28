@@ -42,7 +42,6 @@ import { BasicPlanComponent } from './basic-plan/basic-plan.component';
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
 import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
 import { UserModule } from './user/user.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
@@ -53,9 +52,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-=======
 import { ViewDetailsComponent } from './view-details/view-details.component';
->>>>>>> 4a870685c16d03f118a40120cce1367396f92acd
 
 @NgModule({
   declarations: [
@@ -80,13 +77,10 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     UserPlanComponent,
     UserPlanComponent,
     RechargeDialogComponent,
-<<<<<<< HEAD
-=======
     ViewDetailsComponent
     
    
 
->>>>>>> 4a870685c16d03f118a40120cce1367396f92acd
   ],
   imports: [
     BrowserModule,

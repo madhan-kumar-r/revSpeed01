@@ -1,35 +1,24 @@
+<!-- app.component.html -->
+
 <div class="header">
   <nav class="header_top">
     <div class="header_menu">
       <div class="header_menu_icon" routerLink="/">
         <mat-icon>menu</mat-icon>
-        
       </div>
-      <div>
-        <span>
-          PREPAID</span>
-      </div>
-      <div>
-        <span>
-          POSTPAID</span>
-      </div>
-      <div>
-        <span>BROADBAND</span>
-      </div>
-      <div>
-        <span>DTH</span>
-      </div>
-      <div>
-        <span>BANK
-        </span>
-      </div>
-      <div>
-        <span>HELP
-        </span>
-      </div>
-      <!-- <p><img routerLink="/authentication/new-login" src="https://www.brandbucket.com/sites/default/files/logo_uploads/542186/large_internetdraft.png" class="header_menu_logoo" alt=""></p> -->
+      <div routerLink="/" class="header_menu_item">PREPAID</div>
+      <div routerLink="/" class="header_menu_item">POSTPAID</div>
+      <div routerLink="/" class="header_menu_item">BROADBAND</div>
+      <div routerLink="/" class="header_menu_item">DTH</div>
+      <div routerLink="/" class="header_menu_item">BANK</div>
+      <div routerLink="/" class="header_menu_item">HELP</div>
+      <div routerLink="/" class="header_menu_item">HELP</div>
+      <div routerLink="/" class="header_menu_item">HELP</div>
+      <div routerLink="/" class="header_menu_item">HELP</div>
+      
+      <div routerLink="/" class="header_menu_item">HELP</div>
       <div class="header_menu_searchbar">
-        <input type="text" class="header_menu_input">
+        <input type="text" class="header_menu_input" placeholder="Search">
         <div class="header_menu_searchbar_icon">
           <mat-icon>search</mat-icon>
         </div>
@@ -38,22 +27,14 @@
         <span class="header_menu_top_item">Hello, Sign in</span>
         <span class="header_menu_bottom_item">Accounts</span>
       </div>
-      
-       <div routerLink="/login" class="header_menu_signin">
+      <div routerLink="/login" class="header_menu_signin">
         <span class="header_menu_top_item">Offers</span>
         <span class="header_menu_bottom_item">& Orders</span>
+        
       </div>
-      
-      <p><img routerLink="/authentication/login" src="https://play-lh.googleusercontent.com/o_marlQxApv-XgaZ0dnwRJ6nfTItE5LIilzMNL3VBXTj5NT9s7vPKh5YcgMBZ9sU0g=w480-h960-rw" class="header_menu_logo" alt=""></p>
-      <p><img routerLink="/authentication/login" src="https://assets.airtel.in/static-assets/new-home/img/airtel-store.svg" class="header_menu_logo" alt=""></p> 
-      <p><img routerLink="/authentication/login" src="https://www.myvi.in/content/dam/vodafoneideadigital/newhomepage/Icon_Mobile-1.svg" class="header_menu_logo" alt=""></p>
-
+      <div>
+        <mat-icon>account_circle</mat-icon>
+      </div>
     </div>
   </nav>
-  <!-- <nav class="header_bottom">
-    <div class="header_bottom_location_text">
-      <span class="header_left_line_one"></span>
-      <span class="header_left_line_two"><strong></strong></span>
-    </div>
-  </nav> -->
 </div>
