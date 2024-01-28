@@ -23,6 +23,11 @@ body {
 	border-radius: 50%;
 	margin-right: 25px;
   }
+  h1 {
+    text-align: center;
+    color: #ebdbdb; /* Add your preferred text color */
+    margin-top: 20px;
+  }
   .img-area img {
 	width: 100%;
   }
