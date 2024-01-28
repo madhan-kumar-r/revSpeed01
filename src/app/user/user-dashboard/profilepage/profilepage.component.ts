@@ -23,39 +23,39 @@ export class ProfilepageComponent implements OnInit{
 
   constructor(private UserProfileService: ProfileService, private fb: FormBuilder) { 
     this.profileForm = this.fb.group({
-      customer_fname:[{ value:'',disabled: this.isEnabled}, Validators.required],
-      customer_lname:[{ value:'',disabled: this.isEnabled}, Validators.required],
-     customer_phone: [{ value:'',disabled: this.isEnabled}, Validators.required],
-      customer_email: [{value:'', disabled: true}, Validators.required],
-      customer_address: [{ value:'',disabled: this.isEnabled}, Validators.required],
-      customer_pass:[{value:'',disabled: true},Validators.required],
+     firstname:[{ value:'',disabled: this.isEnabled}, Validators.required],
+      lastname:[{ value:'',disabled: this.isEnabled}, Validators.required],
+     phone: [{ value:'',disabled: this.isEnabled}, Validators.required],
+      email: [{value:'', disabled: true}, Validators.required],
+      address: [{ value:'',disabled: this.isEnabled}, Validators.required],
+      password:[{value:'',disabled: true},Validators.required],
      
     });
 
 }
 ngOnInit() {
   console.log("im on it");
-    const id:number=1704;  
+    const id:number=1;  
    this.UserProfileService.getUserProfile(id).subscribe(data=>{
     
     this.userProfile=data;
-    console.log(this.userProfile.customer_phone);
-    console.log(this.userProfile.customer_address);
+    console.log(this.userProfile.phone);
+    console.log(this.userProfile.address);
     this.UserProfileService.setdetails(this.userProfile);
-    this.UserProfileService.setPlanid(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id);
+    this.UserProfileService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
     this.UserProfileService.setuserid(this.userProfile.id);
    
   
    this.profileForm.patchValue({
-     customer_fname: data.customer_fname,
-     customer_lname: data.customer_lname,
-     customer_phone: data.customer_phone,
-     customer_email: data.customer_email,
-     customer_address: data.customer_address,
-     customer_pass:data.customer_pass,
-     customer_business_plan_id:data.customer_buisness_plan_id,
-     customer_home_plan_id:data.customer_home_plan_id,
-     customere_no_plan_id:data.customer_no_plan_id
+    firstname: data.firstname,
+     lastname: data.lastname,
+     phone: data.phone,
+     email: data.email,
+     address: data.address,
+     password:data.password,
+     business_plan_id:data.business_plan_id,
+    home_plan_id:data.home_plan_id,
+     no_plan_id:data.no_plan_id
   
 
 
@@ -64,9 +64,9 @@ ngOnInit() {
   
   
 });
-this.profileForm.get('customer_fname')?.valueChanges.subscribe((name: string) => {
+this.profileForm.get('firstname')?.valueChanges.subscribe((name: string) => {
   if (!this.isEnabled) {
-    this.userProfile.customer_fname= name;
+    this.userProfile.firstname= name;
   }
 });
 }

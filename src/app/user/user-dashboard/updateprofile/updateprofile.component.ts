@@ -20,12 +20,12 @@ export class UpdateprofileComponent {
 
   constructor(private UserProfileService: ProfileService, private fb: FormBuilder,private router: Router) { 
     this.profileForm = this.fb.group({
-      customer_fname:[{ value:'',},],
-      customer_lname:[{ value:'',},],
-     customer_phone: [{ value:'',},],
-      customer_email: [{value:'', disabled: true}, ],
-      customer_address: [{ value:'',}, ],
-      customer_pass:[{value:'',disabled: true},],
+      firstname:[{ value:'',},],
+      lastname:[{ value:'',},],
+     phone: [{ value:'',},],
+      email: [{value:'', disabled: true}, ],
+      address: [{ value:'',}, ],
+      password:[{value:'',disabled: true},],
       
  });
 
@@ -38,21 +38,22 @@ export class UpdateprofileComponent {
       
       this.userProfile=data;
       console.log("customer_phone",this.userProfile.customer_phone);
-      console.log("customer_address",this.userProfile.customer_address);
+      console.log("customer_address",this.userProfile.address);
       this.UserProfileService.setdetails(this.userProfile);
-      this.UserProfileService.setPlanid(this.userProfile.customer_buisness_plan_id,this.userProfile.customer_home_plan_id);
+      this.UserProfileService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
       
     
      this.profileForm.patchValue({
-       customer_fname: data.customer_fname,
-       customer_lname: data.customer_lname,
-       customer_phone: data.customer_phone,
-       customer_email: data.customer_email,
-       customer_address: data.customer_address,
-       customer_pass:data.customer_pass,
-       customer_business_plan_id:data.customer_buisness_plan_id,
-       customer_home_plan_id:data.customer_home_plan_id,
-       customere_no_plan_id:data.customer_no_plan_id
+      firstname: data.firstname,
+      lastname: data.lastname,
+      phone: data.phone,
+      email: data.email,
+      address: data.address,
+      password:data.password,
+      business_plan_id:data.business_plan_id,
+     home_plan_id:data.home_plan_id,
+      no_plan_id:data.no_plan_id
+   
   
   
   
