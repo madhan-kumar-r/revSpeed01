@@ -4,15 +4,16 @@
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(90deg,
-            rgba(252, 70, 107, 1) 0%,
-            rgba(107, 63, 251, 0.7483) 100%);
+    background: rgb(132, 128, 128);
 }
 
 .sign-up-wrapper {
-    background-color: aliceblue;
+    background-color: white;
     padding: 20px;
     border-radius: 50px;
+    border-radius: 15px; /* Adjusted border-radius for a softer look */
+    border: 1px solid #ddd; /* Add a border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     
 }
 

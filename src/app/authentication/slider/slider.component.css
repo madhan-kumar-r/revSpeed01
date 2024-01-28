@@ -39,4 +39,21 @@
     cursor: pointer;
     font-size: 16px;
   }
-  
+  @media only screen and (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .gender-age-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sign-up-wrapper {
+        padding: 20px; /* Adjusted padding for smaller screens */
+        margin: 0;
+        box-shadow: none; /* Remove box shadow for smaller screens */
+        border-radius: 10px;
+    }
+}

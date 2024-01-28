@@ -2,13 +2,15 @@
   <div>
 
     <!-- Header Section -->
-    <div class="form-header">
-      <mat-icon class="lock">lock</mat-icon>
-      <h1>Log In</h1>
-    </div>
+   
 
     <!-- Form Section -->
     <form #login="ngForm" (ngSubmit)="loginSubmit(login)">
+      <div class="form-header">
+        <mat-icon class="lock">lock</mat-icon>
+        <h1>Log In</h1>
+      </div>
+  
 
       <!-- Email Field -->
       <div>

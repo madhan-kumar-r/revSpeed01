@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Iuser } from './user';
+import { Iuser } from './app/user/user';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { UserPlanComponent } from './app/user-plan/user-plan.component';

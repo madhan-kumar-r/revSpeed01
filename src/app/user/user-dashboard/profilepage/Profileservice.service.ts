@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
-import { Iuser } from '../../../../user';
-=======
 import { Iuser } from '../../user';
->>>>>>> origin/BazeerFront
 import { Observable,catchError,of } from 'rxjs';
 
 @Injectable({
