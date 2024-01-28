@@ -149,11 +149,15 @@ value={{ userProfile.customer_address }}</textarea
   <form class="example-form">
     <div class="profile-container">
       <img class="profile-picture" src="https://picsum.photos/1000" alt="Profile Picture">
-      <div class="profile-name">{{ userProfile?.customer_name }}</div>
+      <div class="profile-name">{{ userProfile?.customer_fname }}</div>
     </div>
     <mat-form-field class="example-full-width">
-      <mat-label>Profile Name:</mat-label>
-      <input matInput placeholder="NAME" value="{{userProfile?.customer_name}}" readonly>
+      <mat-label>First Name:</mat-label>
+      <input matInput placeholder="First_Name" value="{{userProfile?.customer_fname}}" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name:</mat-label>
+      <input matInput placeholder="Last_Name" value="{{userProfile?.customer_lname}}" readonly>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Phone number:</mat-label>

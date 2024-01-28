@@ -43,12 +43,13 @@
         <mat-list-item class="profile-icon" (click)="toggleDropdown()">
           
           <img src="https://picsum.photos/1000" alt="Profile" class="profile-img" >
-          <mat-icon class="dropdown-arrow" [matMenuTriggerFor]="dropdownMenu">dropdown-arrow</mat-icon>
+          
+          <mat-icon class="dropdown-arrow" [matMenuTriggerFor]="dropdownMenu">keyboard_arrow_down</mat-icon>
           <mat-menu  #dropdownMenu="matMenu">
-            <button mat-menu-item routerLink="/dashboard">Dashboard</button>
-            <button mat-menu-item routerLink="/profile">Profile</button>
-            <button mat-menu-item routerLink="/plan">My Plans</button>
-            <button mat-menu-item routerLink="/updateprofile">Update Profile</button>
+            <button mat-menu-item routerLink="/udashboard/uprofile">Dashboard</button>
+            <button mat-menu-item routerLink="/udashboard/uprofile">Profile</button>
+            <button mat-menu-item routerLink="/udashboard/uplan">My Plans</button>
+            <button mat-menu-item routerLink="/udashboard/updateprofile">Update Profile</button>
           </mat-menu>
         </mat-list-item>
       </div>

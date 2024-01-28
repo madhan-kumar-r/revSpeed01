@@ -2,27 +2,36 @@ import { Observable, catchError } from 'rxjs';
 import { i_plans } from './plans';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Iuser } from '../../../user';
+import { Iuser } from '../../user';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasicPlanService {
-  id!:number;
+  bid!:number;
+  hid!:number;
   name!:string;
-  private url="http://localhost:3000/customer_data";
-  private plansUrl = 'http://localhost:3000';
+  private url="localhost:8080/api/v1/auth/upCustomer";
+  private bplansUrl = 'localhost:8080/ubusinessplans/';
+  private hplansUrl='localhost:8080/uhomeplans/';
+  private noplansUrl='localhost:8080/noplans/0';
+  
   duserprofile!:Iuser;
   constructor(private http: HttpClient) { }
-  setPlanid(id:number):void
+  setPlanid(bid:number,hid:number):void
   {
-      this.id=id;
+      this.bid=bid;
+      this.hid=hid;
   }
 
-  getPlanid():number
+  getPlanbid():number
   {
-return this.id;
+return this.bid;
+  }
+
+  getplanhid():number{
+    return this.hid;
   }
 
   
@@ -35,10 +44,21 @@ return this.id;
   {
 return this.name;
   }
-  getPlans(name:string,id:number): Observable<i_plans>
+  getPlans(bid:number,hid:number): Observable<i_plans>
    {
-    const urlid=`${this.plansUrl}/${name}/${id}`;
+    if(bid!=0 && hid==0)
+    {
+    const urlid=`${this.bplansUrl}/${bid}`;
     return this.http.get<i_plans>(urlid);
+    }
+    else if(bid==0 && hid!=0){
+   const urlid=`${this.hplansUrl}/${hid}`;
+   return this.http.get<i_plans>(urlid);
+    }
+    else{
+      
+   return this.http.get<i_plans>(this.noplansUrl);
+    }
   }
   getUserProfile(id:number):Observable<Iuser> {
     const urlid=`${this.url}/${id}`;
@@ -53,11 +73,12 @@ return this.name;
   {
     console.log("entered proser unsub");
     
-    this.duserprofile.plan_id=0;
-    this.duserprofile.plan_type="No_plan";
+    this.duserprofile.customer_buisness_plan_id=0;
+    this.duserprofile.customer_home_plan_id=0;
+    
     console.log(this.duserprofile.id);
-    console.log(this.duserprofile.plan_id);
-    console.log(this.duserprofile.plan_type);
+    console.log(this.duserprofile.customer_buisness_plan_id);
+    console.log(this.duserprofile.customer_home_plan_id);
 
     const userUrl = `${this.url}/${this.duserprofile.id}`;
   return  this.http.put<Iuser>(userUrl,this.duserprofile) .pipe(
