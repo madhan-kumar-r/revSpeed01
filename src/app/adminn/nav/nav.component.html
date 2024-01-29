@@ -1,4 +1,26 @@
 <style>
+  .sidenav-container {
+    height: 100%;
+  }
+
+  .sidenav {
+    width: 250px;
+  }
+
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .mat-toolbar > .mat-mdc-button-base {
+    display: flex;
+  }
+
   a {
     display: flex;
     align-items: center;
@@ -6,15 +28,19 @@
 
   .mat-icon {
     vertical-align: middle;
-    margin-right: 8px;
   }
 
   .span {
     vertical-align: middle;
+    margin-left: 8px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
   }
 </style>
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" color="primary">
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -23,29 +49,45 @@
     [mode]="(isMobile$ | async) ? 'over' : 'side'"
     [opened]="!(isMobile$ | async)"
   >
-    <mat-toolbar></mat-toolbar>
+    <!-- <mat-toolbar></mat-toolbar> -->
+
     <mat-nav-list>
-      <a mat-list-item routerLink="/adminn/dashboard">
+      <a class="nav-list" mat-list-item>
+        <mat-icon class="mat-icon">account_circle</mat-icon>
+        <span class="span">User</span>
+      </a>
+    </mat-nav-list>
+
+    <p style="margin-top: 10px; margin-left: 5px; font-weight: bold">Pages</p>
+    <mat-nav-list>
+      <a class="nav-list" mat-list-item routerLink="/adminn/dashboard">
         <mat-icon class="mat-icon">dashboard</mat-icon>
         <span class="span">Dashboard</span>
       </a>
     </mat-nav-list>
     <mat-nav-list>
-      <a mat-list-item routerLink="/adminn/customer-data"
+      <a class="nav-list" mat-list-item routerLink="/adminn/customer-data"
         ><mat-icon class="mat-icon">account_circle</mat-icon>
         <span class="span">Users</span></a
       >
     </mat-nav-list>
     <mat-nav-list>
-      <a mat-list-item routerLink="/adminn/broadband-plans"
-        ><mat-icon class="mat-icon">signal_cellular_4_bar</mat-icon
-        ><span class="span">Plans</span></a
+      <a class="nav-list" mat-list-item routerLink="/adminn/broadband-plans"
+        ><mat-icon class="mat-icon">signal_cellular_4_bar</mat-icon>
+        <span class="span">Plans</span></a
       >
     </mat-nav-list>
     <mat-nav-list>
-      <a mat-list-item routerLink="/adminn/business-plans"
-        ><mat-icon class="mat-icon">signal_cellular_alt</mat-icon
-        ><span class="span">Business Plans</span></a
+      <a class="nav-list" mat-list-item routerLink="/adminn/business-plans"
+        ><mat-icon class="mat-icon">signal_cellular_alt</mat-icon>
+        <span class="span">Business Plans</span></a
+      >
+    </mat-nav-list>
+    <p style="margin-top: 10px; margin-left: 5px; font-weight: bold">User</p>
+    <mat-nav-list>
+      <a class="nav-list" mat-list-item routerLink="/authentication/login"
+        ><mat-icon class="mat-icon">power_settings_new</mat-icon>
+        <span class="span">Log out</span></a
       >
     </mat-nav-list>
   </mat-sidenav>
@@ -59,7 +101,15 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Admin</span>
+      <span>Admin Dashboard</span>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>account_circle</mat-icon>
+      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

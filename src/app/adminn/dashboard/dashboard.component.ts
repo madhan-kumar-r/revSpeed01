@@ -2,10 +2,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import Chart from 'chart.js/auto';
-
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,16 +15,11 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'customer_name',
-    'customer_phone',
     'customer_address',
+    'customer_phone',
     'customer_email',
-    'plan_id',
-    'plan_type',
   ];
   dataSource!: MatTableDataSource<any>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   customersWithPlan: any[] = [];
   customersWithoutPlan: any[] = [];
@@ -35,11 +29,6 @@ export class DashboardComponent implements OnInit {
   public barChart: any;
 
   constructor(private userService: UsersService) {}
-
-  dataSourceWithPlan = new MatTableDataSource<any>([]);
-  dataSourceWithoutPlan = new MatTableDataSource<any>([]);
-  dataSourceIndividual = new MatTableDataSource<any>([]);
-  dataSourceBusiness = new MatTableDataSource<any>([]);
 
   ngOnInit() {
     this.userService.getUsers().subscribe((customerData: any[]) => {
@@ -51,7 +40,6 @@ export class DashboardComponent implements OnInit {
         (customer) => customer.plan_id === null
       );
 
-      // Filter plan_type for 'Individual' and 'Business'
       this.customersWithPlan.forEach((customer) => {
         if (customer.plan_type === 'Individual') {
           this.individualCustomers.push(customer);
@@ -60,16 +48,9 @@ export class DashboardComponent implements OnInit {
         }
       });
 
-      // Assign data to data sources
-      this.dataSourceWithPlan.data = this.customersWithPlan;
-      this.dataSourceWithoutPlan.data = this.customersWithoutPlan;
-      this.dataSourceIndividual.data = this.individualCustomers;
-      this.dataSourceBusiness.data = this.businessCustomers;
+      this.createChart(this.customersWithPlan, this.customersWithoutPlan);
+      this.createChartTwo(this.businessCustomers, this.individualCustomers);
     });
-
-    this.createChart();
-    this.createChartTwo();
-    // this.createBarChart();
   }
 
   activeUsersTableVisible: boolean = true;
@@ -77,70 +58,49 @@ export class DashboardComponent implements OnInit {
   individualUsersTableVisible: boolean = false;
   businessUsersTableVisible: boolean = false;
 
-  showActiveUsersTable() {
-    this.activeUsersTableVisible = true;
-    this.inactiveUsersTableVisible = false;
-    this.individualUsersTableVisible = false;
-    this.businessUsersTableVisible = false;
+  toggleUserTable(table: string) {
+    this.activeUsersTableVisible = table === 'active';
+    this.inactiveUsersTableVisible = table === 'inactive';
+    this.individualUsersTableVisible = table === 'individual';
+    this.businessUsersTableVisible = table === 'business';
   }
 
-  showInactiveUsersTable() {
-    this.activeUsersTableVisible = false;
-    this.inactiveUsersTableVisible = true;
-    this.individualUsersTableVisible = false;
-    this.businessUsersTableVisible = false;
-  }
-
-  showIndividualUsersTable() {
-    this.activeUsersTableVisible = false;
-    this.inactiveUsersTableVisible = false;
-    this.individualUsersTableVisible = true;
-    this.businessUsersTableVisible = false;
-  }
-
-  showBusinessUsersTable() {
-    this.activeUsersTableVisible = false;
-    this.inactiveUsersTableVisible = false;
-    this.individualUsersTableVisible = false;
-    this.businessUsersTableVisible = true;
-  }
-
-  createChart() {
+  createChart(withPlan: any[], withoutPlan: any[]) {
     this.chart = new Chart('MyChart', {
       type: 'pie',
       data: {
         labels: ['Inactive users', 'Active users'],
         datasets: [
           {
-            data: [9, 31],
+            data: [withoutPlan.length, withPlan.length],
             backgroundColor: ['#e74c3c', '#11235A'],
             hoverOffset: 4,
           },
         ],
       },
       options: {
-        aspectRatio: 1,
+        aspectRatio: 1.5,
         responsive: true,
         maintainAspectRatio: false,
       },
     });
   }
 
-  createChartTwo() {
+  createChartTwo(businessCustomers: any[], individualCustomers: any[]) {
     this.chart = new Chart('MyChartTwo', {
       type: 'pie',
       data: {
         labels: ['Individual plan users', 'Business plan users'],
         datasets: [
           {
-            data: [19, 12],
+            data: [individualCustomers.length, businessCustomers.length],
             backgroundColor: ['#2ecc71', '#3E3232'],
             hoverOffset: 4,
           },
         ],
       },
       options: {
-        aspectRatio: 3,
+        aspectRatio: 1.5,
         responsive: true,
         maintainAspectRatio: false,
       },
