@@ -119,7 +119,11 @@ a {
   background-color: #fff;
   padding: 0 15px 0 45px;
 }
-
+h1 {
+  text-align: center;
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+}
 .nav .navOpenBtn,
 .nav .navCloseBtn {
   display: none;
@@ -319,12 +323,12 @@ body {
 }
 
 .primary {
-  background: linear-gradient(135deg, #2196F3, #1565C0); /* Blue gradient */
+  background: linear-gradient(135deg, #e0635a, #b7e67d); /* Blue gradient */
   color: #ffffff;
 }
 
 .tertiary {
-  background: linear-gradient(135deg, #81D4FA, #4FC3F7); /* Light Blue gradient */
+  background: linear-gradient(135deg, #b84444, #c7724d); /* Light Blue gradient */
   color: #333333;
   border: 1px solid #2196F3;
 }

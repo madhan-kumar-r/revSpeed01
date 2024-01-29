@@ -1,12 +1,13 @@
 
 
-<div [ngClass]="{'blur': isRechargeDialogOpen}" class="container"></div>
+<!-- <div [ngClass]="{'blur': isRechargeDialogOpen}" class="container"></div>
 <div style="padding-top: 8vh;" class="toggle-buttons" >
   <mat-button-toggle-group [(ngModel)]="selectedType" class="toggle-group">
     <mat-button-toggle  mat-raised-button color="primary" value="individual" class="toggle-button" (click)="selectType('individual')">Individual</mat-button-toggle>
     <mat-button-toggle  mat-raised-button color="primary" value="business" class="toggle-button" (click)="selectType('business')">Business</mat-button-toggle>
   </mat-button-toggle-group>
-</div>
+</div> -->
+<h1>All Plans</h1>
 
 <div class="card-container" >
   <mat-card *ngFor="let plan of getFilteredPlans()" class="card" mat-raised-button color="primary">

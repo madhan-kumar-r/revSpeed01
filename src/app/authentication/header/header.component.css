@@ -18,6 +18,8 @@
 .header_menu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .header_menu_icon > mat-icon {
@@ -33,16 +35,13 @@
 
 .header_menu_searchbar {
   display: flex;
-  margin-left: auto;
   align-items: center;
 }
 
 .header_menu_input {
   height: 30px;
   padding: 8px;
- 
-  margin-right: 5px;
-  margin-left: 410px;
+  flex-grow: 1;
   border: none;
 }
 
@@ -61,7 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 16px;
+  margin-left: 0px;
   cursor: pointer;
 }
 
@@ -75,25 +74,60 @@
   font-weight: 800;
 }
 
-/* Adjust margin for HELP item */
-.header_menu_item:last-child {
-  margin-right: 106px; /* Add or adjust the right margin as needed */
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 1200px) {
+  .header_menu_icon > mat-icon {
+    font-size: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .header_menu_item {
+    margin: 0 4px;
+  }
 }
 
-/* Additional styles for responsiveness */
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 992px) {
+  .header_menu_icon > mat-icon {
+    font-size: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .header_menu_item {
+    margin: 0 3px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  
+
+  .header_menu_icon > mat-icon {
+    display: none;
+  }
+
   .header_menu {
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: none;
+  }
+
+  .header_menu_item {
+    display: none;
   }
 
   .header_menu_searchbar {
-    margin-left: 0;
-    margin-top: 8px;
+    display: none;
   }
 
-  .header_menu_signin {
-    margin-left: 0;
-    margin-top: 8px;
+  .header_menu_input {
+    display: none;
+  }
+
+  /* Add styles for the side navigation */
+  .side_nav {
+    display: none;
+  }
+
+  .side_nav .header_menu {
+    display: none;
   }
 }

@@ -1,5 +1,6 @@
 
 <app-header></app-header>
+
 <div [ngClass]="{'blur': isRechargeDialogOpen}" class="container"></div>
 <div style="padding-top: 8vh;" class="toggle-buttons" >
   <mat-button-toggle-group [(ngModel)]="selectedType" class="toggle-group">
@@ -37,7 +38,8 @@
         </div>
       </div>
     </mat-card-content>
-
+    
+    
  <div class="recharge-viewDe">
 <button mat-raised-button color="primary" (click)="openRechargeDialog(plan)" class="re">Recharge</button>
 <button mat-raised-button color="primary" (click)="openDetailsModal(plan)" class="de">View Details</button>
@@ -46,4 +48,4 @@
   </mat-card>
 </div>
 
-
+<app-foot></app-foot>

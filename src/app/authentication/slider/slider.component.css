@@ -1,59 +1,70 @@
 /* image-carousel.component.css */
 
 .image-carousel {
-    position: relative;
-    width: 1700%; /* Adjust the width as needed */
-    max-width: 1270px; /* Set a maximum width for the carousel */
-    margin: 0 auto; /* Center the carousel horizontally */
-    overflow: hidden; /* Hide overflow to prevent extra space */
-  
-    img {
-      width: 100%; /* Make the image fill its container */
-      height: auto; /* Maintain aspect ratio */
-      display: block; /* Remove extra space below the image */
-    }
-  }
-  
-  
-  .image-container {
-    position: relative;
-    display: inline-block;
-  }
-  
+  position: relative;
+  width: 1700%; /* Adjust the width as needed */
+  max-width: 1270px; /* Set a maximum width for the carousel */
+  margin: 0 auto; /* Center the carousel horizontally */
+  overflow: hidden; /* Hide overflow to prevent extra space */
+
   img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /* Make the image fill its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
   }
-  
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.offer-button {
+  position: absolute;
+  top: 50%; /* Position at the top center */
+  left: 50px; /* Adjust left positioning as needed */
+  transform: translateY(-50%); /* Center vertically */
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 1270px) {
+  .image-carousel {
+      width: 100%; /* Adjust the width to 100% for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .input-group {
+      flex-direction: column;
+      gap: 0px;
+  }
+
+  .gender-age-wrapper {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .sign-up-wrapper {
+      padding: 20px; /* Adjusted padding for smaller screens */
+      margin: 0;
+      box-shadow: none; /* Remove box shadow for smaller screens */
+      border-radius: 10px;
+  }
+
   .offer-button {
-    position: absolute;
-    top: 50%; /* Position at the top center */
-    left: 50px; /* Adjust left positioning as needed */
-    transform: translateY(-50%); /* Center vertically */
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+      left: 10px; /* Adjust left positioning for smaller screens */
   }
-  @media only screen and (max-width: 768px) {
-    .input-group {
-        flex-direction: column;
-        gap: 0px;
-    }
-
-    .gender-age-wrapper {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .sign-up-wrapper {
-        padding: 20px; /* Adjusted padding for smaller screens */
-        margin: 0;
-        box-shadow: none; /* Remove box shadow for smaller screens */
-        border-radius: 10px;
-    }
 }

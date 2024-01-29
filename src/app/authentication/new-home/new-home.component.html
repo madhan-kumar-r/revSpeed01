@@ -2,8 +2,12 @@
 <app-tags></app-tags>
 <app-slider></app-slider>
 
-<app-basic-plan></app-basic-plan>
+
+
+
+
 <app-not-found [visible]="!foods || foods.length <= 0" resetLinkText="Reset Search"></app-not-found>
+<h1>All Services</h1>
 <ul>
     <li *ngFor="let food of foods">
         <a routerLink="/food/{{food.id}}">
@@ -46,6 +50,7 @@
     </li>
 </ul>
 <img src="https://assets.airtel.in/static-assets/safo/bb/img/fiberBannerDesktop.png">
+<app-basic-plan></app-basic-plan>
 <app-review></app-review>
 
 

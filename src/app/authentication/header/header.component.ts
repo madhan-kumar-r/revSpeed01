@@ -10,7 +10,7 @@ import { UserserviceService } from '../../user/userservice.service';
 })
 export class HeaderComponent {
   constructor(public shoppingCart: UserserviceService ) { }
-
+  
   ngOnInit(): void {
   }
   
