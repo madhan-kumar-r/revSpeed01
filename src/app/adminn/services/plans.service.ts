@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PlansService {
-  // private baseUrl = 'http://localhost:3000/broadband_plans';
+  private baseUrl = 'http://localhost:3000/broadband_plans';
 
-  private baseUrl = 'http://localhost:8080/api/v1/auth/broadband-plans';
+  //private baseUrl = 'http://localhost:8080/api/v1/auth/broadband-plans';
 
   constructor(private _http: HttpClient) {}
 
