@@ -44,6 +44,8 @@ export class BasicPlanComponent implements OnInit {
     } else if (type === 'business') {
       this.basicPlanService.getBusinessPlans().subscribe((bplans) => {
         this.bplans = bplans;
+        
+  
       });
     }
   }

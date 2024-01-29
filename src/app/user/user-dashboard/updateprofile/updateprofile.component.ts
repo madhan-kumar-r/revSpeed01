@@ -51,7 +51,7 @@ export class UpdateprofileComponent {
       address: data.address,
       password:data.password,
       business_plan_id:data.business_plan_id,
-     home_plan_id:data.home_plan_id,
+      home_plan_id:data.home_plan_id,
       no_plan_id:data.no_plan_id
    
   
