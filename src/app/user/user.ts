@@ -1,14 +1,16 @@
 export interface Iuser{
     id:number,
-    customer_fname:string,
-    customer_lname:string,
+    firstname:string,
+    lastname:string,
     customer_phone:string,
-    customer_email:string,
-    customer_address:string,
-    customer_pass:string,
-    customer_buisness_plan_id:number,
-    customer_home_plan_id:number,
-    customer_no_plan_id:number
+    email:string,
+    phone:string,
+    address:string,
+    password:string,
+    business_plan_id:number,
+    home_plan_id:number,
+    no_plan_id:number
     
 }
+
 
