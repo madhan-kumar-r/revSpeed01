@@ -53,6 +53,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ViewDetailsComponent } from './view-details/view-details.component';
+import { HomePlansComponent } from './authentication/home-plans/home-plans.component';
+import { BusinessPlansComponent } from './authentication/business-plans/business-plans.component';
+import { AboutUsComponent } from './authentication/about-us/about-us.component';
+import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,11 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     UserPlanComponent,
     UserPlanComponent,
     RechargeDialogComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
+    HomePlansComponent,
+    BusinessPlansComponent,
+    AboutUsComponent,
+    ContactUsComponent
     
    
 

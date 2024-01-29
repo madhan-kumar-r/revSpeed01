@@ -1,0 +1,49 @@
+
+<app-header></app-header>
+<div [ngClass]="{'blur': isRechargeDialogOpen}" class="container"></div>
+<div style="padding-top: 8vh;" class="toggle-buttons" >
+  <mat-button-toggle-group [(ngModel)]="selectedType" class="toggle-group">
+    <mat-button-toggle  mat-raised-button color="primary" value="individual" class="toggle-button" (click)="selectType('individual')">Individual</mat-button-toggle>
+    <mat-button-toggle  mat-raised-button color="primary" value="business" class="toggle-button" (click)="selectType('business')">Business</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div class="card-container" >
+  <mat-card *ngFor="let plan of getFilteredPlans()" class="card" mat-raised-button color="primary">
+    <mat-card-header mat-raised-button color="primary" class="card-header">
+      <div mat-card-avatar class="header-avatar"></div>
+      <mat-card-title>
+        <h3 class="card-price">₹{{ plan.plan_price }}</h3>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <div class="badge" mat-raised-button color="primary" >{{ plan.plan_name }}</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="icons">
+        <img class="icon" src={{plan.plan_icon_1}}>
+        <img class="icon" src={{plan.plan_icon_2}}>
+      </div>
+
+      <div class="details-info" >
+        <div class="info">
+          <div class="info-title">Speed</div>
+          <div class="info-value">{{ plan.plan_speed }}</div>
+        </div>
+        <div class="info">
+          <div class="info-title">Internet</div>
+          <div class="info-value">{{ plan.plan_data }}</div>
+        </div>
+      </div>
+    </mat-card-content>
+
+ <div class="recharge-viewDe">
+<button mat-raised-button color="primary" (click)="openRechargeDialog(plan)" class="re">Recharge</button>
+<button mat-raised-button color="primary" (click)="openDetailsModal(plan)" class="de">View Details</button>
+ </div>  
+
+  </mat-card>
+</div>
+
+
