@@ -38,25 +38,38 @@
       </div>
 
       <!-- Email Address -->
-      <div>
+      <!-- Email Address and Phone Number -->
+<div class="input-group">
+  <mat-form-field appearance="outline">
+    <mat-label>Email Address</mat-label>
+    <input type="email" matInput formControlName="email" />
+    <mat-icon 
+      class="error-icon" 
+      matSuffix
+      [ngStyle]="( getControl('email_address')?.dirty || getControl('email')?.touched ) &&
+        ( getControl('email_address')?.hasError('required') || getControl('email_address')?.hasError('pattern') ) ? 
+        {'visibility': 'visible'}:{'visibility': 'hidden'}"
+      [matTooltip]="getControl('email_address')?.hasError('required') ? 
+        'Email field if required' : ( !getControl('email_address')?.hasError('required') && 
+        getControl('email_address')?.hasError('pattern')) ? 'Please write valid email' : ''"
+    >info</mat-icon>
+  </mat-form-field>
 
-        <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Email Address</mat-label>
-          <input type="email" matInput formControlName="email" />
-          <mat-icon 
-          class="error-icon" 
-          matSuffix
-          [ngStyle]="( getControl('email_address')?.dirty || getControl('email')?.touched ) &&
-            ( getControl('email_address')?.hasError('required') || getControl('email_address')?.hasError('pattern') ) ? 
-            {'visibility': 'visible'}:{'visibility': 'hidden'}"
+  <mat-form-field appearance="outline">
+    <mat-label>Phone Number</mat-label>
+    <input type="tel" matInput formControlName="phone" />
+    <mat-icon
+      class="error-icon"
+      matSuffix
+      [ngStyle]="(getControl('phone')?.dirty || getControl('phone')?.touched) &&
+        getControl('phone')?.hasError('required') ? {'visibility': 'visible'} : {'visibility': 'hidden'}"
+      [matTooltip]="'Phone Number field is required'"
+    >
+      info
+    </mat-icon>
+  </mat-form-field>
+</div>
 
-          [matTooltip]="getControl('email_address')?.hasError('required') ? 
-          'Email field if required' : ( !getControl('email_address')?.hasError('required') && 
-          getControl('email_address')?.hasError('pattern')) ? 'Please write valid email' : ''"
-          >info</mat-icon>
-        </mat-form-field>
-
-      </div>
 
       
 
@@ -117,6 +130,10 @@
           >info</mat-icon>
         </mat-form-field>
       </div>
+      
+      
+      
+      
 
       <!-- Check Box -->
 
@@ -133,6 +150,7 @@
       <div class="log-in-btn">
         <a routerLink="/authentication/login">Already Have An Account ? <strong>Login</strong></a>
       </div>
+      
 
     </form>
 

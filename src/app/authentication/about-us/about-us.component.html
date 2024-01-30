@@ -1,1 +1,11 @@
-<p>about-us works!</p>
+<!-- ott-benefits.component.html -->
+<div class="ott-benefits-wrapper">
+    <h2>OTT Benefits</h2>
+    <ul>
+      <li *ngFor="let benefit of ottBenefits">
+        <h3>{{ benefit.title }}</h3>
+        <p>{{ benefit.description }}</p>
+        <img src="{{ benefit.url }}" alt="{{ benefit.title }}">
+      </li>
+    </ul>
+</div>

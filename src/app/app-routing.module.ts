@@ -18,6 +18,7 @@ import { PlansComponent } from './user/user-dashboard/plans/plans.component';
 import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
 import { BusinessPlansComponent } from './authentication/business-plans/business-plans.component';
 import { HomePlansComponent } from './authentication/home-plans/home-plans.component';
+import { AboutUsComponent } from './authentication/about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
@@ -50,10 +51,13 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
-  },
+  }, 
   {
     path: 'register', component: RegisterComponent 
  },
+ {
+  path: 'aboutus', component: AboutUsComponent 
+},
  
 // { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
 { path: 'adminn', loadChildren: () => import('./adminn/adminn.module').then((m) => m.AdminnModule) },

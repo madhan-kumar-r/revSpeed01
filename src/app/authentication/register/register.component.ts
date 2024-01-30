@@ -24,6 +24,7 @@ export class RegisterComponent {
       firstname: ['', [ Validators.required ]],
       lastname: ['', [ Validators.required ]],
       email: ['', [ Validators.required, Validators.pattern(this.emailRegex) ]],
+      phone: ['', [Validators.required, Validators.pattern(this.integreRegex)]],
       
       password: ['', [ Validators.required ]],
       confirm_password: ['', [ Validators.required ]],
