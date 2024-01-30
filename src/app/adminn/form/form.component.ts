@@ -23,11 +23,11 @@ export class FormComponent implements OnInit {
     private _coreService: CoreService
   ) {
     this.planForm = this._fb.group({
-      billing_cycle: '',
-      plan_name: '',
-      plan_speed: '',
+      billingCycle: '',
+      planName: '',
+      planSpeed: '',
       // speed: '',
-      plan_price: '',
+      planPrice: '',
     });
   }
 

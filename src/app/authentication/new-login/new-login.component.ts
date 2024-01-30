@@ -6,12 +6,16 @@ import { User } from '../../model/user.interface';
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from '../login/login.service';
 
+import { AdmindataService } from '../../adminn/admindata.service';
+import { Admin } from '../../adminn/Admin';
+
 @Component({
   selector: 'app-new-login',
   templateUrl: './new-login.component.html',
   styleUrls: ['./new-login.component.css'],
 })
 export class NewLoginComponent {
+  Profile!: Admin;
   email_pattern =
     /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
   password_pattern =
@@ -20,7 +24,8 @@ export class NewLoginComponent {
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private roleService: RoleService
+    private roleService: RoleService,
+    private adminDataService: AdmindataService
   ) {}
   goToRegister(): void {
     // Navigate to the registration page
@@ -53,6 +58,13 @@ export class NewLoginComponent {
           console.log('hi');
           this.router.navigate(['/adminn/dashboard']);
         }
+
+        const mail = formData.value.email;
+        this.adminDataService.getUserProfile(mail).subscribe((data) => {
+          console.log((this.Profile = data));
+          localStorage.setItem('profiledata', JSON.stringify(this.Profile));
+          localStorage.setItem('token', JSON.stringify(response));
+        });
 
         // Redirect based on the user's role
       },

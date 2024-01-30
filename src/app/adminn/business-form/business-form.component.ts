@@ -23,11 +23,11 @@ export class BusinessFormComponent {
     private _coreService: CoreService
   ) {
     this.businessForm = this._fb.group({
-      billing_cycle: '',
-      plan_name: '',
-      plan_speed: '',
+      billingCycle: '',
+      planName: '',
+      planSpeed: '',
       // speed: '',
-      plan_price: '',
+      planPrice: '',
     });
   }
 

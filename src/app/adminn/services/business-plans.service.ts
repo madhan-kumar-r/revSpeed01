@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BusinessPlansService {
-  private baseUrl = 'http://localhost:3000/business_plans';
-  // private baseUrl = 'http://localhost:8080/api/v1/auth/business-plans';
+  // private baseUrl = 'http://localhost:3000/business_plans';
+  private baseUrl = 'http://localhost:8080/api/v1/auth/business-plans';
 
   constructor(private _http: HttpClient) {}
 

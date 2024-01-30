@@ -5,6 +5,7 @@ import Chart from 'chart.js/auto';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Admin } from '../Admin';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,18 +33,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe((customerData: any[]) => {
-      this.customersWithPlan = customerData.filter(
-        (customer) => customer.plan_id !== null
+      const userCustomers = customerData.filter(
+        (customer) => customer.role === 'USER'
       );
 
-      this.customersWithoutPlan = customerData.filter(
-        (customer) => customer.plan_id === null
+      this.customersWithPlan = userCustomers.filter(
+        (customer) =>
+          customer.businessPlan !== null || customer.homePlan !== null
+      );
+
+      this.customersWithoutPlan = userCustomers.filter(
+        (customer) =>
+          customer.businessPlan === null && customer.homePlan === null
       );
 
       this.customersWithPlan.forEach((customer) => {
-        if (customer.plan_type === 'Individual') {
+        if (customer.homePlan !== null) {
           this.individualCustomers.push(customer);
-        } else if (customer.plan_type === 'Business') {
+        } else if (customer.businessPlan !== null) {
           this.businessCustomers.push(customer);
         }
       });
