@@ -30,6 +30,11 @@
     vertical-align: middle;
   }
 
+  .mat-icon-user {
+    height: 24px;
+    width: 24px;
+  }
+
   .span {
     vertical-align: middle;
     margin-left: 8px;
@@ -37,6 +42,12 @@
 
   .example-spacer {
     flex: 1 1 auto;
+  }
+
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Optional: For rounded profile images */
   }
 </style>
 
@@ -53,8 +64,13 @@
 
     <mat-nav-list>
       <a class="nav-list" mat-list-item>
-        <mat-icon class="mat-icon">account_circle</mat-icon>
-        <span class="span">User</span>
+        <!-- <mat-icon class="mat-icon-user">account_circle</mat-icon> -->
+        <img
+          class="profile-image"
+          src="https://w7.pngwing.com/pngs/811/233/png-transparent-computer-icons-user-login-desktop-others-blue-computer-prints-thumbnail.png"
+          alt="Profile Image"
+        />
+        <span class="span">{{ admin.firstname }}</span>
       </a>
     </mat-nav-list>
 

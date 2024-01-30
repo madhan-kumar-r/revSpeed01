@@ -12,12 +12,14 @@ import { MatSort } from '@angular/material/sort';
 export class CustomerDataComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'customer_name',
+    'first_name',
+    'last_name',
     'customer_phone',
     'customer_address',
     'customer_email',
-    'plan_id',
-    'plan_type',
+    'business_plan_id',
+    'home_plan_id',
+    // 'plan_type',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -31,8 +33,11 @@ export class CustomerDataComponent implements OnInit {
 
   getUsersList() {
     this.usersService.getUsers().subscribe({
-      next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+      next: (res: any[]) => {
+        // Filter users with role "USER"
+        const filteredUsers = res.filter((user) => user.role === 'USER');
+
+        this.dataSource = new MatTableDataSource(filteredUsers);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       },

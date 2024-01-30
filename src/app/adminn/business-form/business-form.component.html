@@ -7,7 +7,7 @@
     <div class="row">
       <mat-form-field appearance="outline">
         <mat-label>Plan Cycle</mat-label>
-        <mat-select formControlName="billing_cycle" required>
+        <mat-select formControlName="billingCycle" required>
           <mat-option *ngFor="let val of cycle" [value]="val"
             >{{ val }}
           </mat-option>
@@ -22,7 +22,7 @@
           matInput
           placeholder="Ex. Basic"
           type="text"
-          formControlName="plan_name"
+          formControlName="planName"
           required
         />
       </mat-form-field>
@@ -33,7 +33,7 @@
             matInput
             placeholder="Ex. 30 mbps"
             type="text"
-            formControlName="plan_speed"
+            formControlName="planSpeed"
             required
           />
         </mat-form-field>
@@ -51,7 +51,7 @@
           matInput
           placeholder="Ex. 29.99"
           type="number"
-          formControlName="plan_price"
+          formControlName="planPrice"
           required
         />
       </mat-form-field>

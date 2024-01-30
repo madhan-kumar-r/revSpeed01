@@ -185,25 +185,25 @@
         <ng-container matColumnDef="customer_name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
           <td mat-cell *matCellDef="let customer">
-            {{ customer.customer_name }}
+            {{ customer.firstname }}
           </td>
         </ng-container>
         <ng-container matColumnDef="customer_address">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
           <td mat-cell *matCellDef="let customer">
-            {{ customer.customer_address }}
+            {{ customer.address }}
           </td>
         </ng-container>
         <ng-container matColumnDef="customer_email">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
           <td mat-cell *matCellDef="let customer">
-            {{ customer.customer_email }}
+            {{ customer.email }}
           </td>
         </ng-container>
         <ng-container matColumnDef="customer_phone">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
           <td mat-cell *matCellDef="let customer">
-            {{ customer.customer_phone }}
+            {{ customer.phone }}
           </td>
         </ng-container>
 
