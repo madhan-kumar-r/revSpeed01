@@ -1,22 +1,20 @@
-<nav class="nav">
+<!-- <nav class="nav">
   <a href="#" class="logo logo1">Rev Speed</a>
   <ul class="nav-links">
     <li><a class="logo" href="#">Profile</a></li>
     <li><a href="#" class="logo logo1">Rev Speed</a></li>
-    <!-- Individual and Business buttons added to the navbar -->
-    <li (click)="selectType('individual')"><span class="nav-button">Individual</span></li>
-    <li (click)="selectType('business')"><span class="nav-button">Business</span></li>
+    
   </ul>
   <button class="logout">Log Out</button>
-</nav>
+</nav> -->
 
 <div [ngClass]="{'blur': isRechargeDialogOpen}" class="container"></div>
-<!-- <div style="padding-top: 8vh;" class="toggle-buttons">
+<div style="padding-top: 8vh;" class="toggle-buttons">
   <mat-button-toggle-group [(ngModel)]="selectedType" class="toggle-group">
     <mat-button-toggle value="individual" class="toggle-button" (click)="selectType('individual')">Individual</mat-button-toggle>
     <mat-button-toggle value="business" class="toggle-button" (click)="selectType('business')">Business</mat-button-toggle>
   </mat-button-toggle-group>
-</div> -->
+</div>
 
 <div class="card-container" >
   <mat-card *ngFor="let plan of getFilteredPlans()" class="card" mat-raised-button color="primary">
@@ -50,12 +48,12 @@
     </mat-card-content>
 
    
-<!-- <button mat-raised-button color="primary" (click)="openRechargeDialog(plan)">Recharge</button> -->
+<button mat-raised-button color="primary" (click)="openRechargeDialog(plan)">Recharge</button>
 
-     <mat-card-actions class="card-footer">
+    <!-- <mat-card-actions class="card-footer">
       <button mat-button class="button primary" aria-label="Recharge" (click)="recharge(plan.id, plan.plan_type)">Recharge</button>
       <button mat-button class="button tertiary" aria-label="View details">View details</button>
-    </mat-card-actions> 
+    </mat-card-actions> -->
   </mat-card>
 </div>
 

@@ -4,7 +4,7 @@ import { i_plans } from './plans';
 import { ProfileService } from '../profilepage/Profileservice.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Iuser } from '../../../user';
+import { Iuser } from '../../user';
 import { Location } from '@angular/common';
 
 
@@ -16,8 +16,9 @@ import { Location } from '@angular/common';
 export class PlansComponent implements OnInit {
   
   
-
-  planDetails !:i_plans;
+planDetails!:i_plans;
+  bplanDetails !:i_plans;
+  hplanDetails !:i_plans;
   
   public yesplan :boolean=false;
   public noplan :boolean=false;
@@ -27,30 +28,42 @@ export class PlansComponent implements OnInit {
   constructor(private basicPlanService: BasicPlanService,private profileService :ProfileService,public dialog: MatDialog,private router:Router) 
       {
         
-        // console.log(this.planDetails.id)
-      }
-      ngOnInit() {
+        
+        
+        const data=localStorage.getItem("profiledata");
+        if(data !=null)
+        {
+          this.userProfile=JSON.parse(data);
+          console.log(data);
+          
+        }
+        // this.basicPlanService.getUserProfile(this.userProfile.email).subscribe(data=>{
       
-        const id:number=1; 
-        this.basicPlanService.getUserProfile(id).subscribe(data=>{
-      
-          this.userProfile=data;
+          // this.userProfile=data;
           this.basicPlanService.setdetails(this.userProfile);
-          this.basicPlanService.setPlanid(this.userProfile.plan_id);
+          // this.basicPlanService.setPlanid(this.userProfile.business_plan.id,this.userProfile.home_plan.id);
           
-          this.basicPlanService.setPlanname(this.userProfile.plan_type);
+          
          
-       
-        this.basicPlanService.getPlans(this.userProfile.plan_type,this.userProfile.plan_id).subscribe(data=>{
-          
-          this.planDetails=data;
-           this.planDetails.id=data.id;
-           this.planDetails.billing_cycle=data.billing_cycle,
-           this.planDetails.plan_name=data.plan_name,
-           this.planDetails.plan_speed=data.plan_speed, 
-           this.planDetails.plan_price=data.plan_price,
-           this.planDetails.plan_type=data.plan_type
-           if(this.planDetails.id==0)
+        console.log(
+        this.userProfile);
+         console.log(this.userProfile.homePlans);
+         console.log(
+         this.userProfile.businessPlans);
+
+
+
+
+
+         if(this.userProfile.homePlans!=null)
+         {
+          this.planDetails=this.userProfile.homePlans;
+         }
+         else if(this.userProfile.businessPlans!=null){
+          this.planDetails=this.hplanDetails
+         }
+               
+           if(this.planDetails==null)
            {
              this.yesplan=false;
              this.noplan=true;
@@ -65,7 +78,10 @@ export class PlansComponent implements OnInit {
       console.log('noplan:', this.noplan);
            
       
-          }); });
+        //  });
+      }
+      ngOnInit() {
+      
    
        
             // console.log(this.planDetails.id)
@@ -76,7 +92,7 @@ export class PlansComponent implements OnInit {
     
   route()
   {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/udashboard/uprofile']);
   }
 OpenDialog() {
   const dialogRef = this.dialog.open(DialogContent, {
@@ -182,8 +198,9 @@ export class ChangeContent {
   
     console.log('entered unsub');
     this.basicPlanService.delete().subscribe(
-      () => {
+      (data) => {
         console.log('Plan deleted successfully');
+     
         window.location.reload();
         // Fetch updated plan details after deletion
     //     this.basicPlanService
@@ -213,6 +230,8 @@ export class ChangeContent {
       this.dialogRef.close();
     
   }
+  
+
   
 }
 

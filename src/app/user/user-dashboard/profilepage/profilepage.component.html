@@ -149,23 +149,27 @@ value={{ userProfile.customer_address }}</textarea
   <form class="example-form">
     <div class="profile-container">
       <img class="profile-picture" src="https://picsum.photos/1000" alt="Profile Picture">
-      <div class="profile-name">{{ userProfile?.customer_name }}</div>
+      <div class="profile-name">{{ userProfile?.firstname }}</div>
     </div>
     <mat-form-field class="example-full-width">
-      <mat-label>Profile Name:</mat-label>
-      <input matInput placeholder="NAME" value="{{userProfile?.customer_name}}" readonly>
+      <mat-label>First Name:</mat-label>
+      <input matInput placeholder="First_Name" value="{{userProfile?.firstname}}" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name:</mat-label>
+      <input matInput placeholder="Last_Name" value="{{userProfile?.lastname}}" readonly>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Phone number:</mat-label>
-      <input matInput placeholder="phone number" value="{{userProfile?.customer_phone}}" readonly>
+      <input matInput placeholder="phone number" value="{{userProfile?.phone}}" readonly>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>E-Mail:</mat-label>
-      <input matInput placeholder="Email" value="{{userProfile?.customer_email}}" readonly>
+      <input matInput placeholder="Email" value="{{userProfile?.email}}" readonly>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Address:</mat-label>
-      <textarea matInput placeholder="Address" id="add" value="{{userProfile?.customer_address}}" readonly ></textarea>
+      <textarea matInput placeholder="Address" id="add" value="{{userProfile?.address}}" readonly ></textarea>
     </mat-form-field>
   </form>
   </div>

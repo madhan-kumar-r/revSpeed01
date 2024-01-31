@@ -7,7 +7,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
+  access!:string;
 
+  setacc(access:string)
+  {
+this.access=access;
+  }
+  getaccess():string
+  {
+    return this.access;
+  }
 
   private apiUrl = 'http://localhost:8080/api/v1/auth/authenticate';
 

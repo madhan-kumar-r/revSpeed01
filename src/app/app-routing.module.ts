@@ -16,13 +16,13 @@ import { AdminModule } from './admin/admin.module';
 import { AdminnModule } from './adminn/adminn.module';
 import { UserRoutingModule } from './user/user-routing/user-routing.module';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
-import { PlansComponent } from './user/plans/plans.component';
-import { UpdateprofileComponent } from './user/updateprofile/updateprofile.component';
-import { ProfilepageComponent } from './user/profilepage/profilepage.component';
+import { PlansComponent } from './user/user-dashboard/plans/plans.component';
+import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
+import { ProfilepageComponent } from './user/user-dashboard/profilepage/profilepage.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
- // { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
+//  { path: '', redirectTo: '/udashboard/uprofile', pathMatch: 'full' },
+ { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
   {path:'resetpass', component: IdentifyComponent},
   
   
@@ -64,17 +64,26 @@ const routes: Routes = [
 // {
 //   path: 'user',
 //   loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
-// },
-{ path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
-  { path: 'dashboard', component: UserDashboardComponent },
-  { path: 'profile', component: ProfilepageComponent },
-  { path: 'plan', component: PlansComponent },
-  { path: 'updateprofile', component: UpdateprofileComponent },
+// // },
+// { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
+{
+  path: 'udashboard',
+  component: UserDashboardComponent,
+  children:[
+{path:'uprofile',component:ProfilepageComponent},
+{path:'uplan',component:PlansComponent },
+{path:'updateprofile',component:UpdateprofileComponent},
+],
+},
+  // { path: 'dashboard', component: UserDashboardComponent },
+  // { path: 'profile', component: ProfilepageComponent },
+  // { path: 'plan', component: PlansComponent },
+  // { path: 'updateprofile', component: UpdateprofileComponent },
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),UserRoutingModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

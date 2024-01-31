@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ProfileService } from '../profilepage/Profileservice.service';
-import { Iuser } from '../../../user';
+import { Iuser } from '../../user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -19,38 +19,48 @@ export class UpdateprofileComponent {
 
 
   constructor(private UserProfileService: ProfileService, private fb: FormBuilder,private router: Router) { 
+    const profile=localStorage.getItem("profiledata"); 
+    if(profile!=null)
+    {
+     this.userProfile=JSON.parse(profile);
+     console.log(this.userProfile);
+     
+    }
     this.profileForm = this.fb.group({
-      customer_name:[{ value:'',},],
-     customer_phone: [{ value:'',},],
-      customer_email: [{value:'', disabled: true}, ],
-      customer_address: [{ value:'',}, ],
-      customer_pass:[{value:'',disabled: true},],
-      plan_id: [{value:'', disabled: true}, ],
-      plan_type: [{value:'', disabled: true},],
+      firstname:[{ value:'',},],
+      lastname:[{ value:'',},],
+     phone: [{ value:'',},],
+      email: [{value:'', disabled: true}, ],
+      address: [{ value:'',}, ],
+      password:[{value:'',disabled: true},],
+      
  });
 
   }
 
   ngOnInit() {
     console.log("im on it");
-      const id:number=1;  
-     this.UserProfileService.getUserProfile(id).subscribe(data=>{
+   
+     this.UserProfileService.getUserProfile(this.userProfile.email).subscribe(data=>{
       
       this.userProfile=data;
-      console.log("customer_phone",this.userProfile.customer_phone);
-      console.log("customer_address",this.userProfile.customer_address);
+      console.log("customer_phone",this.userProfile.phone);
+      console.log("customer_address",this.userProfile.address);
       this.UserProfileService.setdetails(this.userProfile);
-      this.UserProfileService.setPlanid(this.userProfile.plan_id);
-      this.UserProfileService.setPlanname(this.userProfile.plan_type);
+      // this.UserProfileService.setPlanid(this.userProfile.business_plan.id,this.userProfile.home_plan.id);
+      
     
      this.profileForm.patchValue({
-       customer_name: data.customer_name,
-       customer_phone: data.customer_phone,
-       customer_email: data.customer_email,
-       customer_address: data.customer_address,
-       customer_pass:data.customer_pass,
-       plan_id: data.plan_id,
-       plan_type: data.plan_type
+      firstname: data.firstname,
+      lastname: data.lastname,
+      phone: data.phone,
+      email: data.email,
+      address: data.address,
+      password:data.password,
+    //   business_plan_id:data.business_plan.id,
+    //  home_plan_id:data.home_plan.id,
+    //   no_plan_id:data.no_plan.id
+   
   
   
   
@@ -61,7 +71,7 @@ export class UpdateprofileComponent {
   }
   Cancel() {
     // Navigate to ProfilePageComponent
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/udashboard/uprofile']);
   }
  
 Save()
@@ -80,9 +90,11 @@ Save()
           this.updatedProfile = updatedProfile;
 
           console.log('Profile updated successfully',updatedProfile);
-          this.userProfile = updatedProfile;
+           
+          localStorage.setItem('profiledata',JSON.stringify(updatedProfile));
 
-          this.router.navigate(['/profile']);
+
+          this.router.navigate(['/udashboard/uprofile']);
          
        
       },
@@ -92,4 +104,5 @@ Save()
      
     }
   }
+
 

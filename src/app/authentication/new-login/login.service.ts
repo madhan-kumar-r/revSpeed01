@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
+  access !:string;
   
   private apiUrl = 'http://localhost:8080/api/v1/auth/authenticate';
 
@@ -15,4 +16,6 @@ export class LoginService {
   registerStudent(student: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, student);
   }
+
+
 }

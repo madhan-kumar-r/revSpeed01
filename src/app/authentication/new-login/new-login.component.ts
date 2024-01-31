@@ -5,6 +5,11 @@ import { RoleService } from '../roles/role.service';
 import { User } from '../../model/user.interface';
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { log } from 'console';
+import { jwtDecode } from 'jwt-decode';
+import { ProfileService } from '../../user/user-dashboard/profilepage/Profileservice.service';
+import { Iuser } from '../../user/user';
+
 
 @Component({
   selector: 'app-new-login',
@@ -12,6 +17,7 @@ import { LoginService } from '../login/login.service';
   styleUrls: ['./new-login.component.css']
 })
 export class NewLoginComponent {
+  userProfile!:Iuser;
   email_pattern =
     /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
   password_pattern =
@@ -21,6 +27,8 @@ export class NewLoginComponent {
     private loginService: LoginService, 
     private router: Router,
     private roleService: RoleService,
+    private ProfileService :ProfileService,
+
     
   ) {}
   goToRegister(): void {
@@ -31,6 +39,8 @@ export class NewLoginComponent {
 
   loginSubmit(formData: any) {
     console.log(formData.value);
+
+    
     const userRole = 'USER';
 
     // Extracting email and password from the form data
@@ -44,13 +54,28 @@ export class NewLoginComponent {
     this.loginService.registerStudent(userData).subscribe(
       (response) => {
         console.log('Authentication successful:', response);
+        const decodedToken: any = jwtDecode(response.access_token);
+        const userId = decodedToken.sub;
+        console.log("im decoded",userId);
+        
+        this.loginService.setacc(userId);
+        
         const userRole = response.role;
+
+        const mail=formData.value.email;
+    this.ProfileService.getUserProfile(mail).subscribe(data=>{
+      
+      console.log(
+      this.userProfile=data);
+      localStorage.setItem("profiledata",JSON.stringify(this.userProfile));
+      localStorage.setItem("token",JSON.stringify(response));
+    });
 
         // Set the user's role in the RoleService
         this.roleService.setUserRole(userRole);
         // Redirect based on the user's role
         if (userRole === 'USER') {
-          this.router.navigate(['/user/dashboard']);
+          this.router.navigate(['udashboard/uprofile']);
         } else{
           console.log("hi");
           this.router.navigate(['/adminn/dashboard']);
