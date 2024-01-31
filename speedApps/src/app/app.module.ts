@@ -18,9 +18,8 @@ import { ViewSubscriptionsComponent } from './subscriptions/view-subscriptions/v
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     AppRoutingModule,
-    
+    ReactiveFormsModule
 
   ],
   providers: [],

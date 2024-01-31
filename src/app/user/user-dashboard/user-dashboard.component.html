@@ -43,12 +43,15 @@
         <mat-list-item class="profile-icon" (click)="toggleDropdown()">
           
           <img src="https://picsum.photos/1000" alt="Profile" class="profile-img" >
-          <mat-icon class="dropdown-arrow" [matMenuTriggerFor]="dropdownMenu">dropdown-arrow</mat-icon>
+          
+          <mat-icon class="dropdown-arrow" [matMenuTriggerFor]="dropdownMenu">keyboard_arrow_down</mat-icon>
           <mat-menu  #dropdownMenu="matMenu">
-            <button mat-menu-item routerLink="/dashboard">Dashboard</button>
-            <button mat-menu-item routerLink="/profile">Profile</button>
-            <button mat-menu-item routerLink="/plan">My Plans</button>
-            <button mat-menu-item routerLink="/updateprofile">Update Profile</button>
+            
+            <button mat-menu-item routerLink="/udashboard/uprofile">Profile</button>
+            <button mat-menu-item routerLink="/udashboard/uplan">My Plans</button>
+            <button mat-menu-item routerLink="/udashboard/updateprofile">Update Profile</button>
+            <button mat-menu-item routerLink="/authentication/new-home" (click)="logout()">Logout</button>
+
           </mat-menu>
         </mat-list-item>
       </div>
@@ -66,9 +69,13 @@
       </div>
     </div>
   
+    
     <footer>
       <!-- Footer content goes here -->
-      &copy; 2024 REV SPEED. All rights reserved.
+      <img src=""  alt="Footer Image">
+      <marquee>
+        &copy; 2024 REV SPEED. All rights reserved.Any Help,Feedback and queries contact:-  +91 987654321</marquee>
+    
     </footer>
   </div>
   
