@@ -39,6 +39,22 @@ export class BasicPlanService {
   rechargePlan(selectedPlan: i_plans | b_plans, userProfile: Iuser): Observable<Iuser> {
     const url = `${this.apiUrl}/upCustomer`; 
     
+    console.log('Start of rechargePlan method');
+  
+  // Check if the user already has a home plan or business plan
+  if (userProfile.home_plan_id || userProfile.business_plan_id) {
+    // Display a pop-up or show a message indicating that a plan already exists
+    console.log('User already has a plan');
+    this.snackBar.open('You already have an existing plan.', 'Close', {
+      duration: 3000,
+    });
+
+    // You might want to return an Observable with an error or handle it accordingly
+    return new Observable<Iuser>(); // Or throw an error, handle it based on your use case
+  }
+
+  console.log('User does not have an existing plan, proceeding with recharge logic');
+
     // console.log(body);
     let updatedUserProfile: any;
 
