@@ -38,7 +38,7 @@ import { FootComponent } from './authentication/foot/foot.component';
 import { MatTableModule } from '@angular/material/table';
 import { ReviewComponent } from './authentication/review/review.component';
 import { SliderComponent } from './authentication/slider/slider.component';
-import { BasicPlanComponent } from './basic-plan/basic-plan.component';
+
 import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.component';
 import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
 import { CommonModule } from '@angular/common';
@@ -55,17 +55,18 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ViewDetailsComponent } from './view-details/view-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomePlansComponent,
     RegisterComponent,
-    BusinessPlansComponent,
+    
     AboutUsComponent,
     ContactUsComponent ,
     ProfileComponent,
-    BasicPlanComponent,
+   
     NewLoginComponent,
     HomeComponent,
     HeaderComponent,
@@ -82,7 +83,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     UserPlanComponent,
     UserPlanComponent,
      RechargeDialogComponent,
-   
+    ViewDetailsComponent
 
   ],
   imports: [
