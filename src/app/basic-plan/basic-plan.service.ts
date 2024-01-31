@@ -38,11 +38,28 @@ export class BasicPlanService {
 
   rechargePlan(selectedPlan: i_plans | b_plans, userProfile: Iuser): Observable<Iuser> {
     const url = `${this.apiUrl}/upCustomer`; 
+    
+    // console.log(body);
     const body = {
-      selectedPlan,
-      userProfile,
+      firstname: userProfile.firstname,
+      lastname: userProfile.lastname,
+      email: userProfile.email,
+      password: userProfile.password,
+      phone: userProfile.phone,
+      address: userProfile.address,
+      role: userProfile.role,
+      homePlans: {
+        id: selectedPlan.id,
+        billingCycle: selectedPlan.billingCycle,
+        planName: selectedPlan.planName,
+        planSpeed: selectedPlan.planSpeed,
+        planPrice: selectedPlan.planPrice,
+        planType: selectedPlan.planType,
+        planData: selectedPlan.planData,
+        ott_benefit_1: selectedPlan.ott_benefit_1,
+        ott_benefit_2: selectedPlan.ott_benefit_2
+      }
     };
-    console.log(body);
     
 
     return this.http.put<Iuser>(url, body);

@@ -145,7 +145,7 @@ export class BasicPlanComponent implements OnInit {
 
       if (result === 'confirmed') {
         // Call the recharge method if confirmed
-        this.recharge(plan.id,plan.plan_type);
+        this.recharge(plan.id,plan.planType);
   console.log('Selected Plan:', this.selectedPlan);
 
       }
