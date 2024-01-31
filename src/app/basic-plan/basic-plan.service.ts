@@ -40,7 +40,10 @@ export class BasicPlanService {
     const url = `${this.apiUrl}/upCustomer`; 
     
     // console.log(body);
-    const body = {
+    let updatedUserProfile: any;
+
+  if (selectedPlan.planType === 'individual') {
+    updatedUserProfile = {
       firstname: userProfile.firstname,
       lastname: userProfile.lastname,
       email: userProfile.email,
@@ -60,9 +63,27 @@ export class BasicPlanService {
         ott_benefit_2: selectedPlan.ott_benefit_2
       }
     };
+  } else if (selectedPlan.planType === 'business') {
+    updatedUserProfile = {
+      firstname: userProfile.firstname,
+      lastname: userProfile.lastname,
+      email: userProfile.email,
+      password: userProfile.password,
+      phone: userProfile.phone,
+      address: userProfile.address,
+      role: userProfile.role,
+      businessPlans: {
+        id: selectedPlan.id,
+        // Add other properties specific to business plans
+      }
+    };
+  }
+
+  console.log(updatedUserProfile);
+
     
 
-    return this.http.put<Iuser>(url, body);
+    return this.http.put<Iuser>(url, updatedUserProfile);
   }
 
   // updateCustomer(data: any): Observable<any> {
