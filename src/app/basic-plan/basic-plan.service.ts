@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { b_plans, i_plans } from '../../../card';
 import { users } from '../../../users';
+import { Iuser } from '../user/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasicPlanService {
-  private baseUrl = 'http://localhost:3000';
-  private customerDataUrl = `${this.baseUrl}/customer_data`;
-  private individualPlansUrl = `${this.baseUrl}/home_plans`;
-  private businessPlansUrl = `${this.baseUrl}/business_plans`;
+  private baseUrl = 'http://localhost:8080';
+  private customerDataUrl = `${this.baseUrl}/api/v1/auth/udetails`;
+  private apiUrl = `${this.baseUrl}/api/v1/auth`;
+  
+ // Adjust the port if needed
+  private individualPlansUrl = `${this.baseUrl}/api/v1/auth/home-plans`;
+  private businessPlansUrl = `${this.baseUrl}/api/v1/auth/business-plans`;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -27,12 +31,35 @@ export class BasicPlanService {
     return this.http.get<b_plans[]>(this.businessPlansUrl);
   }
 
-  getUserProfile(id: number): Observable<users> {
-    const url = `${this.baseUrl}/customer_data/${id}`;
-    return this.http.get<users>(url);
+  getUserProfile(email: String): Observable<Iuser> {
+    const url = `${this.customerDataUrl}/${email}`;
+    return this.http.get<Iuser>(url);
   }
 
+  rechargePlan(selectedPlan: i_plans | b_plans, userProfile: Iuser): Observable<Iuser> {
+    const url = `${this.apiUrl}/upCustomer`; 
+    const body = {
+      selectedPlan,
+      userProfile,
+    };
+    console.log(body);
+    
+
+    return this.http.put<Iuser>(url, body);
+  }
+
+  // updateCustomer(data: any): Observable<any> {
+  //   const headers = new HttpHeaders({
+  //     'Authorization': 'Bearer ' + yourAuthToken,
+  //     'Content-Type': 'application/json'
+  //   });
+
+  //   return this.http.put(this.apiUrl, data, { headers: headers });
+  // }
+
   rereq(id: number, type: string, user: any): Observable<users> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
     if (type === 'individual') {
       user.home_plan_id = id;
       user.business_plan_id = 0; // Set business_plan_id to 0 for individual plan
@@ -41,9 +68,9 @@ export class BasicPlanService {
       user.home_plan_id = 0; // Set home_plan_id to 0 for business plan
     }
 
-    const url = `${this.baseUrl}/customer_data/${user.id}`;
+    const url = `${this.customerDataUrl}/${user.id}`;
 
-    return this.http.put<users>(url, user).pipe(
+    return this.http.put<users>(url, user, { headers }).pipe(
       catchError(error => {
         console.error('error adding plan failed', error);
 

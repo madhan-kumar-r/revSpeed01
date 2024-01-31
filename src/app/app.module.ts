@@ -51,7 +51,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 
 @NgModule({
@@ -77,7 +77,8 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     UserPlanComponent,
     UserPlanComponent,
     RechargeDialogComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
+
     
    
 
@@ -127,9 +128,7 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
-   
     MatButtonModule,
-    
     MatTableModule,
     MatToolbarModule,
     MatInputModule,
@@ -143,6 +142,7 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     ReactiveFormsModule,
     MatSortModule,
     MatPaginatorModule,
+    MatButtonToggleModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

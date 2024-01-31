@@ -2,7 +2,7 @@ export interface Iuser{
     id:number,
     firstname:string,
     lastname:string,
-    customer_phone:string,
+    
     email:string,
     phone:string,
     address:string,

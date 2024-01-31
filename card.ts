@@ -7,8 +7,8 @@ export interface i_plans{
     plan_speed:string,
     plan_price:number,
     plan_type:string,
-    plan_icon_1:string,
-    plan_icon_2:string,
+    ott_benefit_1:string,
+    ott_benefit_2:string,
     plan_data: string
 
 }
@@ -20,8 +20,8 @@ export interface b_plans{
     plan_speed:string,
     plan_price:number,
     plan_type:string,
-    plan_icon_1:string,
-    plan_icon_2:string,
+    ott_benefit_1:string,
+    ott_benefit_2:string,
     plan_data: string
 
 }

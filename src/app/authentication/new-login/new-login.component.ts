@@ -5,6 +5,9 @@ import { RoleService } from '../roles/role.service';
 import { User } from '../../model/user.interface';
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { Iuser } from '../../user/user';
+import { BasicPlanService } from '../../basic-plan/basic-plan.service';
+
 
 @Component({
   selector: 'app-new-login',
@@ -12,6 +15,7 @@ import { LoginService } from '../login/login.service';
   styleUrls: ['./new-login.component.css'],
 })
 export class NewLoginComponent {
+  user !:Iuser ;
   email_pattern =
     /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
   password_pattern =
@@ -20,7 +24,8 @@ export class NewLoginComponent {
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private roleService: RoleService
+    private roleService: RoleService,
+    private basicPlanService : BasicPlanService
   ) {}
   goToRegister(): void {
     // Navigate to the registration page
@@ -28,8 +33,11 @@ export class NewLoginComponent {
   }
 
   loginSubmit(formData: any) {
-    console.log(formData.value);
+    
+
     const userRole = 'USER';
+
+
 
     // Extracting email and password from the form data
     const { email, password } = formData.value;
@@ -43,6 +51,15 @@ export class NewLoginComponent {
       (response) => {
         console.log('Authentication successful:', response);
         const userRole = response.role;
+        console.log(formData.value);
+    const mail=formData.value.email;
+    this.basicPlanService.getUserProfile(mail).subscribe(data=>{
+     
+      
+      this.user=data
+
+      localStorage.setItem("profiledata",JSON.stringify(this.user));
+    });
 
         // Set the user's role in the RoleService
         this.roleService.setUserRole(userRole);

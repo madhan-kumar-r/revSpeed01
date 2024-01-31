@@ -21,9 +21,9 @@ export class ProfileService {
   
   constructor(private http:HttpClient)
   {}
-  getUserProfile(id:number):Observable<Iuser> {
-    const urlid=`${this.url}/${id}`;
-  return this.http.get<Iuser>(urlid);
+  getUserProfile(email: string): Observable<Iuser> {
+    const urlemail = `${this.url}/${email}`;
+    return this.http.get<Iuser>(urlemail);
   }
   updateUserProfile(userProfile: Iuser): Observable<Iuser> {
     const userUrl = `${this.upurl}/${userProfile.id}`;
