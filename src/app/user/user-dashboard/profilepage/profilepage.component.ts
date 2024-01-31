@@ -34,36 +34,32 @@ export class ProfilepageComponent implements OnInit{
 
 }
 ngOnInit() {
-  console.log("im on it");
-    const id:number=1;  
-   this.UserProfileService.getUserProfile(id).subscribe(data=>{
-    
-    this.userProfile=data;
-    console.log(this.userProfile.phone);
-    console.log(this.userProfile.address);
-    this.UserProfileService.setdetails(this.userProfile);
-    this.UserProfileService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
-    this.UserProfileService.setuserid(this.userProfile.id);
-   
-  
-   this.profileForm.patchValue({
-    firstname: data.firstname,
-     lastname: data.lastname,
-     phone: data.phone,
-     email: data.email,
-     address: data.address,
-     password:data.password,
-     business_plan_id:data.business_plan_id,
-    home_plan_id:data.home_plan_id,
-     no_plan_id:data.no_plan_id
-  
+  console.log("I'm on it");
+  const user = localStorage.getItem('profiledata'); 
 
+  if (user != null) {
+    this.UserProfileService.getUserProfile(user).subscribe(data => {
+      this.userProfile = data;
 
+      console.log(this.userProfile.phone);
+      console.log(this.userProfile.address);
 
-  });
-  
-  
-});
+      this.UserProfileService.setdetails(this.userProfile);
+      this.UserProfileService.setPlanid(this.userProfile.business_plan_id, this.userProfile.home_plan_id);
+      this.UserProfileService.setuserid(this.userProfile.id);
+
+      this.profileForm.patchValue({
+        firstname: data.firstname,
+        lastname: data.lastname,
+        phone: data.phone,
+        email: data.email,
+        address: data.address,
+        password: data.password,
+        business_plan_id: data.business_plan_id,
+        home_plan_id: data.home_plan_id,
+        no_plan_id: data.no_plan_id
+      });
+    });
 this.profileForm.get('firstname')?.valueChanges.subscribe((name: string) => {
   if (!this.isEnabled) {
     this.userProfile.firstname= name;
@@ -117,13 +113,14 @@ toggleEdit()
   }
 
 
- 
-
 }
 
+}
+function toggleEdit() {
+  throw new Error('Function not implemented.');
+}
 
-
-
-
-
+function SHform() {
+  throw new Error('Function not implemented.');
+}
 

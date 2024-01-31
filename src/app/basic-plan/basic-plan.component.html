@@ -14,27 +14,27 @@
     <mat-card-header mat-raised-button color="primary" class="card-header">
       <div mat-card-avatar class="header-avatar"></div>
       <mat-card-title>
-        <h3 class="card-price">₹{{ plan.plan_price }}</h3>
+        <h3 class="card-price">₹{{ plan.planPrice }}</h3>
       </mat-card-title>
       <mat-card-subtitle>
-        <div class="badge" mat-raised-button color="primary" >{{ plan.plan_name }}</div>
+        <div class="badge" mat-raised-button color="primary" >{{ plan.planName }}</div>
       </mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
       <div class="icons">
-        <img class="icon" src={{plan.plan_icon_1}}>
-        <img class="icon" src={{plan.plan_icon_2}}>
+        <img class="icon" src={{plan.ott_benefit_1}}>
+        <img class="icon" src={{plan.ott_benefit_2}}>
       </div>
 
       <div class="details-info" >
         <div class="info">
           <div class="info-title">Speed</div>
-          <div class="info-value">{{ plan.plan_speed }}</div>
+          <div class="info-value">{{ plan.planSpeed }}</div>
         </div>
         <div class="info">
           <div class="info-title">Internet</div>
-          <div class="info-value">{{ plan.plan_data }}</div>
+          <div class="info-value">{{ plan.planData }}</div>
         </div>
       </div>
     </mat-card-content>
@@ -42,6 +42,7 @@
  <div class="recharge-viewDe">
 <button mat-raised-button color="primary" (click)="openRechargeDialog(plan)" class="re">Recharge</button>
 <button mat-raised-button color="primary" (click)="openDetailsModal(plan)" class="de">View Details</button>
+
  </div>  
 
   </mat-card>

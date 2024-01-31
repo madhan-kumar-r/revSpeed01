@@ -33,11 +33,12 @@ export class UpdateprofileComponent {
 
   ngOnInit() {
     console.log("im on it");
-      const id:number=1;  
-     this.UserProfileService.getUserProfile(id).subscribe(data=>{
+    const user = localStorage.getItem('profiledata'); 
+    if (user != null) {
+     this.UserProfileService.getUserProfile(user).subscribe(data=>{
       
       this.userProfile=data;
-      console.log("customer_phone",this.userProfile.customer_phone);
+      console.log("customer_phone",this.userProfile.phone);
       console.log("customer_address",this.userProfile.address);
       this.UserProfileService.setdetails(this.userProfile);
       this.UserProfileService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
@@ -62,6 +63,7 @@ export class UpdateprofileComponent {
   });
  
   }
+}
   Cancel() {
     // Navigate to ProfilePageComponent
     this.router.navigate(['/udashboard/uprofile']);

@@ -51,7 +51,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 import { HomePlansComponent } from './authentication/home-plans/home-plans.component';
 import { BusinessPlansComponent } from './authentication/business-plans/business-plans.component';
@@ -82,10 +82,6 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
     UserPlanComponent,
     RechargeDialogComponent,
     ViewDetailsComponent,
-    HomePlansComponent,
-    BusinessPlansComponent,
-    AboutUsComponent,
-    ContactUsComponent
     
    
 
@@ -135,9 +131,7 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
     MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
-   
     MatButtonModule,
-    
     MatTableModule,
     MatToolbarModule,
     MatInputModule,
@@ -151,6 +145,7 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
     ReactiveFormsModule,
     MatSortModule,
     MatPaginatorModule,
+    MatButtonToggleModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
