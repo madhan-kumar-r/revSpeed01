@@ -46,10 +46,19 @@
           
           <mat-icon class="dropdown-arrow" [matMenuTriggerFor]="dropdownMenu">keyboard_arrow_down</mat-icon>
           <mat-menu  #dropdownMenu="matMenu">
+<<<<<<< HEAD
             <button mat-menu-item routerLink="/udashboard/uprofile">Dashboard</button>
             <button mat-menu-item routerLink="/udashboard/uprofile">Profile</button>
             <button mat-menu-item routerLink="/udashboard/uplan">My Plans</button>
             <button mat-menu-item routerLink="/udashboard/updateprofile">Update Profile</button>
+=======
+            
+            <button mat-menu-item routerLink="/udashboard/uprofile">Profile</button>
+            <button mat-menu-item routerLink="/udashboard/uplan">My Plans</button>
+            <button mat-menu-item routerLink="/udashboard/updateprofile">Update Profile</button>
+            <button mat-menu-item routerLink="/authentication/new-home" (click)="logout()">Logout</button>
+
+>>>>>>> origin/BazeerFinally
           </mat-menu>
         </mat-list-item>
       </div>
@@ -67,9 +76,13 @@
       </div>
     </div>
   
+    
     <footer>
       <!-- Footer content goes here -->
-      &copy; 2024 REV SPEED. All rights reserved.
+      <img src=""  alt="Footer Image">
+      <marquee>
+        &copy; 2024 REV SPEED. All rights reserved.Any Help,Feedback and queries contact:-  +91 987654321</marquee>
+    
     </footer>
   </div>
   

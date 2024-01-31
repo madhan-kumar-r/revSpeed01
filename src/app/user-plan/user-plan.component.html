@@ -25,8 +25,30 @@
           Add Plan
         </button>
       </div>
-    </mat-list>
-  </mat-card>
-</div>
+      <mat-list>
+        <mat-list-item>
+          <strong>Phone</strong>: {{customer.customer_phone}}
+        </mat-list-item>
+        
+        <mat-list-item>
+          <strong>Current Plan</strong>: {{customer.plan_type}}
+        </mat-list-item>
+        <div class="plan-footer">
+          <mat-form-field>
+            <mat-select placeholder="Select a Plan" [(ngModel)]="selectedPlanId" (ngModelChange)="onSelectPlan($event, customer_data)">
+              <mat-option *ngFor="let plan of customer_data" [value]="plan.id">
+                {{ plan.plan_name }} - {{ plan.plan_speed }} - ${{ plan.plan_price }} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="custom-button" style="color: white;"
+                  (click)="onAddButtonClick()">
+            Add Plan
+          </button>
+        </div>
+      </mat-list>
+    </mat-card>
+  </div>
+  
 
  -->

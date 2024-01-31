@@ -19,6 +19,13 @@ export class UpdateprofileComponent {
 
 
   constructor(private UserProfileService: ProfileService, private fb: FormBuilder,private router: Router) { 
+    const profile=localStorage.getItem("profiledata"); 
+    if(profile!=null)
+    {
+     this.userProfile=JSON.parse(profile);
+     console.log(this.userProfile);
+     
+    }
     this.profileForm = this.fb.group({
       firstname:[{ value:'',},],
       lastname:[{ value:'',},],
@@ -33,15 +40,14 @@ export class UpdateprofileComponent {
 
   ngOnInit() {
     console.log("im on it");
-    const user = localStorage.getItem('profiledata'); 
-    if (user != null) {
-     this.UserProfileService.getUserProfile(user).subscribe(data=>{
+   
+     this.UserProfileService.getUserProfile(this.userProfile.email).subscribe(data=>{
       
       this.userProfile=data;
       console.log("customer_phone",this.userProfile.phone);
       console.log("customer_address",this.userProfile.address);
       this.UserProfileService.setdetails(this.userProfile);
-      this.UserProfileService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
+      // this.UserProfileService.setPlanid(this.userProfile.business_plan.id,this.userProfile.home_plan.id);
       
     
      this.profileForm.patchValue({
@@ -51,9 +57,9 @@ export class UpdateprofileComponent {
       email: data.email,
       address: data.address,
       password:data.password,
-      business_plan_id:data.business_plan_id,
-      home_plan_id:data.home_plan_id,
-      no_plan_id:data.no_plan_id
+    //   business_plan_id:data.business_plan.id,
+    //  home_plan_id:data.home_plan.id,
+    //   no_plan_id:data.no_plan.id
    
   
   
@@ -63,7 +69,7 @@ export class UpdateprofileComponent {
   });
  
   }
-}
+
   Cancel() {
     // Navigate to ProfilePageComponent
     this.router.navigate(['/udashboard/uprofile']);
@@ -85,7 +91,8 @@ Save()
           this.updatedProfile = updatedProfile;
 
           console.log('Profile updated successfully',updatedProfile);
-          this.userProfile = updatedProfile;
+           
+          localStorage.setItem('profiledata',JSON.stringify(updatedProfile));
 
           this.router.navigate(['/udashboard/uprofile']);
          
@@ -96,5 +103,6 @@ Save()
       );
      
     }
-  }
+}
+
 

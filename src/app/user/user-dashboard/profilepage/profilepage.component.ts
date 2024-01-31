@@ -2,6 +2,7 @@ import { Component ,OnInit} from '@angular/core';
 import {ProfileService } from './Profileservice.service'; 
 import { Iuser } from '../../user';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../../../authentication/login/login.service';
 
 
 @Component({
@@ -12,59 +13,121 @@ import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
 })
 export class ProfilepageComponent implements OnInit{
+  public access!:string;
   public userProfile !: Iuser ;
-  public profileForm : FormGroup;
+  public profileForm !: FormGroup;
   public isEnabled = true;
   public buttonText = 'Edit';
   public editShow:boolean =false;
+  public id!:number;
+
+  
   
 
   updatedProfile !:Iuser;
 
-  constructor(private UserProfileService: ProfileService, private fb: FormBuilder) { 
-    this.profileForm = this.fb.group({
-     firstname:[{ value:'',disabled: this.isEnabled}, Validators.required],
-      lastname:[{ value:'',disabled: this.isEnabled}, Validators.required],
-     phone: [{ value:'',disabled: this.isEnabled}, Validators.required],
-      email: [{value:'', disabled: true}, Validators.required],
-      address: [{ value:'',disabled: this.isEnabled}, Validators.required],
-      password:[{value:'',disabled: true},Validators.required],
+  constructor(private UserProfileService: ProfileService, private fb: FormBuilder,private loginService:LoginService,) { 
+    
+    
      
-    });
+  
 
 }
 ngOnInit() {
-  console.log("I'm on it");
-  const user = localStorage.getItem('profiledata'); 
+  console.log("profile page");
+ 
+    const profile=localStorage.getItem('profiledata');
+    if(profile!=null)
+    {
+     this.userProfile=JSON.parse(profile);
+     console.log(this.userProfile);
+     
+    this.profileForm = this.fb.group({
+      firstname:[{ value:this.userProfile.firstname,disabled: this.isEnabled}, Validators.required],
+       lastname:[{ value:this.userProfile.lastname,disabled: this.isEnabled}, Validators.required],
+      phone: [{ value:this.userProfile.phone,disabled: this.isEnabled}, Validators.required],
+       email: [{value:this.userProfile.email, disabled: true}, Validators.required],
+       address: [{ value:this.userProfile.address,disabled: this.isEnabled}, Validators.required],
+       password:[{value:this.userProfile.password,disabled: true},Validators.required],  });
+     
+    }
+    
 
-  if (user != null) {
-    this.UserProfileService.getUserProfile(user).subscribe(data => {
-      this.userProfile = data;
+ 
 
-      console.log(this.userProfile.phone);
-      console.log(this.userProfile.address);
 
-      this.UserProfileService.setdetails(this.userProfile);
-      this.UserProfileService.setPlanid(this.userProfile.business_plan_id, this.userProfile.home_plan_id);
-      this.UserProfileService.setuserid(this.userProfile.id);
 
-      this.profileForm.patchValue({
-        firstname: data.firstname,
-        lastname: data.lastname,
-        phone: data.phone,
-        email: data.email,
-        address: data.address,
-        password: data.password,
-        business_plan_id: data.business_plan_id,
-        home_plan_id: data.home_plan_id,
-        no_plan_id: data.no_plan_id
-      });
-    });
-this.profileForm.get('firstname')?.valueChanges.subscribe((name: string) => {
-  if (!this.isEnabled) {
-    this.userProfile.firstname= name;
-  }
-});
+    //  const userId = this.UserProfileService.getUserIdFromToken();
+    //  console.log('Raw Token:', userId);
+    // console.log("im on it");
+    // this.access=this.loginService.getaccess();
+    //   console.log("gained token:",this.access);
+    //   this.UserProfileService.setAccessToken(this.access);
+    //   this.UserProfileService.getUserProfile(this.access).subscribe(data=>{
+      
+    //     console.log(
+    //     this.userProfile=data);
+    //     localStorage.setItem("profiledata",JSON.stringify(this.userProfile));
+    //   });
+
+    
+    
+//    this.UserProfileService.getUserProfile(this.access).subscribe(data=>{
+    
+//     this.userProfile=data;
+//     this.userProfile.firstname= data.firstname,
+     
+//     this.userProfile.lastname= data. lastname,
+   
+//     this.userProfile.phone= data.phone,
+     
+//     this.userProfile.email=data.email,
+    
+//     this.userProfile.address=data.address,
+     
+//     this.userProfile.password=data.password,
+     
+//     this.userProfile.business_plan_id=data.business_plan_id,
+   
+//     this.userProfile.home_plan_id=data.home_plan_id,
+  
+//     this.userProfile.no_plan_id=data.no_plan_id
+ 
+//  console.log(this.userProfile);
+ 
+//     console.log(this.userProfile.firstname);
+//     console.log(this.userProfile.lastname);
+    
+//     console.log(this.userProfile.phone);
+//     console.log(this.userProfile.address);
+//     this.UserProfileService.setdetails(this.userProfile);
+//     this.UserProfileService.setPlanid(this.userProfile.business_plan_id,this.userProfile.home_plan_id);
+//     this.UserProfileService.setuserid(this.userProfile.id);
+   
+  
+//    this.profileForm.patchValue({
+//     firstname: data.firstname,
+//      lastname: data.lastname,
+//      phone: data.phone,
+//      email: data.email,
+//      address: data.address,
+//      password:data.password,
+//      business_plan_id:data.business_plan_id,
+//     home_plan_id:data.home_plan_id,
+//      no_plan_id:data.no_plan_id
+  
+
+
+
+//   });
+  
+  
+// });
+// this.profileForm.get('firstname')?.valueChanges.subscribe((name: string) => {
+//   if (!this.isEnabled) {
+//     this.userProfile.firstname= name;
+//   }
+// });
 }
 
 toggleEdit()
@@ -113,14 +176,13 @@ toggleEdit()
   }
 
 
-}
+ 
 
 }
-function toggleEdit() {
-  throw new Error('Function not implemented.');
-}
 
-function SHform() {
-  throw new Error('Function not implemented.');
-}
+
+
+
+
+
 

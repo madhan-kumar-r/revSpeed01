@@ -13,16 +13,18 @@ import { SmsCodeComponent } from './authentication/password/sms-code/sms-code.co
 import { SetPasswordComponent } from './authentication/password/set-password/set-password.component';
 import { NewHomeComponent } from './authentication/new-home/new-home.component';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
-import { ProfilepageComponent } from './user/user-dashboard/profilepage/profilepage.component';
 import { PlansComponent } from './user/user-dashboard/plans/plans.component';
 import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
-import { BusinessPlansComponent } from './authentication/business-plans/business-plans.component';
+import { ProfilepageComponent } from './user/user-dashboard/profilepage/profilepage.component';
 import { HomePlansComponent } from './authentication/home-plans/home-plans.component';
-import { AboutUsComponent } from './authentication/about-us/about-us.component';
+import { BusinessPlansComponent } from './adminn/business-plans/business-plans.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
-  { path: 'resetpass', component: IdentifyComponent },
+//  { path: '', redirectTo: '/udashboard/uprofile', pathMatch: 'full' },
+ { path: '', redirectTo: '/authentication/new-home', pathMatch: 'full' },
+  {path:'resetpass', component: IdentifyComponent},
+  
+  
 
   {
     path: 'authentication',
@@ -55,9 +57,7 @@ const routes: Routes = [
   {
     path: 'register', component: RegisterComponent 
  },
- {
-  path: 'aboutus', component: AboutUsComponent 
-},
+ 
  
 // { path: 'user', loadChildren: () => import('./user/user.module').then((m) => m.UserModule) },
 { path: 'adminn', loadChildren: () => import('./adminn/adminn.module').then((m) => m.AdminnModule) },
@@ -89,6 +89,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

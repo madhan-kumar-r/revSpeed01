@@ -43,21 +43,18 @@ import { RechargeDialogComponent } from './recharge-dialog/recharge-dialog.compo
 import { UpdateprofileComponent } from './user/user-dashboard/updateprofile/updateprofile.component';
 import { CommonModule } from '@angular/common';
 import { UserModule } from './user/user.module';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSortModule } from '@angular/material/sort';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { ViewDetailsComponent } from './view-details/view-details.component';
 import { HomePlansComponent } from './authentication/home-plans/home-plans.component';
-import { BusinessPlansComponent } from './authentication/business-plans/business-plans.component';
+import { BusinessPlansComponent } from './adminn/business-plans/business-plans.component';
 import { AboutUsComponent } from './authentication/about-us/about-us.component';
 import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,9 +81,7 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
     SliderComponent,
     UserPlanComponent,
     UserPlanComponent,
-    RechargeDialogComponent,
-    ViewDetailsComponent,
-    
+     RechargeDialogComponent,
    
 
   ],
@@ -149,7 +144,7 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
     ReactiveFormsModule,
     MatSortModule,
     MatPaginatorModule,
-    MatButtonToggleModule
+    MatButtonModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

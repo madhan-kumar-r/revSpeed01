@@ -60,12 +60,13 @@
 
     <div class="super-container" *ngIf="yesplan">
       <mat-card class="subscription-card" >
-      <div class="plan-header">{{planDetails?.plan_type}}</div>
+       
+      <div class="plan-header">{{planDetails.planType}}</div>
         <div class="plan-details">
-          <p><strong>Plan:</strong>{{planDetails?.plan_name}}</p>
-          <p><strong>Duration:</strong>{{planDetails?.billing_cycle}}</p>
-          <p><strong>Speed:</strong>{{planDetails?.plan_speed}} </p>
-          <p><strong>Price:</strong> {{planDetails?.plan_price}}</p>
+          <p><strong>Plan:</strong>{{planDetails.planName}}</p>
+          <p><strong>Duration:</strong>{{planDetails.billingCycle}}</p>
+          <p><strong>Speed:</strong>{{planDetails.planSpeed}} </p>
+          <p><strong>Price:</strong> {{planDetails.planPrice}}</p>
          
           <div class="button-container">
           <button mat-button class="change-plan-button" (click)="OpenAdd()"> Change/Add plan</button>
@@ -81,7 +82,7 @@
   
   <div class="super-container" *ngIf="noplan">
     <mat-card class="subscription-card" >
-      <div class="plan-header">{{planDetails?.plan_type}}
+      <div class="plan-header">{{planDetails?.planType}}
   </div>
   
     <div class="plan-details">

@@ -19,6 +19,16 @@
   dropdownMenu: any;
 
 
+  stylishAdImages: { url: string; alt: string }[] = [
+    { url: 'https://example.com/ad1.jpg', alt: 'Ad 1' },
+    { url: 'https://example.com/ad2.jpg', alt: 'Ad 2' },
+    { url: 'https://example.com/ad3.jpg', alt: 'Ad 3' },
+    // Add more ad images as needed
+  ];
+
+  // ... 
+
+
     toggleDropdown() {
       console.log("entered dropdown");
       
@@ -29,7 +39,10 @@
       console.log('Navigating to', option);
       // Implement navigation logic here if needed
     }
-
+logout()
+{
+  localStorage.clear();
+}
 
   }
 

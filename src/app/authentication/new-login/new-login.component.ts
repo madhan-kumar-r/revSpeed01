@@ -56,6 +56,12 @@ export class NewLoginComponent {
     this.loginService.registerStudent(userData).subscribe(
       (response) => {
         console.log('Authentication successful:', response);
+        const decodedToken: any = jwtDecode(response.access_token);
+        const userId = decodedToken.sub;
+        console.log("im decoded",userId);
+        
+        this.loginService.setacc(userId);
+        
         const userRole = response.role;
         console.log(formData.value);
     
@@ -85,3 +91,7 @@ export class NewLoginComponent {
     );
   }
 }
+function jwtDecode(access_token: any): any {
+  throw new Error('Function not implemented.');
+}
+
