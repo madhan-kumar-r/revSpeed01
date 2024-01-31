@@ -62,7 +62,11 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
   declarations: [
     AppComponent,
     LoginComponent,
+    HomePlansComponent,
     RegisterComponent,
+    BusinessPlansComponent,
+    AboutUsComponent,
+    ContactUsComponent ,
     ProfileComponent,
     BasicPlanComponent,
     NewLoginComponent,
