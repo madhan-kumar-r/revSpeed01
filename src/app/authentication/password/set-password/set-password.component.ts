@@ -53,7 +53,8 @@ export class SetPasswordComponent {
       this.studentService.registerSet(data).subscribe(
         (response) => {
           console.log('Registration successful:', response);
-          // You can handle success actions here
+          this.router.navigateByUrl('/authentication/login');
+          
         },
         (error) => {
           console.error('Error during registration:', error);
